@@ -1,6 +1,7 @@
 # Introduction
 
-Hi there, I'm Steve. This is a tutorial for [Jujutsu—a version control system][jj].
+Hi there, I'm [Steve][steve]. This is a tutorial for [Jujutsu—a version control
+system][jj].
 
 This tutorial is called "Teach steveklabnik jujutsu on a Saturday Morning" because
 of a particular quirk of mine: I love to write tutorials about things as I learn
@@ -47,6 +48,7 @@ respond in a timely fashion though.
 
 Anyway, let's get on with it.
 
+[steve]: https://steveklabnik.com/
 [jj]: https://github.com/martinvonz/jj
 [r4r]: https://github.com/steveklabnik/rust_for_rubyists
 [chris]: https://v5.chriskrycho.com/essays/jj-init/
