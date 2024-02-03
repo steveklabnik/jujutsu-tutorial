@@ -131,6 +131,12 @@ Branch changes to push to origin:
 Previously, it said "force branch main" and now it says "move branch main." We
 have simply added a new commit. 
 
+Let's make sure we start off with a new changset for future changes:
+
+```console
+> jj new
+```
+
 ### Isn't this annoying?
 
 This is a thing that was a red flag to me when I heard it at first. I have to
