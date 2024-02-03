@@ -256,13 +256,15 @@ if you made some changes right now? `HEAD` is still on our pull request branch,
 which we have deleted, right? `git` would have warned us about a detatched `HEAD`
 by deleting the branch (I hope, I think so, I didn't bother checking.)
 
-We can use `jj checkout` to move `@`:
+My `git` brain wants to do some sort of "check out `main` so that `@` is the tip
+of it," but that's not really the right way to think about it. There is a
+`jj checkout` because it is just a subset of `jj new`. After all, we aren't
+thinking in branches. We are thinking in changesets. If I want to start doing
+a new change on top of `main`, we should just say that:
 
 ```console
-> jj checkout main
-Working copy now at: pqtmqtnu 5c04adb7 (empty) (no description set)
-Parent commit      : uyovmwoq 41f8c46c main | (empty) Merge pull request #2 from steveklabnik/push-wzqkzmwoxpmn
+> jj new main
+Working copy now at: qqzrpmrs d2120f55 (empty) (no description set)
+Parent commit      : xmmnqkum 2a40cce2 some changes
 Added 0 files, modified 1 files, removed 0 files
 ```
-
-Now we're at a new change on top of `main`.

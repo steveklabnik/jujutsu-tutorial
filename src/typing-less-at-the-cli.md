@@ -5,8 +5,8 @@ long names, but you may want to take advantage of some of the aliases that
 exist. For example:
 
 ```console
-> jj checkout main
-> jj co main
+> jj status
+> jj st
 ```
 
 Same thing. But one of the coolest shortcuts is hard to represent here, because
@@ -29,10 +29,9 @@ you only need to share the amount of the ID that's unique in the repository to
 commands. So these are all equivalent:
 
 ```console
-> jj checkout main
-> jj co main
-> jj co 0262ab43
-> jj co 0
+> jj new main
+> jj new 0262ab43
+> jj new 0
 ```
 
 If there's another ID starting with `0` in the repository, it would show `02` in
