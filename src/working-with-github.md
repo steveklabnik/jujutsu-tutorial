@@ -14,6 +14,8 @@ to prefer it for reasons I don't fully understand the implications of just yet.
 But given its basic-ness, I feel like that's a natural next step. So let's
 create, update, and then merge a pull request.
 
+## Creating a pull request
+
 Let's modify the contents of our project, describe this change, and then push
 that change as a `git` branch:
 
@@ -53,9 +55,10 @@ And we can make a PR with that remote branch.
 [Here](https://github.com/steveklabnik/jujutsu-tutorial/pull/2) is the one
 you'll see from me writing this. At the moment, there's just the one commit
 there, from our one changeset, but when you look at it, there'll be more.
-Let's add another commit, for example.
 
-Do some more work, and then run this:
+### Adding commits on to a PR
+
+Let's add another commit. Do some more work, and then run this:
 
 ```console
 > jj commit -m "continue to work on the 'working with github' chapter"
@@ -120,7 +123,146 @@ Now my PR has two commits. If our reviewer wants us to add more commits,
 we can keep doing that with `jj commit` and `jj branch set` and `jj git push`.
 But sometimes people want pull requests squashed. We can do that too!
 
+### Squashing commits in a PR
+
+Let's make some modifications and then squash them into the previous change:
+
 ```console
 > <do work>
-
+> jj squash
+Working copy now at: voznqwxp 01743a61 (empty) (no description set)
+Parent commit      : wuowlzov 17b52582 push-wzqkzmwoxpmn* | continue to work on the 'working with github' chapter
+> jj git push
+Branch changes to push to origin:
+  Force branch push-wzqkzmwoxpmn from 51fb2507a939 to 17b52582c6fc
 ```
+
+`jj squash` will take the contents of our current change and squash it into
+the previous one. This is kind of like amending the previous commit in `git`.
+And as we see, that means a force push. But what if we don't want to just squash
+new changes in, but squash the whole thing down to one commit?
+
+We can tell it to squash the previous revision:
+
+```console
+> jj squash -r @-
+```
+
+This will pop up a window with the previous two changes' descriptions, allowing
+you to merge them:
+
+```text
+JJ: Enter a description for the combined commit.
+JJ: Description from the destination commit:
+Working with GitHub
+
+JJ: Description from the source commit:
+continue to work on the 'working with github' chapter
+
+JJ: Lines starting with "JJ: " (like this one) will be removed.
+```
+
+I changed mine to this:
+
+```text
+JJ: Enter a description for the combined commit.
+JJ: Description from the destination commit:
+new chapter: Working with GitHub
+```
+
+Yeah I could have deleted the first two lines, I'm lazy. Save and close.
+
+```console
+Rebased 1 descendant commits
+Working copy now at: voznqwxp 7f7c2786 (empty) (no description set)
+Parent commit      : wzqkzmwo 0dd38f9d push-wzqkzmwoxpmn* | new chapter: Working with GitHub
+> jj log
+@  voznqwxp steve@steveklabnik.com 2024-02-03 10:56:36.000 -06:00 468fe8d3
+│  (no description set)
+◉  wzqkzmwo steve@steveklabnik.com 2024-02-03 10:56:15.000 -06:00 push-wzqkzmwoxpmn* 0dd38f9d
+│  new chapter: Working with GitHub
+◉  kkonqyyr steve@steveklabnik.com 2024-02-03 10:10:32.000 -06:00 main b1dbd9ed
+│  one little extra note
+~
+> jj git push
+Branch changes to push to origin:
+  Force branch push-wzqkzmwoxpmn from 17b52582c6fc to 0dd38f9de670
+```
+
+We've squashed it down, and pushed it up. Our PR now only has one commit. Nice.
+I am sure there is a way to do this more than one at a time, but for now, this
+is good enough for me.
+
+Oh, now that we're done, we may want to not keep that branch around anymore. We
+can delete it like this:
+
+```console
+> jj branch delete push-wzqkzmwoxpmn
+```
+
+Incidentally, by default it helps you keep `origin` clean too:
+
+```console
+> jj branch delete --help
+Delete an existing branch and propagate the deletion to remotes on the next push
+```
+
+Nice.
+
+### Pulling down changes from a merged PR
+
+Our pull request has been merged. This means our `main` branch locally is out
+of date from the remote. Let's fetch our changes:
+
+```console
+> jj git fetch
+```
+
+This will fetch changes from our `origin`. `jj` knows what that is because we
+cloned the repository down ourselves. But did it do anything?
+
+```console
+~/Documents/GitHub/jujutsu-tutorial> jj log
+◉    uyovmwoq steve@steveklabnik.com 2024-02-03 11:00:40.000 -06:00 main 41f8c46c
+├─╮  (empty) Merge pull request #2 from steveklabnik/push-wzqkzmwoxpmn
+│ │
+│ ~
+│
+│ @  voznqwxp steve@steveklabnik.com 2024-02-03 11:01:25.000 -06:00 85023bec
+├─╯  (no description set)
+◉  wzqkzmwo steve@steveklabnik.com 2024-02-03 10:56:15.000 -06:00 push-wzqkzmwoxpmn 0dd38f9d
+│  new chapter: Working with GitHub
+~
+```
+
+Oh this is cool! See how this is a bit different than `git log` already? Instead
+of `HEAD` being at the top, `@` is in the middle, because it is no longer the
+newest commit. We can see that there's a merged PR up there, on `main`. Yep,
+even though making new changesets does not update branches, pulling new changes
+down from GitHub *will* update our branch. We can check even:
+
+```console
+~/Documents/GitHub/jujutsu-tutorial> jj branch list
+main: uyovmwoq 41f8c46c (empty) Merge pull request #2 from steveklabnik/push-wzqkzmwoxpmn
+```
+
+Nice.
+
+### Updating `@`
+
+So, at this point, you may think you're done. But you're not. And that's because
+of something subtle. If you had done the same actions in `git`, what would happen
+if you made some changes right now? `HEAD` is still on our pull request branch,
+which we have deleted, right? `git` would have warned us about a detatched `HEAD`
+by deleting the branch (I hope, I think so, I didn't bother checking.)
+
+We can use `jj checkout` to move `@`:
+
+```console
+> jj checkout main
+Working copy now at: pqtmqtnu 5c04adb7 (empty) (no description set)
+Parent commit      : uyovmwoq 41f8c46c main | (empty) Merge pull request #2 from steveklabnik/push-wzqkzmwoxpmn
+Added 0 files, modified 1 files, removed 0 files
+```
+
+Now we're at a new change on top of `main`.
