@@ -68,14 +68,99 @@ main: quwouuro 44efc909 pushing to github
 
 It updated the remote branch to the latest commit we had in our "pushing to
 github" changeset. But the branch is still pointing to that commit. We didn't
-add on our "creating a new changeset" commit yet. So how do we do that? Well,
-we have two options, actually. Let's put on our `git` brain for a second.
-Updating a branch is how we update a pull request on GitHub, for example.
-People generally want PRs updated in one of two ways, and they feel VERY strongly
-that their way is correct and we should burn those other heathens at the stake:
+add on our "creating a new changeset" commit yet. So how do we do that?
 
-* Only add commits to a branch. Don't rewrite *any* pushed history.
-* Feel free to rebase your branch. In fact, some go even futher, and want only
-  one commit per pull request. "Squash and merge," as they say. You never rewrite
-  the `main` branch, or any other long-living, shared with others branches. But
-  the branch should be mergable at all times, so fold those changes in please.
+### Updating a git branch by adding commits
+
+To do this, we want to:
+
+1. create a new changeset: if we push the current state of our current changeset,
+  when we make more changes, we'll give the changeset a new revision, which
+  means when we push it up, it'll re-write the history, which is what we are
+  trying *not* to do. 
+2. update the branch to point at our previous, finished changeset
+3. push to github
+
+Edit some stuff in your project so that `creating a new changset` has some
+commits in it representing some changes. And then:
+
+```console
+> jj new
+Working copy now at: uvxmoxqx 4e0639c8 (empty) (no description set)
+Parent commit      : ppqtnzzt f867ba1d creating a new changeset
+```
+
+This is step 1. See how nice it is to not need a description? Who knows what
+we'll be working on next, so let's not describe it for now.
+
+```console
+> jj branch set main -r ppqtnzzt
+```
+
+We give the `-r` flag to `jj branch set` to say which "revision" we want to
+set the branch to. "revision" is a synonym for "commit". We gave it a changeset
+ID here, and that works too: it'll use the latest commit from that changeset
+for you.
+
+But we also could have done this:
+
+```console
+> jj branch set main -r @-
+```
+
+`@` is a shorthand for the current revision, almost like `HEAD` in `git`. And the
+`-` afterwards means "previous," kind of like `^` in `git`. So `@-` is kind of
+like `HEAD^`.
+
+Anyway, let's look at our work:
+
+```console
+> jj branch list
+main: ppqtnzzt f867ba1d creating a new changeset
+  @origin (behind by 1 commits): quwouuro 44efc909 pushing to github
+```
+
+Okay, let's push it up:
+
+```console
+> jj git push
+Branch changes to push to origin:
+  Move branch main from 44efc9093ae1 to f867ba1d16be
+```
+
+Previously, it said "force branch main" and now it says "move branch main." We
+have simply added a new commit. 
+
+### Isn't this annoying?
+
+This is a thing that was a red flag to me when I heard it at first. I have to
+update my branch? Every time? That feels... bad.
+
+And we'll see how I feel after I use `jj` more. But thinking about it some more...
+I appreciate that `jj` doesn't just update things, because that would mean
+rewriting history in some cases. But more than that, I also always type:
+
+```console
+> git push origin master
+```
+
+and not just
+
+```console
+> git push
+```
+
+I like to know what state I'm pushing, and where. If I forget to update my
+branch, `jj git push` will do nothing. That's fine. And when checking if my
+changes are ready for review, making sure they're on the right branch isn't
+really any different than now?
+
+I also am realizing that this is only a feature of `jj` thanks to `git`, or
+at least, it's less clear to me why I'd care about branches in a world that
+isn't centered on the way `git` thinks about things. I care a lot about
+branches because that's important to `git`, but it's also what GitHub PRs are
+designed around. If the unit of code review is a changeset and not a branch,
+I don't need to keep a branch auto-updated: a changeset has its stable ID,
+no matter how many commits I make within it. No biggie.
+
+Much to consider.
