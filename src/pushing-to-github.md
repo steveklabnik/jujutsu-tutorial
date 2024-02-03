@@ -44,8 +44,38 @@ main: quwouuro f6b01701 pushing to github
   @origin (ahead by 1 commits, behind by 1 commits): quwouuro hidden 5de7f6ed pushing to github
 ```
 
-Keep typing, and again:
+And if I create a new changeset:
 
 ```console
-
+> jj new -m "creating a new changeset"
+Working copy now at: ppqtnzzt fed80ab2 (empty) creating a new changeset
+Parent commit      : quwouuro 44efc909 main* | pushing to github
+> jj branch list
+main: quwouuro 44efc909 pushing to github
+  @origin (ahead by 1 commits, behind by 1 commits): quwouuro hidden 5de7f6ed pushing to github
 ```
+
+Our `main` branch is still pointed at `quwouuro` and not `ppqtnzzt`. What
+happens if we push now?
+
+```console
+> jj git push
+Branch changes to push to origin:
+  Force branch main from 5de7f6ed5f3c to 44efc9093ae1
+> jj branch list
+main: quwouuro 44efc909 pushing to github
+```
+
+It updated the remote branch to the latest commit we had in our "pushing to
+github" changeset. But the branch is still pointing to that commit. We didn't
+add on our "creating a new changeset" commit yet. So how do we do that? Well,
+we have two options, actually. Let's put on our `git` brain for a second.
+Updating a branch is how we update a pull request on GitHub, for example.
+People generally want PRs updated in one of two ways, and they feel VERY strongly
+that their way is correct and we should burn those other heathens at the stake:
+
+* Only add commits to a branch. Don't rewrite *any* pushed history.
+* Feel free to rebase your branch. In fact, some go even futher, and want only
+  one commit per pull request. "Squash and merge," as they say. You never rewrite
+  the `main` branch, or any other long-living, shared with others branches. But
+  the branch should be mergable at all times, so fold those changes in please.
