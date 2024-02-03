@@ -2,7 +2,8 @@ When I first made the repo, I was like "I'm not using git, so no mdbook
 don't create a `.gitignore` for me."
 
 But then the `book` directory of generated files ends up in the repo! And
-since there's no staging concept in `jj`, the stuff was now in my commit.
+since there's no staging concept in `jj` (we'll get there...), the stuff was now
+being tracked in my repository.
 
 So here's what I did:
 

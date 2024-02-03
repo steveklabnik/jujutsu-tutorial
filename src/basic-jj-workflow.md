@@ -1,10 +1,10 @@
-## `jj describe`
+## A basic `jj` workflow
 
 New tools often require a change of mental model. This is very true of `jj`.
 With `git`, the most basic workflow looks like this:
 
-1. Make some changes to the contents of the repository.
-2. Use `git add` to add these changes to the "index."
+1. Make some modifications to the contents of the repository.
+2. Use `git add` to add these modifications to the "index."
 3. Use `git commit` to create a new commit from the index.
 4. GOTO 1.
 
@@ -13,24 +13,24 @@ I actually think that this is very significant! You're already kind of thinking
 like `jj`. I am a big fan of `git`'s index, even though I don't really use `-a`
 often. Anyway, a lot of times, people's `git` workflow is:
 
-1. Make some changes to the contents of the repository.
-2. Use `git commit -am <message>` to create a new commit with our changes.
+1. Make some modifications to the contents of the repository.
+2. Use `git commit -am <message>` to create a new commit with our modifications.
 3. GOTO 1.
 
 We only bust out more complicated tools when we're doing something more
-complicated. But this is the core VCS workflow: changes, save changes, changes,
-save changes.
+complicated. But this is the core VCS workflow: modifiy, save modifications,
+modify, save modifications.
 
 `jj`'s basic workflow works like this too! Except the steps are re-arranged,
 and it's better that way.
 
 Let me explain.
 
-### Changesets
+### Changes
 
 There is no "dirty state" in `jj`. When we do work, we are doing it within
-the context of a "changeset," and then do things with these changesets. For
-example, we haven't comitted anything yet, but we're already inside a changeset!
+the context of a "change," and then do things with these changes. For
+example, we haven't comitted anything yet, but we're already inside a change!
 We can use `jj st` (short for `jj status`) to see the current state of things:
 
 ```console
@@ -60,10 +60,10 @@ Parent commit: zzzzzzzz 00000000 (empty) (no description set)
 This output is a little strange since this is a fresh repository, but it's fine.
 The first line describes our working copy, that is, what we are currently
 working on. We then have some gibberish: `ovruwlst 4450e3d5`. The first two is
-a "changeset id." The second is a "commit id." Why two things? What's the
+a "change id." The second is a "commit id." Why two things? What's the
 difference?
 
-Well, coming from `git`, a `jj` A `jj` "changeset id" is kind of like a `git`
+Well, coming from `git`, a `jj` A `jj` "change id" is kind of like a `git`
 "commit id" and a `jj` "commit id" is kind of like a `git`... sub-commit id.
 Basically, in `jj`'s humble opinion, a commit is too low-level of a concept
 to be working with. Commits are how computers keep track of changes. We aren't
@@ -123,10 +123,10 @@ So to get my brain in the right headspace to understand `jj`, I think it's
 crucial to get the mental model right from the start. And it's different in
 `jj` than `git`.
 
-## So what is a changeset anyway?
+## So what is a change anyway?
 
-A changeset is a particular *logical* change we are recording in our repository.
-Like commits in `git`, changesets have a parent changeset, and they form a tree.
+A change is a particular *logical* change we are recording in our repository.
+Like commits in `git`, changes have a parent change, and they form a tree.
 (okay, okay, a DAG. Nerd.) So why aren't they commits? And why is there *also*
 a commit id?
 
@@ -134,7 +134,7 @@ a commit id?
 does `jj` do this? Well, what if every time you ran a `jj` command it did
 a `git commit -a` for you? That way, there's never any dirty state. Sure, but
 wouldn't that make a super messy history? Sure, so why not add an abstraction
-here to hide it? That's what a changeset is. If you squint, it almost serves
+here to hide it? That's what a change is. If you squint, it almost serves
 like a branch, and commits are just autosave in the backgrouund. That doesn't
 mean it's literally a `git branch`, I may have strained this analogy too far.
 
@@ -142,7 +142,7 @@ Think about it this way: a repository is kind of like a folder. Not a computer
 folder, like a physical folder with real pieces of paper in it. Am I too old?
 Is this what getting old feels like?
 
-Changesets are kind of like documents, pieces of paper placed in the folder.
+Changes are kind of like documents, pieces of paper placed in the folder.
 They have an order. Turning the page is kind of like following a child pointer
 but instead we know they're parent pointers so really it's like reading the book
 backwards. Dammit there goes the limits of this analogy again. Back on track: I
@@ -201,9 +201,9 @@ those things, I will often use the index, more fine-grained tools... but when
 I'm actually working on a thing, it's "commit 'em all and let squash sort 'em
 out."
 
-So yeah, anyway. Changesets. They're the logical thing you're working on, and
+So yeah, anyway. Changes. They're the logical thing you're working on, and
 commits are just whatever happens to get saved while you're working on stuff.
-The state at the latest commit represents the current state of the changeset.
+The state at the latest commit represents the current state of the change.
 
 So now we understand most of 
 
@@ -212,19 +212,19 @@ Working copy : ovruwlst 4450e3d5 (no description set)
 Parent commit: zzzzzzzz 00000000 (empty) (no description set)
 ```
 
-but not all. The first thing is easy: the `zzzzzzzz` changeset and the `00000000`
+but not all. The first thing is easy: the `zzzzzzzz` change and the `00000000`
 commit are that way because this is a brand new repository: there is no
 parent commit. They're empty. We'll see if this changes once we create our
-second changeset.
+second change.
 
 But the part we haven't talked about yet: descriptions?
 
 ### Descriptions
 
 Descriptions are kind of like a commit message. But again, we're not thinking
-in commits, we're thinking in changesets. Higher level. A changeset has an id,
+in commits, we're thinking in changes. Higher level. A change has an id,
 so we can refer to it easily with tools. But it's nice for humans to have some
-sort of description of what the changeset is. So we can add one to our changeset
+sort of description of what the change is. So we can add one to our change
 if we'd like:
 
 ```console
@@ -233,7 +233,7 @@ if we'd like:
 
 This will bring up an editor. I'm on Windows, so that's Notepad. I should
 change that. Anyway, just like `git commit`, we can edit this file, giving
-our changeset a description.
+our change a description.
 
 ```text
 Hello, world!
@@ -274,4 +274,42 @@ I will often be examining my beautiful sculpted commit, and realize I have
 missed something, so then it's time for `git commit --amend`. With `jj` I would
 just make the change. Done. Easy.
 
-Okay, so... what next? It's time to make our second changeset.
+Okay, so... what next? It's time to make our second change.
+
+# jj new
+
+How does `jj` know when we are done? If it just saves things every time we make
+changes... how do we start working on a different change? Making a new
+one is very easy:
+
+```console
+> jj new
+Working copy now at: tmlnvvtr 89b6b019 (empty) (no description set)
+Parent commit      : ovruwlst fc8c588d Hello, world!
+```
+
+There we go! It's that easy. Now we can make more changes, and they'll get
+saved as commits in this change. We also didn't give our change a
+description yet. We can do that with `jj describe` like we just did with
+our last change, but if we know what description we want when we
+create the change, `jj new` accepts a `-m <MESSAGE>` parameter that will let
+you set a description from the command line.
+
+After setting the description, we'll see it like we would in `jj st`:
+
+```console
+> jj describe
+Working copy now at: tmlnvvtr 0ff64c6d jj-new chapter
+Parent commit      : ovruwlst fc8c588d Hello, world!
+```
+
+So we can see that the workflow has the same pieces as the git workflow, but
+in a different order:
+
+| tired                                | wired                                                                 |
+|--------------------------------------|-----------------------------------------------------------------------|
+| making changes, then committing them | creating a new change, then making changes                            |
+| commits require a message            | describing a change with some human-readable text if you feel like it |
+
+Now that we can create changes, how do we share them with others? What
+do we do about pushing to GitHub?
