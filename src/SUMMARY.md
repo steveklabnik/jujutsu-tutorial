@@ -5,3 +5,4 @@
 - [`jj describe`](jj-describe.md)
 - [`jj new`](jj-new.md)
 - [Pushing to GitHub](pushing-to-github.md)
+- [Working with GitHub](working-with-github.md)
