@@ -1,7 +1,7 @@
 # What is jj and why should I care?
 
-`jj` is the name of the CLI for [Jujutsu][jj]. Jujutsu is a DCVS, or
-"distributed version control system." You may be familiar with other DCVSes,
+`jj` is the name of the CLI for [Jujutsu][jj]. Jujutsu is a DVCS, or
+"distributed version control system." You may be familiar with other DVCSes,
 such as `git`, and this tutorial assumes you're coming to `jj` from `git`.
 
 The reason I find Jujutsu interesting are varied. First of all, `jj` is
