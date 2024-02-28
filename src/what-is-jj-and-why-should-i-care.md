@@ -4,7 +4,7 @@
 "distributed version control system." You may be familiar with other DVCSes,
 such as `git`, and this tutorial assumes you're coming to `jj` from `git`.
 
-The reason I find Jujutsu interesting are varied. First of all, `jj` is
+The reasons I find Jujutsu interesting are varied. First of all, `jj` is
 compatible with `git`. This means you can use `jj` to manage a `git` repository,
 so your project can still live on GitHub, other people on your team do not have
 to use `jj`. This makes it much easier to adopt than similar tools.
