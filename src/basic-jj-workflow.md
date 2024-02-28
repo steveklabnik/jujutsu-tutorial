@@ -59,15 +59,15 @@ Parent commit: zzzzzzzz 00000000 (empty) (no description set)
 
 This output is a little strange since this is a fresh repository, but it's fine.
 The first line describes our working copy, that is, what we are currently
-working on. We then have some gibberish: `ovruwlst 4450e3d5`. The first two is
+working on. We then have some gibberish: `ovruwlst 4450e3d5`. The first one is
 a "change id." The second is a "commit id." Why two things? What's the
 difference?
 
-Well, coming from `git`, a `jj` A `jj` "change id" is kind of like a `git`
+Well, coming from `git`, a `jj` "change id" is kind of like a `git`
 "commit id" and a `jj` "commit id" is kind of like a `git`... sub-commit id.
 Basically, in `jj`'s humble opinion, a commit is too low-level of a concept
 to be working with. Commits are how computers keep track of changes. We aren't
-computers. Doing menial tedius work is a computer's job. We want to think about
+computers. Doing mental tedious work is a computer's job. We want to think about
 the *logical* change that we are making, not the specific details of how it's
 tracked by the version control system.
 
@@ -116,8 +116,8 @@ Look, I know I'm spending a lot of time on this. But this has been my struggle
 to learn other forms of VCS. A ton of people I know really like "stacked diffs,"
 and I have struggled to understand them, not because the words make no sense,
 but because my brain wants to understand how it's implemented, to figure out
-how it changes the data structure. And once I did, I was underwhelmed. But
-that's a me issue.
+how it changes the data structure. And once I did, I was overwhelmed. But
+that's a Me issue.
 
 So to get my brain in the right headspace to understand `jj`, I think it's
 crucial to get the mental model right from the start. And it's different in
