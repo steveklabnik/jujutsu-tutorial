@@ -119,17 +119,17 @@ $ jj squash -i
 
 This will bring up a TUI!
 
-![the tui, with file, edit, select, and view menus, and showing a line with src/main.rs](/images/jj-squash-01.png)
+![the tui, with file, edit, select, and view menus, and showing a line with src/main.rs](../images/jj-squash-01.png)
 
 By default, it's showing a file-level view: we have our one file, and the `( )` indicates that
 we haven't selected to include this. We could do so by hitting space, and that
 will fill the parenthesis in with an x:
 
-![same shot but with the box checked](/images/jj-squash-02.png)
+![same shot but with the box checked](../images/jj-squash-02.png)
 
 Let's press space again to undo that, and then hit `f` to toggle "folding":
 
-![same shot but with individual sections of changes included](/images/jj-squash-03.png)
+![same shot but with individual sections of changes included](../images/jj-squash-03.png)
 
 I added empty spaces in a few places, and you can see each individual section
 and line has its own checkbox. We can use the mouse to click, or arrow keys to

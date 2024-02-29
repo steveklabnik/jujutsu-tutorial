@@ -41,7 +41,7 @@ One more thing: my text representation of the output of `jj log` was missing
 something. Here's a screenshot of my terminal, and you may notice something
 interesting:
 
-![colorized output in jj log](/images/log.png)
+![colorized output in jj log](../images/log.png)
 
 The output has color, and a lot of it! But the most important bit is the
 highlights in the revision IDs and commit IDs. See how `yw` is in magenta,

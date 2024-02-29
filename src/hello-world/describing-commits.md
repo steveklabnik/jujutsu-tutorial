@@ -26,7 +26,7 @@ $ jj describe
 
 An editor will pop up; I'm on Windows, so I'm getting notepad.
 
-![notepad](/images/describe.png)
+![notepad](../images/describe.png)
 
 This window shows my original message, "hello world," and then
 a bunch of lines that start with `JJ: `. As the final one mentions,
