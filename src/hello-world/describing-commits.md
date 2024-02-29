@@ -3,6 +3,17 @@
 While we can refer to our changes by their change ID or commit ID, that's not
 always great. Text is a much better way to describe things for humans.
 
+However, before we can describe commits, we have to let `jj` know who we are.
+Let's set some quick configuration:
+
+```console
+$ jj config set --user user.name "Steve Klabnik"
+$ jj config set --user user.email "steve@steveklabnik.com"
+```
+
+Obviously, unless you're me, you should be putting your own name and email in
+there. Okay, with that out of the way, we're ready to describe some changes.
+
 Whenever we feel like it, we can describe our changes with `jj describe`.
 The simplest way to use it is with the `-m`, or "message" flag. This allows us
 to pass the description on the command line:
