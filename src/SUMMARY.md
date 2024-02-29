@@ -14,3 +14,26 @@
 - [Real-world workflows](real-world-workflows/intro.md)
     - [The Squash Workflow](real-world-workflows/the-squash-workflow.md)
     - [The Edit Workflow](real-world-workflows/the-edit-workflow.md)
+
+- [Branching, merging, and conflicts]()
+    - [Anonymous branches]()
+    - [Revsets & Templates]()
+    - [Merging branches into each other]()
+    - [Dealing with conflicts]()
+
+- [Sharing your code with others]()
+    - [Using named branches in jj]()
+    - [Working with remotes, aka, GitHub]()
+    - [Adding commits to a pull request]()
+    - [Stacked PRs]()
+    - [Using jj with Gerrit]()
+
+- [Fixing Problems]()
+    - [Undoing mistakes]()
+    - [Reverting changes]()
+    - [The Operation Log]()
+    - [The obslog]()
+
+- [Colocated Repositories]()
+
+- [Workspaces]()
