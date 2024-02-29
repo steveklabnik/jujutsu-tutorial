@@ -15,11 +15,11 @@
     - [The Squash Workflow](real-world-workflows/the-squash-workflow.md)
     - [The Edit Workflow](real-world-workflows/the-edit-workflow.md)
 
-- [Branching, merging, and conflicts]()
-    - [Anonymous branches]()
-    - [Revsets & Templates]()
-    - [Merging branches into each other]()
-    - [Dealing with conflicts]()
+- [Branching, merging, and conflicts](branching-merging-and-conflicts/intro.md)
+    - [What anonymous branches are, and how to use them](branching-merging-and-conflicts/anonymous-branches.md)
+    - [Figuring out where our changes are with revsets](branching-merging-and-conflicts/revsets.md)
+    - [Merging anonymous branches](branching-merging-and-conflicts/merging.md)
+    - [Dealing with conflicts](branching-merging-and-conflicts/conflicts.md)
 
 - [Sharing your code with others]()
     - [Using named branches in jj]()
@@ -33,6 +33,10 @@
     - [Reverting changes]()
     - [The Operation Log]()
     - [The obslog]()
+
+- [Customizing your experience]()
+    - [Configuring `jj`]()
+    - [Customizing the output of various `jj` commands with templates](customization/templates.md)
 
 - [Colocated Repositories]()
 

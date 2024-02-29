@@ -13,8 +13,7 @@ The worklow goes like this:
    change.
 4. We then go back to the main change.
 
-This workflow is simpler in easy cases, and more complicated in more compicated
-cases. We'll talk about the implications of this at the end.
+Let's see how to use `jj` this way.
 
 ## Create a new change to work on our feature.
 
@@ -65,9 +64,9 @@ What we want to do is make a new change before this one. So let's do that.
 Let's try this:
 
 ```console
-$ jj new -B -m "refactor printing"
+$ jj new -B -m "add more comments"
 Rebased 1 descendant commits
-Working copy now at: nmptruqn 30a1f33b (empty) refactor printing
+Working copy now at: nmptruqn 30a1f33b (empty) add more comments
 Parent commit      : ywnkulko ed71bb54 print goodbye as well as hello
 Added 0 files, modified 1 files, removed 0 files
 ```
@@ -95,7 +94,7 @@ $ jj log
 ◉  ootnlvpt steve@steveklabnik.com 2024-02-28 22:59:46.000 -06:00 be40656e
 │  only print hello world
 @  nmptruqn steve@steveklabnik.com 2024-02-28 22:59:46.000 -06:00 30a1f33b
-│  (empty) refactor printing
+│  (empty) add more comments
 ◉  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40.000 -06:00 ed71bb54
 │  print goodbye as well as hello
 ◉  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13.000 -06:00 7a096b8a
@@ -129,27 +128,23 @@ so that has returned. Here's what we want to end up with:
 
 ```rust
 /// A "Hello, world!" program.
+/// 
+/// This is the best implementation of this program to ever exist.
 
 fn main() {
-    print("Hello, world!");
-    print("Goodbye, world!");
-}
-
-fn print(s: &str) {
-    println!("{s}");
+    println!("Hello, world!");
+    println!("Goodbye, world!");
 }
 ```
 
-This is very silly: our function takes a string, and prints it.
-
-Regardless, we have finished. Let's see our current status:
+This is very silly. Regardless, we have finished. Let's see our current status:
 
 ```console
 $ jj st
 Rebased 1 descendant commits onto updated working copy
 Working copy changes:
 M src\main.rs
-Working copy : nmptruqn 90a2e97f refactor printing
+Working copy : nmptruqn 90a2e97f add more comments
 Parent commit: ywnkulko ed71bb54 print goodbye as well as hello
 ```
 
@@ -177,7 +172,7 @@ simpler command:
 
 ```console
 $ jj next --edit
-Working copy now at: ootnlvpt e13b2585 (conflict) only print hello world
+Working copy now at: ootnlvpt e13b2585 only print hello world
 Parent commit      : nmptruqn 90a2e97f refactor printing
 Added 0 files, modified 1 files, removed 0 files
 ```
@@ -194,7 +189,7 @@ $ jj log
 @  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
 │  only print hello world
 ◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
-│  refactor printing
+│  add more comments
 ◉  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40.000 -06:00 ed71bb54
 │  print goodbye as well as hello
 ◉  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13.000 -06:00 7a096b8a
@@ -204,85 +199,10 @@ $ jj log
 ◉  zzzzzzzz root() 00000000
 ```
 
-That's correct, `@` is at our original commit.
-
-Time to push our changes, right? Well, did you catch that in the output of the
-`jj next`? Our current change is in `(conflict)`. This is why the rebase always
-succeeds; if there's a conflict, `jj` makes note of it and keeps going.
-Conflicts are stored in the commit itself.
-
-In `git`, because commits don't know if they're in conflict or not, they can
-never be in conflict. When you do an operation like a merge or a rebase, 
-as the process goes along, if there's a conflict, everything screeches to a
-halt, and you have to resolve the conflict before continuing. The merge or
-rebase is done once all the conflicts have been sorted out.
-
-But this isn't exactly ideal. You're not trying to fix conflicts right now:
-you're trying to get some work done. Forcing you to change contexts so
-abruptly isn't pleasant. So why not let you handle that problem when you're
-ready to devote some time to handle it?
-
-Let's open `src/main.rs`:
-
-```rust
-/// A "Hello, world!" program.
-
-fn main() {
-<<<<<<<
-+++++++
-    print("Hello, world!");
-    print("Goodbye, world!");
-%%%%%%%
-     println!("Hello, world!");
--    println!("Goodbye, world!");
->>>>>>>
-}
-
-fn print(s: &str) {
-    println!("{s}");
-}
-
-```
-
-Sort of like how `git` has `<<<<< ====== >>>>>` as conflict markers, `jj` has
-its own. I'm not going to explain the syntax of these right now, as I'd like
-to write a full chapter on conflicts later. So let's just fix the code:
-
-```rust
-/// A "Hello, world!" program.
-
-fn main() {
-    print("Hello, world!");
-}
-
-fn print(s: &str) {
-    println!("{s}");
-}
-```
-
-and check in on ourselves:
-
-```console
-$ jj st
-Working copy changes:
-M src\main.rs
-Working copy : ootnlvpt b5db7940 only print hello world
-Parent commit: nmptruqn 90a2e97f refactor printing
-```
-
-Everything is good! We are no longer in conflict. Everything is sorted.
+That's correct, `@` is at our original change.
 
 ## Recap and thoughts
 
-This workflow is also a good alternative. It's simpler in the simple cases,
-but more complicated in the complex places. Or at least, that's how I see it.
-If your brain thinks this way better than the other way, that's great! A nice
-thing about the flexibility of these tools is you can work with them how you'd
-like!
-
-I can see how this workflow feels natural: you want to make a new change, just
-make it, wherever it makes sense to. Edit it till you're done. If there's
-conflicts, you can deal with them, but you don't have to until you're ready.
-This sort of approach is only made possible thanks to `jj`'s design. By
-understanding conflicts in a first class way, `jj` can decouple the creation of
-a conflict from the resolution of a conflict, in a way that `git` just can't.
+This workflow is also a good alternative. If your brain thinks this way better
+than the other way, that's great! A nice thing about the flexibility of these
+tools is you can work with them how you'd like!
