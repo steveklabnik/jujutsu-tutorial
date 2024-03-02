@@ -1,8 +1,8 @@
 # Summary
 
-[Introduction](introduction.md)
-
-- [What is jj and why should I care?](what-is-jj-and-why-should-i-care.md)
+- [Introduction](introduction/introduction.md)
+    - [What is jj and why should I care?](introduction/what-is-jj-and-why-should-i-care.md)
+    - [How to read this tutorial](introduction/how-to-read.md)
 - [Hello, world!](hello-world/hello-world.md)
     - [How to install `jj`](hello-world/how-to-install.md)
     - [Creating a repository with `jj git init`](hello-world/creating-a-repository.md)
@@ -28,8 +28,10 @@
 
 - [More advanced workflows]()
     - [Getting a bit philosophical]()
+    - [Workspaces]()
     - [Stacked PRs]()
     - [Using jj with Gerrit]()
+    - [Colocated Repositories]()
 
 - [Fixing Problems]()
     - [Undoing mistakes]()
@@ -40,7 +42,3 @@
 - [Customizing your experience]()
     - [Configuring `jj`]()
     - [Customizing the output of various `jj` commands with templates](customization/templates.md)
-
-- [Colocated Repositories]()
-
-- [Workspaces]()
