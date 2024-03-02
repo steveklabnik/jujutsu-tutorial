@@ -21,10 +21,13 @@
     - [Merging anonymous branches](branching-merging-and-conflicts/merging.md)
     - [Dealing with conflicts](branching-merging-and-conflicts/conflicts.md)
 
-- [Sharing your code with others]()
-    - [Using named branches in jj]()
-    - [Working with remotes, aka, GitHub]()
-    - [Adding commits to a pull request]()
+- [Sharing your code with others](sharing-code/intro.md)
+    - [Using named branches in jj](sharing-code/named-branches.md)
+    - [Working with remotes, aka, GitHub](sharing-code/remotes.md)
+    - [Responding to pull request feedback](sharing-code/updating-prs.md)
+
+- [More advanced workflows]()
+    - [Getting a bit philosophical]()
     - [Stacked PRs]()
     - [Using jj with Gerrit]()
 
