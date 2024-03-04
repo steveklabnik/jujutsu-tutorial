@@ -46,10 +46,10 @@ interesting:
 The output has color, and a lot of it! But the most important bit is the
 highlights in the revision IDs and commit IDs. See how `yw` is in magenta,
 but the rest of the ID is in grey, `nkulko`? Similar to `git`, when talking
-about an ID, you only need to refer to the uniqe prefix, and not the whole ID.
+about an ID, you only need to refer to the unique prefix, and not the whole ID.
 So that magenta bit is showing you said prefix; we could run commands that
 refer to `ywnkulko` or `yw` and they'd both work. Why is it two characters? Well,
-becuase we also have `yyrsmnoo`. But see how the middle change, `p` is the
+because we also have `yyrsmnoo`. But see how the middle change, `p` is the
 prefix and `uomrwxl` is in grey? Because this is the only change that starts with
 `p`. But since we have two commits starting with `y`, we need a second character
 to make them unique.
