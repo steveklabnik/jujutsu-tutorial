@@ -55,7 +55,7 @@ Branch changes to push to origin:
 
 And now our project is up on GitHub!
 
-![new project on github](/images/github-create.png)
+![new project on github](../images/github-create.png)
 
 Now we can push our branch up to GitHub:
 
@@ -69,7 +69,7 @@ If you collaborate on a project, as commits land on the main branch, you'll want
 to update your local copy of that branch. I'm going to make a change in the
 GitHub UI:
 
-![creating a commit on github](/images/github-commit.png)
+![creating a commit on github](../images/github-commit.png)
 
 All I did was update the `Cargo.toml` to remove some comments. If you're
 following along, you can make any change you'd like.
@@ -156,7 +156,7 @@ any unique prefix works: `vmunwxsk` is just as much a unique prefix of
 
 We can now make a pull request out of this:
 
-![github showing us we have a branch with recent pushes](/images/new-branch.png)
+![github showing us we have a branch with recent pushes](../images/new-branch.png)
 
 If you'd like to view this PR, you can find it
 [here](https://github.com/steveklabnik/jj-hello-world/pull/1), though by the

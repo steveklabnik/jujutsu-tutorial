@@ -2,7 +2,7 @@
 
 Oh no! Someone has asked for changes to our pull request.
 
-![a screenshot of me commenting on my github PR](/images/pr-feedback.png)
+![a screenshot of me commenting on my github PR](../images/pr-feedback.png)
 
 We have two ways of making our change, and it depends on what the project's
 maintainers prefer. Due to the way that GitHub shows or minimizes comments on
@@ -73,7 +73,7 @@ Branch changes to push to origin:
   Move branch push-vmunwxsksqvk from 9410db49f9ba to ad6b9b149f88
 ```
 
-![a screenshot of github, showing the new commit below our review](/images/new-pr-commit.png)
+![a screenshot of github, showing the new commit below our review](../images/new-pr-commit.png)
 
 Since we added a commit, the review comment is still there, which is why people
 like this workflow.
@@ -172,7 +172,7 @@ Branch changes to push to origin:
 
 We can see that reflected on GitHub:
 
-![a screenshot of github showing that our branch was force pushed](/images/force-push-pr.png)
+![a screenshot of github showing that our branch was force pushed](../images/force-push-pr.png)
 
 Only one commit, and it shows that our comment is on an outdated commit.
 
