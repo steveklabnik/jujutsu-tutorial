@@ -68,6 +68,4 @@ than as I work. That is, the branch name tends to sit at the same change as the
 remote server, and when it's time to update the remote, that's when I update
 things locally.
 
-`jj` will update the branch when changes get 
-
 Speaking of remotes, let's talk about that next.

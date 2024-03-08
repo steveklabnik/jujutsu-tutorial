@@ -11,7 +11,7 @@ branches once they get used to things.
 
 Let's talk about it.
 
-## What is a branch, conceptualy?
+## What is a branch, conceptually?
 
 When two changes share the same parent change, we say that they are "branching,"
 because the graph of commits would look like this:
