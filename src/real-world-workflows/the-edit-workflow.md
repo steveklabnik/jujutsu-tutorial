@@ -4,7 +4,7 @@ While I like the previous workflow, some people just don't. They use a workflow
 that adds a different command, `jj edit`, along with a second new command,
 `jj next`, as well as a new flag to `jj new`. Lots to learn!
 
-The worklow goes like this:
+The workflow goes like this:
 
 1. We create a new change to work on our feature.
 2. If we end up doing exactly what we wanted to do, we're done.

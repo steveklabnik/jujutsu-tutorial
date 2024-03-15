@@ -7,7 +7,7 @@ that I'm talking about this workflow first is that it is the workflow that
 should appeal to people who are big fans of `git`'s index, and I think comparing
 and contrasting the two is interesting.
 
-The worklow goes like this:
+The workflow goes like this:
 
 1. We describe the work we want to do.
 2. We create a new empty change on top of that one.
