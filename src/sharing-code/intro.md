@@ -10,5 +10,4 @@ Here's what we're going to learn:
 * Using named branches in jj
 * Working with remotes, aka, GitHub
 * Adding commits to a pull request
-* Stacked PRs
-* Using jj with Gerrit
+* How to use `jj` with Gerrit rather than GitHub

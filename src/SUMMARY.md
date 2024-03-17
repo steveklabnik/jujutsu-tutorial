@@ -25,12 +25,13 @@
     - [Using named branches in jj](sharing-code/named-branches.md)
     - [Working with remotes, aka, GitHub](sharing-code/remotes.md)
     - [Responding to pull request feedback](sharing-code/updating-prs.md)
-
-- [More advanced workflows]()
-    - [Getting a bit philosophical]()
-    - [Workspaces]()
-    - [Stacked PRs]()
+    - [Updating trunk from upstream]()
     - [Using jj with Gerrit]()
+
+- [More advanced workflows](advanced/more-advanced-workflows.md)
+    - [Working on all of your branches simultaneously](advanced/simultaneous-edits.md)
+    - [Stacked PRs]()
+    - [Workspaces]()
     - [Colocated Repositories]()
 
 - [Fixing Problems]()
