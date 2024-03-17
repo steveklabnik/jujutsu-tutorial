@@ -36,15 +36,34 @@ in `git` is that branches do not automatically move. For example, let's make a
 new change:
 
 ```console
-> jj log --limit 2
-@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37.000 -06:00 fcf669c5
+> jj new
+Working copy now at: moxnkoxx 3f14c03f (empty) (no description set)
+Parent commit      : ytkvxlpy 7ec11c41 trunk | remove goodbye message
+> jj log
+@  moxnkoxx steve@steveklabnik.com 2024-03-17 17:10:57.000 -05:00 3f14c03f
 │  (empty) (no description set)
-◉  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 trunk f68d1623
+│ ◉  qtlkpytx steve@steveklabnik.com 2024-03-17 17:09:25.000 -05:00 e6667f9e
+├─╯  (empty) (no description set)
+◉  ytkvxlpy steve@steveklabnik.com 2024-03-17 17:09:25.000 -05:00 trunk 7ec11c41
 │  remove goodbye message
-~
 ```
 
-Even though `@` has moved to `pzkrzopz`, `trunk` is still at `povouosx`. This
+Oh look, we have an extra empty commit lying around. That happens sometimes,
+let's forget about it:
+
+```console
+> jj abandon qt
+Abandoned commit qtlkpytx e6667f9e (empty) (no description set)
+> jj log --limit 3
+@  moxnkoxx steve@steveklabnik.com 2024-03-17 17:10:57.000 -05:00 3f14c03f
+│  (empty) (no description set)
+◉  ytkvxlpy steve@steveklabnik.com 2024-03-17 17:09:25.000 -05:00 trunk 7ec11c41
+│  remove goodbye message
+◉  krmulszn steve@steveklabnik.com 2024-03-17 17:06:59.000 -05:00 e98c1626
+│  refactor printing
+```
+
+Even though `@` has moved to `moxnkoxx`, `trunk` is still at `ytkvxlpy`. This
 behavior is a bit surprising for folks coming from `git`, though it fits in with
 `jj` more nicely, I think.
 

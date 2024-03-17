@@ -98,6 +98,29 @@ Excellent. We've got two different changes, `yykpmnuq` and `xrslwzvq`, both with
 the parent `ootnlvpt`. Sucess! We have created a branch. And we didn't need to
 name it.
 
+Let's edit `src/main.rs` to update this description:
+
+```rust
+/// A "Hello, world!" program.
+///
+/// This is the best implementation of this program to ever exist.
+
+fn main() {
+    print_hello();
+    print_goodbye();
+}
+
+fn print_hello() {
+    println!("Hello, world!");
+}
+
+fn print_goodbye() {
+    println!("Goodbye, world!");
+}
+```
+
+This is pretty silly, but we'll use it further along in the tutorial.
+
 We can see that there's a branch in the output of `jj log`:
 
 ```console

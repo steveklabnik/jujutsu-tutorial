@@ -303,7 +303,6 @@ After fetching changes, our log looks like this:
 ```console
 > jj git fetch
 > jj log
-> jj log
 @  xqkmpxlq steve@steveklabnik.com 2024-03-17 15:18:11.000 -05:00 fccf0626
 │  (empty) (no description set)
 ◉          xnutwmso steve@steveklabnik.com 2024-03-17 15:16:36.000 -05:00 da67dfe1
@@ -570,7 +569,5 @@ This workflow may not make sense to you, but it is a very neat example of using
 the tools you already know to do something completely different! We're going to
 talk about a slightly different workflow next: "stacked pull requests". They're
 similar in some ways to this approach, but there's also some differences too.
-
-
 
 [my open PR]: https://github.com/steveklabnik/jj-hello-world/pull/1

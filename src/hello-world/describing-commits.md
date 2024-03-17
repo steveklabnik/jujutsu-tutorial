@@ -24,6 +24,12 @@ Working copy now at: yyrsmnoo 524d2bf4 hello world
 Parent commit      : zzzzzzzz 00000000 (empty) (no description set)
 ```
 
+(You may notice that the change ID changed here: that's just some book-writing
+magic. I am editing this book manually, and so may make adjustments that end up
+giving you different change IDs and commit IDs than I do. You'll figure it out,
+just match the output of your commands to the inputs you give and you'll be
+fine.)
+
 Our message, `hello world`, has replaced the `(no description set)` text. We're
 gonna be able to see this whenever we look at our repository history.
 

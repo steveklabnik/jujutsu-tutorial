@@ -61,11 +61,10 @@ Now we can understand `heads(all())` from before: these are two functions, where
 we're asking for the head commits of every commit in the repository.
 
 Revsets are very powerful, and very convenient. Would you like to find every
-commit by `steveklabnik` containing the world "print" in the description? Try
-this:
+commit by me containing the world "print" in the description? Try this:
 
 ```console
-$ jj log -r 'author(steveklabnk) & description(print)'
+$ jj log -r 'author(Steve Klabnik) & description(print)'
 ```
 
 Another really useful revset function is `trunk()`:
