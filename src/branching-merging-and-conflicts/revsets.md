@@ -31,7 +31,7 @@ working directory, so we might say "we squashed the contents of `@` into `@-`.
 And in fact, `jj squash` is short for `jj squash -r @`. There are many operators,
 including, but not limited to:
 
-* `x & y`: changes that are both x and y
+* `x & y`: changes that are in both x and y
 * `x | y`: changes that are in either x or y
 * `::x` Ancestors of x
 * `x::` Descendants of x
