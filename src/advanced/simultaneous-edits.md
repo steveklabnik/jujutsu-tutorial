@@ -240,7 +240,7 @@ Added 0 files, modified 1 files, removed 0 files
 Yikes! Don't worry, we can fix that with a rebase: 
 
 ```console
-> jj rebase -r xn -d m -d ym -d yx -d r -d kv
+> jj rebase -r xn -d m -d ym -d yx -d r -d z
 ```
 
 We want to rebase the revision `xn` with the following "destination" revisions:
