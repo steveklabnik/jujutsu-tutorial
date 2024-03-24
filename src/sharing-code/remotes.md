@@ -57,11 +57,6 @@ And now our project is up on GitHub!
 
 ![new project on github](../images/github-create.png)
 
-Now we can push our branch up to GitHub:
-
-```console
-$ jj git push 
-```
 
 ## Updating the `trunk` branch from GitHub
 
