@@ -1,7 +1,7 @@
 # Customizing the output of various `jj` commands with templates
 
 Just like revsets are a functional language that allow you to describe a set of
-commits, templates are a typed functional langauge that allows you to customize
+commits, templates are a typed functional language that allows you to customize
 the output of commands in `jj`.
 
 A bunch of commands support `-T` or `--template` to allow you to customize their
