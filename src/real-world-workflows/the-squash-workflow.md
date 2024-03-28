@@ -152,7 +152,7 @@ We've thrown away `oopolqyp`, and `jj` has helpfully made a new empty change
 for us. 
 
 This is the kind of stuff I mean when I say "the same power, but less concepts."
-We've got the tools that the index gave us, but they're simpler beacuse we don't
+We've got the tools that the index gave us, but they're simpler because we don't
 use some of them on the index, and some on commits: we use them all on commits.
 
 That also implies that "the same power" isn't exactly true: `jj squash` is

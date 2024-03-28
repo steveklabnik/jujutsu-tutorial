@@ -52,7 +52,7 @@ More complex functions can take arguments:
 * `parents(x)`: the parent changes of `x`
 * `ancestors(x)`: the same as `::x`, but see the next example
 * `ancestors(x, depth)`: limits the results to a certain depth, which you can't do with the `::x` syntax
-* `heads(x)`: commits in `x` that are not ancestors of other commtits in `x`.
+* `heads(x)`: commits in `x` that are not ancestors of other commits in `x`.
 * `description(x)`: commits that have `x` in their description
 
 ## Putting it all together
