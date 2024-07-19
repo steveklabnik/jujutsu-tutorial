@@ -11,6 +11,5 @@ Here's what we're going to learn:
 
 * What anonymous branches are, and how to use them
 * Figuring out where our changes are with revsets
-* Customizing the output of various `jj` commands with templates
 * Merging anonymous branches
 * Dealing with conflicts
