@@ -26,7 +26,7 @@ realize that we have one less concept, but haven't actually lost any of its
 power.
 
 Next, we see the change id. On the far right, we see the commit ID. This is
-because when viewing things this way, we almost certianly don't care about the
+because when viewing things this way, we almost certainly don't care about the
 commit ID: we care about the sequence of stable change identifiers. Between
 the two is the author and the time, and on the line below, we have our
 description.
