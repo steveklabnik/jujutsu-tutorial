@@ -20,7 +20,7 @@ list of current changes (in `@`), and we pull the ones we want into our commit
 
 ## Starting work by describing it
 
-Let's recap where we our in our project: `@` currently is an empty commit:
+Let's recap where we are in our project: `@` currently is an empty commit:
 
 ```console
 > jj log
