@@ -68,6 +68,6 @@ it's even more difficult to do so in `jj`.
 
 ## Customizing your experience
 
-Finally, `jj` is very customizable. We'll talk abut how you can customize
+Finally, `jj` is very customizable. We'll talk about how you can customize
 various parts of `jj`, including its very powerful templating system for showing
 exactly the output you want from any command.
