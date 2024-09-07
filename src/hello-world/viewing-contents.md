@@ -51,7 +51,7 @@ So that magenta bit is showing you said prefix; we could run commands that
 refer to `ywnkulko` or `yw` and they'd both work. Why is it two characters? Well,
 because we also have `yyrsmnoo`. But see how the middle change, `p` is the
 prefix and `uomrwxl` is in grey? Because this is the only change that starts with
-`p`. But since we have two commits starting with `y`, we need a second character
+`p`. But since we have two changes starting with `y`, we need a second character
 to make them unique.
 
 It's very cool that the UI is communicating this to us! And, it's also why the
