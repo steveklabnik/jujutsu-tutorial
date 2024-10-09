@@ -84,7 +84,7 @@ Additionally, on the `jj` Discord, several folks have settled on this as a
 decent revset for larger repositories:
 
 ```console
-$ jj log -r '@ | ancestors(remote_branches().., 2) | trunk()'
+$ jj log -r '@ | ancestors(remote_bookmarks().., 2) | trunk()'
 ```
 
 This will show the history from the working directory, some detail about remote

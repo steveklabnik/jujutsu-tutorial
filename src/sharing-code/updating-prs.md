@@ -60,17 +60,18 @@ Remember, `jj new` won't move any branches, and so if we push, nothing happens:
 
 ```console
 $ jj git push
-No branches found in the default push revset, `remote_branches(remote=origin)..@`.
+Warning: No bookmarks found in the default push revset: remote_bookmarks(remote=origin)..@
 Nothing changed.
 ```
 
 First we have to update the branch to point at our new commit, and then push:
 
 ```console
-$ jj branch set push-vmunwxsksqvk
+$ jj bookmark set push-vmunwxsksqvk
+Moved 1 bookmarks to nzsvmmzl ad6b9b14 push-vmunwxsksqvk* | respond to feedback
 $ jj git push
-Branch changes to push to origin:
-  Move branch push-vmunwxsksqvk from 9410db49f9ba to ad6b9b149f88
+Changes to push to origin:
+  Move forward bookmark push-vmunwxsksqvk from 9410db49f9ba to ad6b9b149f88
 ```
 
 ![a screenshot of github, showing the new commit below our review](../images/new-pr-commit.png)
@@ -124,7 +125,8 @@ First, we have to undo what we just did. Here's where we are:
 So let's move the branch backwards, then abandon our new change:
 
 ```console
-$ jj branch set push-vmunwxsksqvk -r @- --allow-backwards
+$ jj bookmark set push-vmunwxsksqvk -r @- --allow-backwards
+Moved 1 bookmarks to vmunwxsk 9410db49 push-vmunwxsksqvk* | add a comment to main
 $ jj edit vmunwxsk
 Working copy now at: vmunwxsk 9410db49 push-vmunwxsksqvk* | add a comment to main
 Parent commit      : ksrmwuon e202b67c trunk | Update Cargo.toml
@@ -166,8 +168,8 @@ already been "rebased" in a sense. So we can just push:
 
 ```console
 > jj git push
-Branch changes to push to origin:
-  Force branch push-vmunwxsksqvk from ad6b9b149f88 to 586ea9fd213f
+Changes to push to origin:
+  Move sideways bookmark push-vmunwxsksqvk from ad6b9b149f88 to 586ea9fd213f
 ```
 
 We can see that reflected on GitHub:
@@ -233,9 +235,10 @@ Let's update our branch and push:
 
 ```console
 > jj branch set push-vmunwxsksqvk
+Moved 1 bookmarks to msmntwvo 8f7dcd91 push-vmunwxsksqvk* | add a new function
 > jj git push
-Branch changes to push to origin:
-  Force branch push-vmunwxsksqvk from 586ea9fd213f to 8f7dcd91ecbf
+Changes to push to origin:
+  Move sideways bookmark push-vmunwxsksqvk from 586ea9fd213f to 8f7dcd91ecbf
 ```
 
 We now have two changes again. So what happens when we address our review? Well,
@@ -296,8 +299,8 @@ Working copy now at: msmntwvo 752534be push-vmunwxsksqvk* | add a new function
 Parent commit      : vmunwxsk f6f7dce9 add a comment to main
 Added 0 files, modified 1 files, removed 0 files
 $ jj git push
-Branch changes to push to origin:
-  Force branch push-vmunwxsksqvk from 8f7dcd91ecbf to 752534beb39f
+Changes to push to origin:
+  Move sideways bookmark push-vmunwxsksqvk from 8f7dcd91ecbf to 752534beb39f
 ```
 
 And now we're good! Just that easy. If we didn't want to move `@`, we could have
