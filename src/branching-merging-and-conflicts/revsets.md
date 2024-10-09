@@ -64,7 +64,7 @@ Revsets are very powerful, and very convenient. Would you like to find every
 commit by me containing the world "print" in the description? Try this:
 
 ```console
-$ jj log -r 'author(Steve Klabnik) & description(print)'
+$ jj log -r 'author("Steve Klabnik") & description(print)'
 ```
 
 Another really useful revset function is `trunk()`:
