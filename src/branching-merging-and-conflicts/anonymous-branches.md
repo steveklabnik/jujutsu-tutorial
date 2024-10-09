@@ -95,7 +95,7 @@ Parent commit      : ootnlvpt b5db7940 only print hello world
 ```
 
 Excellent. We've got two different changes, `yykpmnuq` and `xrslwzvq`, both with
-the parent `ootnlvpt`. Sucess! We have created a branch. And we didn't need to
+the parent `ootnlvpt`. Success! We have created a branch. And we didn't need to
 name it.
 
 Let's edit `src/main.rs` to update this description:

@@ -64,7 +64,7 @@ What we want to do is make a new change before this one. So let's do that.
 Let's try this:
 
 ```console
-$ jj new -B -m "add more comments"
+$ jj new -B @ -m "add more comments"
 Rebased 1 descendant commits
 Working copy now at: nmptruqn 30a1f33b (empty) add more comments
 Parent commit      : ywnkulko ed71bb54 print goodbye as well as hello

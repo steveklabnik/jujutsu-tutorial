@@ -8,7 +8,7 @@ $ jj st
 
 ![a screenshot of jj st](../images/jj-st.png)
 
-This is the `jj` "pager", a program that shows the ouput of commands, and lets
+This is the `jj` "pager", a program that shows the output of commands, and lets
 you scroll through them if they get really long. You can hit `q` to get back to
 your console.
 

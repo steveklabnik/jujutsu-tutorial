@@ -44,7 +44,7 @@ Functions allow for even more complex selection of a series of changes. The
 simplest functions are:
 
 * `root()`: a function that returns the root change
-* `all()`: this function returns all visibile changes
+* `all()`: this function returns all visible changes
 * `mine()`: this function returns all changes authored by the current user
 
 More complex functions can take arguments:
@@ -64,7 +64,7 @@ Revsets are very powerful, and very convenient. Would you like to find every
 commit by me containing the world "print" in the description? Try this:
 
 ```console
-$ jj log -r 'author(Steve Klabnik) & description(print)'
+$ jj log -r 'author("Steve Klabnik") & description(print)'
 ```
 
 Another really useful revset function is `trunk()`:

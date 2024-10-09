@@ -143,7 +143,7 @@ fn print(m: &str) {
 }
 ```
 
-And then we check our log agin:
+And then we check our log again:
 
 ```console
 $ jj log --limit 3
@@ -315,6 +315,6 @@ Abandoned commit mlzwmxzs 9a4ad229 (empty) (no description set)
 Great, we've cleaned that up.
 
 These behaviors, namely recording conflicts and automatic rebasing, form the
-behaviors neccesary for a very cool `jj` workflow, and that's stacking pull
+behaviors necessary for a very cool `jj` workflow, and that's stacking pull
 requests. Before we talk about that though, we have to talk about how to
 use `jj` with GitHub in the first place! Let's go over that next.

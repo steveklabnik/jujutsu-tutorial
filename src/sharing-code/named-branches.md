@@ -2,7 +2,7 @@
 
 Named branches are mostly an interoperability feature in `jj`; other than some
 sort of "main branch" that indicates where shared history lives, other branches
-aren't neccesary to get work done. However, if you use a tool like GitHub, which
+aren't necessary to get work done. However, if you use a tool like GitHub, which
 bases a lot of its functionality around `git` branches, then you'll end up using
 more than one named branch.
 
@@ -19,7 +19,7 @@ $ jj log --limit 2
 
 I like the name `trunk` here, but you can use `main` if you prefer, whatever you
 like really. But if we look on the right hand side of the first log line above,
-we can see `trunk` as an identifier here. We can use the name `main` as a
+we can see `trunk` as an identifier here. We can use the name `trunk` as a
 revision or use it in a revset if we'd like:
 
 ```console
