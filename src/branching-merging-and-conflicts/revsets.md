@@ -44,7 +44,7 @@ Functions allow for even more complex selection of a series of changes. The
 simplest functions are:
 
 * `root()`: a function that returns the root change
-* `all()`: this function returns all visibile changes
+* `all()`: this function returns all visible changes
 * `mine()`: this function returns all changes authored by the current user
 
 More complex functions can take arguments:

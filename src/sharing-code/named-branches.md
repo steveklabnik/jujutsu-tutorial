@@ -2,7 +2,7 @@
 
 Named branches are mostly an interoperability feature in `jj`; other than some
 sort of "main branch" that indicates where shared history lives, other branches
-aren't neccesary to get work done. However, if you use a tool like GitHub, which
+aren't necessary to get work done. However, if you use a tool like GitHub, which
 bases a lot of its functionality around `git` branches, then you'll end up using
 more than one named branch.
 
