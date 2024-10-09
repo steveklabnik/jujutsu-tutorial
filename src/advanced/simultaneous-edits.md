@@ -11,7 +11,7 @@ manage multiple pull requests at the same time.
 
 First, we'll do some set up to have a few pull requests going on at the same
 time. Then we'll show you how you can develop against all of them simultaneously,
-and when your upstream updates, you can rebase them all simultanously.
+and when your upstream updates, you can rebase them all simultaneously.
 
 [Austin]: https://github.com/thoughtpolice
 
@@ -406,7 +406,7 @@ Prefix the expression with 'all' to allow any number of revisions (i.e. 'all:roo
 This is basically a way to help make sure you've got the right arguments: sometimes
 when working with revsets, you expect the result to be only one revision, and
 sometimes you expect it to be many revisions. For some commands, one or the
-other may be not neccesarily what you want. In this case, most of the time,
+other may be not necessarily what you want. In this case, most of the time,
 when you rebase, you only want one parent. So if we use a revset that returns
 more than one change, that might be a bug! So `jj rebase` wants us to reassure
 that we are creating a change with multiple parents by putting `all:` as a
