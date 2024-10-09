@@ -1,15 +1,15 @@
 # Using named branches in `jj`
 
-Named branches are mostly an interoperability feature in `jj`; other than some
+Named branches (or, starting with `jj 0.22`, "bookmarks") are mostly an interoperability feature in `jj`; other than some
 sort of "main branch" that indicates where shared history lives, other branches
 aren't necessary to get work done. However, if you use a tool like GitHub, which
 bases a lot of its functionality around `git` branches, then you'll end up using
 more than one named branch.
 
-To create a named branch in `jj`, we can use `jj branch create`:
+To create a named branch (bookmark) in `jj`, we can use `jj bookmark create`:
 
 ```console
-$ jj branch create trunk
+$ jj bookmark create trunk
 $ jj log --limit 2
 @  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 trunk f68d1623
 │  remove goodbye message
@@ -70,7 +70,8 @@ behavior is a bit surprising for folks coming from `git`, though it fits in with
 Regardless, let's update `trunk` to point at `@`:
 
 ```console
-$ jj branch set trunk
+$ jj bookmark set trunk
+Moved 1 bookmarks to pzkrzopz fcf669c5 trunk | (empty) (no description set)
 $ jj log --limit 2
 @  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37.000 -06:00 trunk fcf669c5
 │  (empty) (no description set)

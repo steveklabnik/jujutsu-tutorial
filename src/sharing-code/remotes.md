@@ -30,7 +30,8 @@ do that like this:
 $ jj edit @-
 Working copy now at: povouosx f68d1623 remove goodbye message
 Parent commit      : vvmrvwuz d41c079b refactor printing
-$ jj branch set trunk --allow-backwards
+$ jj bookmark set trunk --allow-backwards
+Moved 1 bookmarks to povouosx f68d1623 | remove goodbye message
 $ jj abandon pzkrzopz
 Abandoned commit pzkrzopz fcf669c5 (empty) (no description set)
 $ jj log --limit 2
@@ -49,8 +50,11 @@ Anyway, let's push `trunk` up to GitHub:
 
 ```console
 $ jj git push
-Branch changes to push to origin:
-  Add branch trunk to f68d16233bdc
+Changes to push to origin:
+  Add bookmark trunk to f68d16233bdc
+Warning: The working-copy commit in workspace 'default' became immutable, so a new commit has been created on top of it.
+Working copy now at: znurnwmk f853107d (empty) (no description set)
+Parent commit      : povouosx f68d1623 | remove goodbye message
 ```
 
 And now our project is up on GitHub!
@@ -73,9 +77,12 @@ Let's fetch those changes:
 
 ```console
 $ jj git fetch
+bookmark: trunk@origin [updated] tracked
 $ jj log --limit 3
 ◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
 │  Update Cargo.toml
+│ @  znurnwmk steve@steveklabnik.com 2024-03-01 18:15:00.000 f853107d
+├─╯  (empty) (no description set)
 @  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 f68d1623
 │  remove goodbye message
 ~
@@ -83,7 +90,7 @@ $ jj log --limit 3
 
 In this instance, `trunk` did move to the new commit: we asked `jj` to fetch
 information from our origin, and so it's adjusted things to match. However, `@`
-is still at our current commit.
+is still at our current commit (ie. the empty commit created by `jj git push`).
 
 Let's fix that:
 
@@ -130,9 +137,9 @@ $ jj describe -m "add a comment to main"
 Working copy now at: vmunwxsk 9410db49 add a comment to main
 Parent commit      : ksrmwuon e202b67c trunk | Update Cargo.toml
 $ jj git push -c @
-Creating branch push-vmunwxsksqvk for revision @
-Branch changes to push to origin:
-  Add branch push-vmunwxsksqvk to 9410db49f9ba
+Creating bookmark push-vmunwxsksqvk for revision vmunwxsksqvk
+Changes to push to origin:
+  Add bookmark push-vmunwxsksqvk to 9410db49f9ba
 $ jj log
 @  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30.000 -06:00 push-vmunwxsksqvk 9410db49
 │  add a comment to main
