@@ -209,9 +209,9 @@ Working copy now at: kvupxvpv 2ea49586 (empty) second 80% done
 Parent commit      : zxyukunn 30081a6b push-zxyukunnwolo | (empty) first 80% done
 Added 0 files, modified 1 files, removed 0 files
 > jj log
-@  xsmqmnyv steve@steveklabnik.com 2024-03-17 14:43:28.000 -05:00 46cb6847
-│  (empty) second 80% done
-│ ◉        xnutwmso steve@steveklabnik.com 2024-03-17 14:30:52.000 -05:00 695806ff
+    @  kvupxvpv steve@steveklabnik.com 2024-03-17 14:43:28.000 -05:00 46cb6847
+    | (empty) second 80% done
+  ◉ |      xnutwmso steve@steveklabnik.com 2024-03-17 14:30:52.000 -05:00 695806ff
 ╭─┼─┬─┬─╮  (empty) merge: steve's branch
 ◉ │ │ │ │  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 push-vmunwxsksqvk 752534be
 │ │ │ │ │  add a new function
@@ -240,11 +240,11 @@ Added 0 files, modified 1 files, removed 0 files
 Yikes! Don't worry, we can fix that with a rebase: 
 
 ```console
-> jj rebase -r xn -d m -d ym -d yx -d r -d z
+> jj rebase -r xn -d m -d ym -d yx -d r -d kv
 ```
 
 We want to rebase the revision `xn` with the following "destination" revisions:
-`m`, `ym`, `yx`, `r`, and `z`. Since we have multiple parents, that's what will
+`m`, `ym`, `yx`, `r`, and `kv`. Since we have multiple parents, that's what will
 happen:
 
 ```console
