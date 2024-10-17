@@ -380,7 +380,7 @@ A - B - D
 ```
 
 Whereas `-s` operates more like I'd be used to with `git`: it takes the children
-too, so after `jj rebase -s B`, you'd have:
+too, so after `jj rebase -s C`, you'd have:
 
 ```text
 A - B
