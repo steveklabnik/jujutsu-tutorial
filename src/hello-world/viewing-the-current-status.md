@@ -47,7 +47,7 @@ A src\main.rs
 
 This is the first thing we need to talk about: unlike `git`, `jj` has no index.
 Wait, don't close the tab! Here's the thing: `jj` gives you the same ability to
-craft artisinal, beautiful commits that have exactly what you want in them. But
+craft artisanal, beautiful commits that have exactly what you want in them. But
 it doesn't need an index to do it.
 
 This is a running theme with `jj`: it gives you fewer tools, but those tools end
