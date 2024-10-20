@@ -28,7 +28,7 @@ Perfect. Now, this is kind of funny, but `jj` doesn't have an equivalent of
 a `.gitignore` file:
 
 ```console
-target
+/target/
 ```
 
 If you're using another language, you may want to add something like
