@@ -22,8 +22,8 @@ I know that sounds like a huge claim, but I believe that the rest of this
 tutorial will show you why.
 
 There's one other reason you should be interested in giving `jj` a try: it has
-a `git` compatible backend, and so you can use `jj` on your own, without anyone
-else you're working with to convert too. This means that there's no real
+a `git` compatible backend, and so you can use `jj` on your own, without requiring anyone
+else you're working with convert too. This means that there's no real
 downside to giving it a shot; if it's not for you, you're not giving up all of
 the history you wrote with it, and can go right back to `git` with no issues.
 
