@@ -29,7 +29,7 @@ That's quite different! We've got a few things going on here:
 * `change_id` and `description` are keywords that resolve to what you'd expect.
 * `first_line()` is a method on strings that returns the first line.
 
-What if we wanted a nicer change id? We can do that:
+What if we wanted a nicer change ID? We can do that:
 
 ```console
 $  jj log -r @- -T 'separate(" ", change_id.shortest(8), description.first_line())'
