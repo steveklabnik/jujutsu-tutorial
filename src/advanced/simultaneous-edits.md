@@ -365,7 +365,7 @@ the description from `jj rebase --help`:
 That's a little rough. There are some helpful diagrams in `jj rebase --help` that
 got me to understand the differences between `-r`, `-s`, and `-b`, but the short
 of it is that `-r` will sort of "rip out" a change and move it somewhere else.
-`-s` does that, but also moves desendants. In other words, imagine that we have
+`-s` does that, but also moves descendants. In other words, imagine that we have
 a history like this:
 
 ```text
