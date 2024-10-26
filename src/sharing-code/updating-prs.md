@@ -176,7 +176,7 @@ We can see that reflected on GitHub:
 
 ![a screenshot of github showing that our branch was force pushed](../images/force-push-pr.png)
 
-Only one commit, and it shows that our comment is on an outdated commit.
+Only one commit, and it shows that our comment is on an outdated diff.
 
 This is really "rewriting" more than "rebasing," but rebasing also involve
 rewriting history and you may additionally want to rebase 
