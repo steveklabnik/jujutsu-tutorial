@@ -29,7 +29,7 @@ And change the text of the comment in `src/main.rs`:
 
 ```rust
 /// A "Hello, world!" program.
-/// 
+///
 /// This is the best implementation of this program to ever exist.
 
 /// The main function runs when our program starts
@@ -149,7 +149,7 @@ Let's make it even more different: let's edit `src/main.rs` again:
 
 ```rust
 /// A "Hello, world!" program.
-/// 
+///
 /// This is the best implementation of this program to ever exist.
 
 /// The main function runs when our program starts
@@ -179,7 +179,7 @@ We can see that reflected on GitHub:
 Only one commit, and it shows that our comment is on an outdated diff.
 
 This is really "rewriting" more than "rebasing," but rebasing also involve
-rewriting history and you may additionally want to rebase 
+rewriting history and you may additionally want to rebase
 
 ## Rebasing with multiple changes
 
@@ -189,7 +189,7 @@ is so small, I'm going to do it by hand, changing `src/main.rs`:
 
 ```rust
 /// A "Hello, world!" program.
-/// 
+///
 /// This is the best implementation of this program to ever exist.
 
 /// add documentation for main
@@ -216,7 +216,7 @@ And then add some new functionality:
 
 ```rust
 /// A "Hello, world!" program.
-/// 
+///
 /// This is the best implementation of this program to ever exist.
 
 /// add documentation for main
@@ -234,7 +234,7 @@ fn print(m: &str) {
 Let's update our branch and push:
 
 ```console
-> jj branch set push-vmunwxsksqvk
+> jj bookmark set push-vmunwxsksqvk
 Moved 1 bookmarks to msmntwvo 8f7dcd91 push-vmunwxsksqvk* | add a new function
 > jj git push
 Changes to push to origin:
@@ -255,12 +255,13 @@ and update `src/main.rs`:
 
 ```rust
 /// A "Hello, world!" program.
-/// 
+///
 /// This is the best implementation of this program to ever exist.
 
 /// The main function runs when our program starts
 fn main() {
     print("Hello, world!");
+    print("Goodbye, world!");
 }
 
 // a function that prints a message
