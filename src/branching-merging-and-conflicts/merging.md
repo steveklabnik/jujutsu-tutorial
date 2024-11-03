@@ -176,7 +176,7 @@ $ jj rebase -r xrslwzvq -d pzoqtwuv
 This rebases a single revision with `-r`, to a certain destination revision,
 hence `-d`. Since our branch only had one revision, this would be the same as
 passing `-b xrslwzvq`, which would move the whole branch that revision is on,
-or `-s xrslqzvq`, which rebases that revision as well as all of its descendants.
+or `-s xrslwzvq`, which rebases that revision as well as all of its descendants.
 
 We didn't get any output though. Let's look at our log:
 
