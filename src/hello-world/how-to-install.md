@@ -7,10 +7,10 @@ For the full range of ways to install `jj`, you can visit the [Installation and
 Setup][install] page of the official documentation. Personally, because I am
 a Rust developer, and `jj` is written in Rust, I installed my copy like this:
 
-[install]: https://martinvonz.github.io/jj/v0.15.0/install-and-setup/
+[install]: https://martinvonz.github.io/jj/v0.23.0/install-and-setup/
 
 ```console
-$ cargo install jj-cli@0.15.1 --locked
+$ cargo install jj-cli@0.23.0 --locked
 ```
 
 If you're not a Rust developer, please read the documentation to figure out how
