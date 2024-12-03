@@ -1,6 +1,6 @@
 # How to install `jj`
 
-This tutorial is written when `jj` is at version 0.15.1. It may work for
+This tutorial is written when `jj` is at version 0.23.0. It may work for
 later versions, but you also may need to adapt.
 
 For the full range of ways to install `jj`, you can visit the [Installation and
