@@ -177,7 +177,7 @@ Then run `jj squash` to move the resolution into the conflicted commit.
 This advice is good, but also more complex than we need to do right now. Doing
 this is a great way to handle a complex resolution, where you want to double
 check what you've done before you apply the changes. But we are just using a
-small example to make a point. Therefore, we can just edit `povouosxlror` and
+small example to make a point. Therefore, we can just edit `povouosx` and
 remove the conflict markers directly:
 
 ```console
