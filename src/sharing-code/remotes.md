@@ -1,4 +1,4 @@
-# Working with remotes, aka, GitHub
+# Working with remotes, e.g., GitHub
 
 We're going to talk about working with remote `git` servers, and using GitHub as
 an example. The same principles apply to any given `git` server, though.
