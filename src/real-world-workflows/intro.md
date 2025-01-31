@@ -8,6 +8,6 @@ understanding the basics we've talked about wasn't tough, but when I actually
 sat down to *use* `jj`, I found myself tripping up a bit. With a few more
 commands, we can have nicer workflows that let us work a bit more naturally.
 
-We'll start with the "squash workflow," as it is the workflow that Martin
-himself prefers. We'll then talk about the "edit workflow," which is popular
-among people who don't like the squash workflow.
+We'll start with the "squash workflow," as it is the workflow that Martin, the
+creator of `jj`, prefers. We'll then talk about the "edit workflow," which is
+popular among people who don't like the squash workflow.
