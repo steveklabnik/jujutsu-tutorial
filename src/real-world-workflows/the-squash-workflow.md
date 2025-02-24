@@ -123,7 +123,7 @@ This will bring up a TUI!
 
 By default, it's showing a file-level view: we have our one file, and the `( )` indicates that
 we haven't selected to include this. We could do so by hitting space, and that
-will fill the parenthesis in with an x:
+will fill the parenthesis in with a ● (screenshot outdated and shows an x):
 
 ![same shot but with the box checked](../images/jj-squash-02.png)
 
