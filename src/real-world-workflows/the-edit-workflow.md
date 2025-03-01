@@ -108,7 +108,7 @@ We can see that `@` is at our new empty change, and that we have our original
 change, `ootnlvpt`, is after us. Some of you may recognize `ootnlvpt`: even
 though we rebased it on top of our current change, `nmptruqn`, the change ID
 is the same. The commit changed from `bb06f041` to `be40656e`, though. The
-change ID is stable, but we can keep track of how the change changes over time.
+change ID is stable, but we can keep track of how the commit changes over time.
 Neat.
 
 Anyway, now we can edit `@`. Let's change `src/main.rs`. When you first open
