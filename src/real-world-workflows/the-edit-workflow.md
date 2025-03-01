@@ -203,6 +203,6 @@ That's correct, `@` is at our original change.
 
 ## Recap and thoughts
 
-This workflow is also a good alternative. If your brain thinks this way better
+This workflow is also a good alternative. If your brain thinks this way is better
 than the other way, that's great! A nice thing about the flexibility of these
 tools is you can work with them how you'd like!
