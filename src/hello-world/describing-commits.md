@@ -19,7 +19,7 @@ The simplest way to use it is with the `-m`, or "message" flag. This allows us
 to pass the description on the command line:
 
 ```console
-$ jj describe -m "hello world!"
+$ jj describe -m "hello world"
 Working copy now at: yyrsmnoo 524d2bf4 hello world
 Parent commit      : zzzzzzzz 00000000 (empty) (no description set)
 ```
