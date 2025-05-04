@@ -178,8 +178,8 @@ We can see that reflected on GitHub:
 
 Only one commit, and it shows that our comment is on an outdated diff.
 
-This is really "rewriting" more than "rebasing," but rebasing also involve
-rewriting history and you may additionally want to rebase
+This is really "rewriting" more than "rebasing," but rebasing also involves
+rewriting history and you may additionally want to rebase.
 
 ## Rebasing with multiple changes
 
