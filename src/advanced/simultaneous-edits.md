@@ -290,7 +290,7 @@ Excellent.
 
 What happens when some changes land upstream, and we need to rebase our pull
 requests. If you're like me, you often have multiple PRs going at any given
-time. Rebasing them all can be very tedius. Here's how we can do that
+time. Rebasing them all can be very tedious. Here's how we can do that
 with this workflow.
 
 First, let's make a change upstream. I'm going to do this by merging [my open
