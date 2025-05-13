@@ -57,7 +57,7 @@ Parent commit      : ywnkulko 4bfe3940 (empty) print goodbye as well as hello
 
 We now have our change. It's also empty! There's no issue having two empty
 commits, one after the other. And since we are using this like an index, we
-dont really need to give it a name either. It's just a scratch space, but 
+don't really need to give it a name either. It's just a scratch space, but 
 since it's part of a change, we're "always committed" in a sense.
 
 Now it's time for the fun stuff.
@@ -137,7 +137,7 @@ navigate, and space to toggle if we're accepting these changes.
 
 Once we're done, we can hit `c` to confirm our changes. I'm not selecting any,
 since these were just nonsense stuff I wanted to add to show off the TUI. I
-dont want to keep them at all, so let's just dump them. We can get rid of
+don't want to keep them at all, so let's just dump them. We can get rid of
 the stuff in `@` with `jj abandon`:
 
 ```console
