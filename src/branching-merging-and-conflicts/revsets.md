@@ -28,8 +28,9 @@ example, remember how in the squash workflow, we would move the contents of
 the working directory into the parent change? Well, the `-` operator refers to
 the parent of a given revision, and `@` is the change referring to the current
 working directory, so we might say "we squashed the contents of `@` into `@-`.
-And in fact, `jj squash` is short for `jj squash -r @`. There are many operators,
-including, but not limited to:
+And in fact, `jj squash` is short for `jj squash -r @` or equivalently `jj
+squash --from @ --into @-`. There are many operators, including, but not
+limited to:
 
 * `x & y`: changes that are in both x and y
 * `x | y`: changes that are in either x or y
