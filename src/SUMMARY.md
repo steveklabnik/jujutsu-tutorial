@@ -23,7 +23,7 @@
 
 - [Sharing your code with others](sharing-code/intro.md)
     - [Using named branches in jj](sharing-code/named-branches.md)
-    - [Working with remotes, aka, GitHub](sharing-code/remotes.md)
+    - [Working with remotes, e.g., GitHub](sharing-code/remotes.md)
     - [Responding to pull request feedback](sharing-code/updating-prs.md)
     - [Updating trunk from upstream]()
     - [Using jj with Gerrit]()
