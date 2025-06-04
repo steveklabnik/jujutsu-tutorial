@@ -55,9 +55,8 @@ prefix and `uomrwxl` is in grey? Because this is the only change that starts wit
 to make them unique.
 
 It's very cool that the UI is communicating this to us! And, it's also why the
-format of change IDs is pretty cool: by using letters, there are less likely to
-be conflicts, which means these are very often very short, until your repository
-grows pretty large.
+format of change IDs is pretty cool: by only using letters K-Z, there will never
+be a conflict with a commit ID.
 
 There are many more secrets to `jj log`, but for now, this is enough to be
 able to go back and look at all of your changes, so we're gonna keep it
