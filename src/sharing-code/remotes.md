@@ -165,3 +165,21 @@ If you'd like to view this PR, you can find it
 time you look at it, some changes will have been made! Even the smallest pull
 requests get feedback sometimes, and we're gonna learn two ways of dealing with
 review comments in the next section.
+
+## Working with multiple remotes
+
+By default, `jj git push` will push to `origin`, requiring `--remote myfork`
+to push to a fork.
+
+If you wish to push to your fork by default, you can add this line of
+configuration:
+
+```toml
+[git]
+fetch = ["origin", "myfork"]
+push = "myfork"
+```
+
+This can either go in the repo-specific `.jj/repo/config.toml` or the global
+config if you expect most of your repos to have the same remotes.
+
