@@ -26,7 +26,7 @@
     - [Working with remotes, e.g., GitHub](sharing-code/remotes.md)
     - [Responding to pull request feedback](sharing-code/updating-prs.md)
     - [Updating trunk from upstream]()
-    - [Using jj with Gerrit]()
+    - [Using jj with Gerrit](sharing-code/gerrit.md)
 
 - [More advanced workflows](advanced/more-advanced-workflows.md)
     - [Working on all of your branches simultaneously](advanced/simultaneous-edits.md)
