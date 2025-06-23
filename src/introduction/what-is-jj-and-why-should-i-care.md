@@ -1,4 +1,4 @@
-# What is jj and why should I care?
+# What is `jj` and why should I care?
 
 `jj` is the name of the CLI for [Jujutsu][jj]. Jujutsu is a DVCS, or
 "distributed version control system." You may be familiar with other DVCSes,
