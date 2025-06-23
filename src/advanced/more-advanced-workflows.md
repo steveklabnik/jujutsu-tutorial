@@ -1,9 +1,9 @@
 # More advanced workflows
 
-One of the best parts about using a version control system is the ability to
-share that code with other people. So far, we've been using jj entirely on our
-own machine, but it's time to explore how we can interface with tools that let
-us collaborate.
+The workflows we've seen in `jj` are different from `git` in the best ways. As we
+get a bit more advanced, there are some very impressive possibilities yet to
+see. This section will also address an interesting aspect of interoperability
+between `jj` and `git`: colocated repositories.
 
 Here's what we're going to learn:
 
