@@ -1,4 +1,4 @@
-# Viewing the contents of your repository with jj log
+# Viewing the contents of your repository with `jj log`
 
 Let's look at our chain of changes:
 

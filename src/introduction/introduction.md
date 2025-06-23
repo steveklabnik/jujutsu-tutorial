@@ -24,13 +24,13 @@ some people never try again, and some who try don't get over the hump, but this
 used to happen quite often, enough to be remarkable. So that's what I decided
 with `jj`. I'd figure this stuff out later.
 
-Well, recently [Chris Krycho wrote an article about jj][chris]. I liked it. I
+Well, recently [Chris Krycho wrote an article about `jj`][chris]. I liked it. I
 didn't fully grok everything, but it at least felt like I could understand this
 thing finally maybe. I didn't install it, but just sat with it for a while.
 
 I don't know if that is why, but I awoke unusually early one morning. I
 couldn't get back to sleep. Okay. Fine. Let's do this. I opened up [the official
-jj tutorial][jj-vevo], installed `jj`, made this repository on GitHub, followed
+`jj` tutorial][jj-vevo], installed `jj`, made this repository on GitHub, followed
 the "cloning a git repo" instructions to pull it down, and started this mdBook.
 
 What follows is exactly what the title says: it's to teach me `jj`. I am
