@@ -106,12 +106,11 @@ $ jj log --limit 5
 That's right, we can undo our last command with a simple `jj undo`. We'll talk
 about it more in the future. But for now, it's like our merge never happened.
 
-Let's try merging both in at the same time:
+Let's try merging all three in at the same time:
 
 ```console
-$ jj new pzoqtwuv yykpmnuq xrslwzvq -m "merge two branches"
-Working copy now at: vuztuxmz 717232df (empty) merge two branches
-Parent commit      : pzoqtwuv 9353442b (empty) added some cool new feature
+$ jj new pzoqtwuv yykpmnuq xrslwzvq -m "merge three branches"
+Working copy now at: pzoqtwuv 9353442b (empty) added some cool new feature
 Parent commit      : yykpmnuq 210283e8 (empty) add better documentation
 Parent commit      : xrslwzvq a70d464c (empty) create hello and goodbye functions
 $ jj log --limit 6
