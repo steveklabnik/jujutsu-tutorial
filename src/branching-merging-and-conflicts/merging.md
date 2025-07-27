@@ -115,7 +115,7 @@ Parent commit      : yykpmnuq 210283e8 (empty) add better documentation
 Parent commit      : xrslwzvq a70d464c (empty) create hello and goodbye functions
 $ jj log --limit 6
 @      vuztuxmz steve@steveklabnik.com 2024-03-01 15:38:49.000 -06:00 717232df
-├─┬─╮  (empty) merge two branches
+├─┬─╮  (empty) merge three branches
 │ │ ◉  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
 │ │ │  (empty) create hello and goodbye functions
 │ ◉ │  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
