@@ -158,6 +158,19 @@ Whew! What a change! Five parents. Let's create an extra one so we can use our
 squash-style workflow more easily: we temporarily work on a `@` change, and then
 `jj squash` diffs back into whichever parent makes the most sense.
 
+> **Tip: `jj absorb` — redistribute edits back into the right branches.**
+> When your working copy (`@`) contains edits that belong to multiple PRs, `jj absorb` will push those edits into the nearest mutable ancestors instead of you manually splitting and rebase-ing.
+> Example:
+>
+> ```sh
+> jj absorb         # absorb from @ into appropriate mutable parents
+> jj absorb src/    # limit to a file tree
+> jj absorb -f @ -t mutable()  # explicit source/target
+> jj op show -p     # inspect the planned moves
+> ```
+>
+> Use it after developing across several branches in one working copy — it saves the cut-and-paste + rebase chore by automatically redistributing changes where they belong.
+
 ```console
 > jj new
 Working copy now at: nllzosqm 85324040 (empty) (no description set)
