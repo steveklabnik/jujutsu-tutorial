@@ -21,7 +21,7 @@ Working copy : puomrwxl 01a35aad (empty) (no description set)
 Parent commit: yyrsmnoo ac691d85 hello world
 ```
 
-Nice, a clean working directory: all of our changes were made in `yyrsmnoo`, and
+Nice, a clean working copy: all of our changes were made in `yyrsmnoo`, and
 we're starting this change fresh.
 
 We now technically have a very primitive, but near-complete, workflow. That's

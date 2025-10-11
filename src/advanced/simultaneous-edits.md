@@ -211,10 +211,10 @@ Check out this `jj log`:
 
 Glorious!
 
-So now our working directory has all of our changes in it. We can make changes,
-and then `jj squash` them into the appropriate branch. If we decide we want a
-new change at the head of any of these branches, we'll need to use a rebase,
-but it's not too bad:
+So now our working copy has all of our changes in it. We can make changes, and
+then `jj squash` them into the appropriate branch. If we decide we want a new
+change at the head of any of these branches, we'll need to use a rebase, but
+it's not too bad:
 
 ```console
 > jj new z -m "second 80% done"

@@ -211,8 +211,8 @@ working copy, and if that's in conflict, it has to be fixed or the next commit
 is nonsense. We'll talk about how `jj` handles conflicts shortly, but as I
 said before: rebases *always* succeed in `jj`. So this change is quick: it's
 only modifying information in the repository, not touching any of the files we
-have in our working directory. This also means our working directory hasn't
-changed, so `@` is in the same place it was before the rebase.
+have in our working copy. This also means our working copy hasn't changed, so
+`@` is in the same place it was before the rebase.
 
 Some commands do move `@` by default, like `jj new`. This is because if you're
 creating a new change, you probably want to start working on it. But it has a
