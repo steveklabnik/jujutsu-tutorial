@@ -37,14 +37,14 @@ new change:
 
 ```console
 > jj new
-Working copy now at: moxnkoxx 3f14c03f (empty) (no description set)
-Parent commit      : ytkvxlpy 7ec11c41 trunk | remove goodbye message
+Working copy now at: pzkrzopz 3f14c03f (empty) (no description set)
+Parent commit      : povouosx 7ec11c41 trunk | remove goodbye message
 > jj log
-@  moxnkoxx steve@steveklabnik.com 2024-03-17 17:10:57.000 -05:00 3f14c03f
+@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37.000 -06:00 fcf669c5
 │  (empty) (no description set)
-│ ◉  qtlkpytx steve@steveklabnik.com 2024-03-17 17:09:25.000 -05:00 e6667f9e
+│ ◉  qtlkpytx steve@steveklabnik.com 2024-03-01 20:09:25.000 -06:00 e6667f9e
 ├─╯  (empty) (no description set)
-◉  ytkvxlpy steve@steveklabnik.com 2024-03-17 17:09:25.000 -05:00 trunk 7ec11c41
+◉  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 trunk f68d1623
 │  remove goodbye message
 ```
 
@@ -55,15 +55,15 @@ let's forget about it:
 > jj abandon qt
 Abandoned commit qtlkpytx e6667f9e (empty) (no description set)
 > jj log --limit 3
-@  moxnkoxx steve@steveklabnik.com 2024-03-17 17:10:57.000 -05:00 3f14c03f
+@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37.000 -06:00 trunk fcf669c5
 │  (empty) (no description set)
-◉  ytkvxlpy steve@steveklabnik.com 2024-03-17 17:09:25.000 -05:00 trunk 7ec11c41
+◉  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 trunk f68d1623
 │  remove goodbye message
-◉  krmulszn steve@steveklabnik.com 2024-03-17 17:06:59.000 -05:00 e98c1626
+◉  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07.000 -06:00 d41c079b
 │  refactor printing
 ```
 
-Even though `@` has moved to `moxnkoxx`, `trunk` is still at `ytkvxlpy`. This
+Even though `@` has moved to `pzkrzopz`, `trunk` is still at `povouosx`. This
 behavior is a bit surprising for folks coming from `git`, though it fits in with
 `jj` more nicely, I think.
 
