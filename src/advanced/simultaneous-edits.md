@@ -401,7 +401,7 @@ A - B
 
 as both `C` and `D` are somewhere else now. `-b` works to rebase a branch.
 
-The next part, `all:' is a prefix. What's the prefix do? Well, let's try running
+The next part, `all:` is a prefix. What's the prefix do? Well, let's try running
 the command without it:
 
 ```console
