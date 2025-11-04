@@ -55,7 +55,7 @@ let's forget about it:
 > jj abandon qt
 Abandoned commit qtlkpytx e6667f9e (empty) (no description set)
 > jj log --limit 3
-@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37.000 -06:00 trunk fcf669c5
+@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37.000 -06:00 fcf669c5
 │  (empty) (no description set)
 ◉  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 trunk f68d1623
 │  remove goodbye message
