@@ -1,7 +1,6 @@
 [book]
 authors = ["Steve Klabnik"]
 language = "en"
-multilingual = false
 src = "src"
 title = "Steve's Jujutsu Tutorial"
 
