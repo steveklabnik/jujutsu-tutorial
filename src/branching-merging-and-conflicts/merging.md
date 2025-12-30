@@ -169,11 +169,11 @@ rebasing a single change. Let's rebase our "create hello and goodbye functions"
 change on top of our current change:
 
 ```console
-$ jj rebase -r xrslwzvq -d pzoqtwuv
+$ jj rebase -r xrslwzvq -o pzoqtwuv
 ```
 
-This rebases a single revision with `-r`, to a certain destination revision,
-hence `-d`. Since our branch only had one revision, this would be the same as
+This rebases a single revision with `-r`, *onto* a certain destination revision,
+hence `-o`. Since our branch only had one revision, this would be the same as
 passing `-b xrslwzvq`, which would move the whole branch that revision is on,
 or `-s xrslwzvq`, which rebases that revision as well as all of its descendants.
 
@@ -277,7 +277,7 @@ $ jj log --limit 5
 We can now rebase our other change on top too:
 
 ```console
-$ jj rebase -r yykpmnuq -d xrslwzvq
+$ jj rebase -r yykpmnuq -o xrslwzvq
 $ jj log --limit 5
 ◉  yykpmnuq steve@steveklabnik.com 2024-03-01 16:35:47.000 -06:00 7bea29b6
 │  (empty) add better documentation

@@ -94,7 +94,7 @@ Everything looks to be in order. Let's rebase our goodbye message change onto
 our refactor printing change:
 
 ```rust
-$ jj rebase -r povouosx -d @
+$ jj rebase -r povouosx -o @
 New conflicts appeared in these commits:
   povouosx 793ce8e0 (conflict) remove goodbye message
 To resolve the conflicts, start by updating to it:

@@ -253,10 +253,10 @@ Added 0 files, modified 1 files, removed 0 files
 Yikes! Don't worry, we can fix that with a rebase: 
 
 ```console
-> jj rebase -r xn -d m -d ym -d yx -d r -d kv
+> jj rebase -r xn -o m -o ym -o yx -o r -o kv
 ```
 
-We want to rebase the revision `xn` with the following "destination" revisions:
+We want to rebase the revision `xn` "onto" the following destination revisions:
 `m`, `ym`, `yx`, `r`, and `kv`. Since we have multiple parents, that's what will
 happen:
 
@@ -359,7 +359,7 @@ above that that is true.
 We can rebase all of our PRs with one command:
 
 ```console
-> jj rebase -s 'all:roots(trunk..@)' -d trunk
+> jj rebase -s 'all:roots(trunk..@)' -o trunk
 Rebased 14 commits
 Working copy now at: ltupzukw 9a496ef6 (empty) (no description set)
 Parent commit      : xnutwmso 6be25a32 (empty) merge: steve's branch
@@ -405,7 +405,7 @@ The next part, `all:` is a prefix. What's the prefix do? Well, let's try running
 the command without it:
 
 ```console
-> jj rebase -s 'roots(trunk..@)' -d trunk
+> jj rebase -s 'roots(trunk..@)' -o trunk
 Error: Revset "roots(trunk..@)" resolved to more than one revision
 Hint: The revset "roots(trunk..@)" resolved to these revisions:
 opwqpunl ba100a96 (empty) display the birthday date on the settings page
@@ -438,7 +438,7 @@ themselves. The roots of the tree.
 Let's put it all together:
 
 ```console
-$ jj rebase -s 'all:roots(trunk..@)' -d trunk
+$ jj rebase -s 'all:roots(trunk..@)' -o trunk
 ```
 
 > We're rebasing all of the root changes from `trunk` to `@` onto `trunk`.
