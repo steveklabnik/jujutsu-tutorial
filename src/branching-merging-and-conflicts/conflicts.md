@@ -93,7 +93,7 @@ $ jj log --limit 3
 Everything looks to be in order. Let's rebase our goodbye message change onto
 our refactor printing change:
 
-```rust
+```console
 $ jj rebase -r povouosx -o @
 New conflicts appeared in these commits:
   povouosx 793ce8e0 (conflict) remove goodbye message
