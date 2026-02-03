@@ -52,8 +52,8 @@ More complex functions can take arguments:
 * `parents(x)`: the parent changes of `x`
 * `ancestors(x)`: the same as `::x`, but see the next example
 * `ancestors(x, depth)`: limits the results to a certain depth, which you can't do with the `::x` syntax
-* `heads(x)`: commits in `x` that are not ancestors of other commits in `x`.
-* `description(x)`: commits that have `x` in their description
+* `heads(x)`: commits in `x` that are not ancestors of other commits in `x`
+* `description(substring:x)`: commits that have a substring `x` in their description
 
 ## Putting it all together
 
@@ -64,7 +64,7 @@ Revsets are very powerful, and very convenient. Would you like to find every
 commit by me containing the word "print" in the description? Try this:
 
 ```console
-$ jj log -r 'author("Steve Klabnik") & description(print)'
+$ jj log -r 'author("Steve Klabnik") & description(substring:print)'
 ```
 
 Another really useful revset function is `trunk()`:
