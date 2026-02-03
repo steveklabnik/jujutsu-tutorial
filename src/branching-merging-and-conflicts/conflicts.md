@@ -105,6 +105,9 @@ Then run `jj squash` to move the resolution into the conflicted commit.
 ```
 
 Wait a minute, I thought I told you that rebases always succeed. Well... it did:
+(And, as an aside, `povouosxlror` is giving a few more letters of the change ID
+than `povouosx` used elsewhere. Both can be used interchangeably at this point
+as there's only one commit that starts like this.)
 
 ```console
 > jj log --limit 3
