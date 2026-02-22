@@ -49,5 +49,5 @@ Anyway, let's get on with it.
 [jj]: https://github.com/martinvonz/jj
 [r4r]: https://github.com/steveklabnik/rust_for_rubyists
 [chris]: https://v5.chriskrycho.com/essays/jj-init/
-[jj-vevo]: https://martinvonz.github.io/jj/v0.13.0/tutorial/
+[jj-vevo]: https://docs.jj-vcs.dev/v0.13.0/tutorial/
 [github]: https://github.com/steveklabnik/jujutsu-tutorial
