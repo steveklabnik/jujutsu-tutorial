@@ -9,10 +9,9 @@ and contrasting the two is interesting.
 
 The workflow goes like this:
 
-1. We describe the work we want to do.
-2. We create a new empty change on top of that one.
-3. As we produce work we want to put into our change, we use `jj squash` to move
-   changes from `@` into the change where we described what to do.
+1. We describe the work we want to do, in the current change (call it `C`).
+2. We create a new empty change (now called `@`) on top of `C`.
+3. As we produce work, we use `jj squash` to move that work from `@` into `C`.
 
 In some senses, this workflow is like using the `git` index, where we have our
 list of current changes (in `@`), and we pull the ones we want into our commit
