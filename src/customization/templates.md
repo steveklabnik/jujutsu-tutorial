@@ -44,4 +44,4 @@ Templates are powerful, and let you do a lot of interesting things. I would
 suggest reading [the documentation on templates][templates] to learn all of the
 details.
 
-[templates]: https://jj-vcs.github.io/jj/latest/templates/
+[templates]: https://docs.jj-vcs.dev/latest/templates/
