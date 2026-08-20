@@ -17,9 +17,9 @@ Before we push our commit up, we need to fix our repository:
 
 ```console
 $ jj log --limit 2
-@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37.000 -06:00 trunk fcf669c5
+@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37 trunk fcf669c5
 │  (empty) (no description set)
-◉  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 f68d1623
+○  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 f68d1623
 │  remove goodbye message
 ```
 
@@ -28,16 +28,17 @@ do that like this:
 
 ```console
 $ jj edit @-
-Working copy now at: povouosx f68d1623 remove goodbye message
-Parent commit      : vvmrvwuz d41c079b refactor printing
+Working copy  (@) now at: povouosx f68d1623 remove goodbye message
+Parent commit (@-)      : vvmrvwuz d41c079b refactor printing
 $ jj bookmark set trunk --allow-backwards
-Moved 1 bookmarks to povouosx f68d1623 | remove goodbye message
+Moved 1 bookmarks to povouosx f68d1623 trunk | remove goodbye message
 $ jj abandon pzkrzopz
-Abandoned commit pzkrzopz fcf669c5 (empty) (no description set)
+Abandoned 1 commits:
+  pzkrzopz fcf669c5 (empty) (no description set)
 $ jj log --limit 2
-@  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 trunk f68d1623
+@  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 trunk f68d1623
 │  remove goodbye message
-◉  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07.000 -06:00 d41c079b
+○  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
 │  refactor printing
 ```
 
@@ -46,16 +47,25 @@ commit because it is a dangerous operation: if we had pushed `trunk`, things
 would get weird when we try and push now. We've kept it all local, so there's no
 issues with doing this.
 
-Anyway, let's push `trunk` up to GitHub:
+Anyway, let's push `trunk` up to GitHub. A bare `jj git push` won't do it:
+`jj` refuses to create a bookmark on the remote that it doesn't already know
+about, so we have to name it explicitly with `-b`:
 
 ```console
 $ jj git push
+Warning: Refusing to create new remote bookmark trunk@origin
+Hint: Run `jj bookmark track trunk@origin` and try again.
+Nothing changed.
+$ jj git push -b trunk
 Changes to push to origin:
-  Add bookmark trunk to f68d16233bdc
-Warning: The working-copy commit in workspace 'default' became immutable, so a new commit has been created on top of it.
-Working copy now at: znurnwmk f853107d (empty) (no description set)
-Parent commit      : povouosx f68d1623 | remove goodbye message
+  bookmark: trunk [add to f68d16233bdc]
+Warning: The working-copy commit became immutable; a new commit has been created on top of it.
+Working copy  (@) now at: znurnwmk f853107d (empty) (no description set)
+Parent commit (@-)      : povouosx f68d1623 trunk | remove goodbye message
 ```
+
+Once the bookmark exists on the remote and is tracked, a bare `jj git push` is
+enough for subsequent pushes.
 
 And now our project is up on GitHub!
 
@@ -79,11 +89,11 @@ Let's fetch those changes:
 $ jj git fetch
 bookmark: trunk@origin [updated] tracked
 $ jj log --limit 3
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
-│ @  znurnwmk steve@steveklabnik.com 2024-03-01 18:15:00.000 f853107d
+│ @  znurnwmk steve@steveklabnik.com 2024-03-01 18:15:00 f853107d
 ├─╯  (empty) (no description set)
-@  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 f68d1623
+◆  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 f68d1623
 │  remove goodbye message
 ~
 ```
@@ -96,8 +106,8 @@ Let's fix that:
 
 ```console
 $ jj new trunk
-Working copy now at: vmunwxsk be917d2e (empty) (no description set)
-Parent commit      : ksrmwuon e202b67c trunk | Update Cargo.toml
+Working copy  (@) now at: vmunwxsk be917d2e (empty) (no description set)
+Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 Added 0 files, modified 1 files, removed 0 files
 ```
 
@@ -134,16 +144,16 @@ Then let's add a description, and push our change to GitHub so we can make a PR:
 
 ```console
 $ jj describe -m "add a comment to main"
-Working copy now at: vmunwxsk 9410db49 add a comment to main
-Parent commit      : ksrmwuon e202b67c trunk | Update Cargo.toml
+Working copy  (@) now at: vmunwxsk 9410db49 add a comment to main
+Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 $ jj git push -c @
 Creating bookmark push-vmunwxsksqvk for revision vmunwxsksqvk
 Changes to push to origin:
-  Add bookmark push-vmunwxsksqvk to 9410db49f9ba
+  bookmark: push-vmunwxsksqvk [add to 9410db49f9ba]
 $ jj log
-@  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30.000 -06:00 push-vmunwxsksqvk 9410db49
+@  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30 push-vmunwxsksqvk 9410db49
 │  add a comment to main
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 ~
 ```

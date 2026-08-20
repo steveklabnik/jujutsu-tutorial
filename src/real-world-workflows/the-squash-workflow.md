@@ -24,21 +24,21 @@ Let's recap where we are in our project: `@` currently is an empty commit:
 
 ```console
 > jj log
-@  ywnkulko steve@steveklabnik.com 2024-02-28 20:40:00.000 -06:00 46b50ed7
+@  ywnkulko steve@steveklabnik.com 2024-02-28 20:40:00 46b50ed7
 │  (empty) (no description set)
-◉  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13.000 -06:00 7a096b8a
+○  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13 7a096b8a
 │  it's important to comment our code
-◉  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56.000 -06:00 ac691d85
+○  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56 ac691d85
 │  hello world
-◉  zzzzzzzz root() 00000000
+◆  zzzzzzzz root() 00000000
 ```
 
 Let's describe the work that we want to do:
 
 ```console
 $ jj describe -m "print goodbye as well as hello"
-Working copy now at: ywnkulko 4bfe3940 (empty) print goodbye as well as hello
-Parent commit      : puomrwxl 7a096b8a it's important to comment our code
+Working copy  (@) now at: ywnkulko 4bfe3940 (empty) print goodbye as well as hello
+Parent commit (@-)      : puomrwxl 7a096b8a it's important to comment our code
 ```
 
 This change is currently empty, but we've now given it a useful name. This
@@ -51,8 +51,8 @@ our commit or not. So let's make a new one:
 
 ```console
 $ jj new
-Working copy now at: rkvxolny 5e020e00 (empty) (no description set)
-Parent commit      : ywnkulko 4bfe3940 (empty) print goodbye as well as hello
+Working copy  (@) now at: rkvxolny 5e020e00 (empty) (no description set)
+Parent commit (@-)      : ywnkulko 4bfe3940 (empty) print goodbye as well as hello
 ```
 
 We now have our change. It's also empty! There's no issue having two empty
@@ -80,9 +80,9 @@ Now that our "feature" has been implemented, let's see our current changes:
 ```console
 $ jj st
 Working copy changes:
-M src\main.rs
-Working copy : rkvxolny aee5266d (no description set)
-Parent commit: ywnkulko 4bfe3940 (empty) print goodbye as well as hello
+M src/main.rs
+Working copy  (@) : rkvxolny aee5266d (no description set)
+Parent commit (@-): ywnkulko 4bfe3940 (empty) print goodbye as well as hello
 ```
 
 We now have an even wilder situation than before: our current change has stuff
@@ -92,8 +92,8 @@ from our "staging area" and put it into our commit (change). We can do that with
 
 ```console
 $ jj squash
-Working copy now at: oopolqyp 9fb63b14 (empty) (no description set)
-Parent commit      : ywnkulko ed71bb54 print goodbye as well as hello
+Working copy  (@) now at: oopolqyp 9fb63b14 (empty) (no description set)
+Parent commit (@-)      : ywnkulko ed71bb54 print goodbye as well as hello
 ```
 
 Lots of changes here! `@` is now empty, with no description, and the parent is
@@ -142,9 +142,10 @@ the stuff in `@` with `jj abandon`:
 
 ```console
 $ jj abandon
-Abandoned commit oopolqyp 44665581 (no description set)
-Working copy now at: ootnlvpt 97b7a559 (empty) (no description set)
-Parent commit      : ywnkulko ed71bb54 print goodbye as well as hello
+Abandoned 1 commits:
+  oopolqyp 44665581 (no description set)
+Working copy  (@) now at: ootnlvpt 97b7a559 (empty) (no description set)
+Parent commit (@-)      : ywnkulko ed71bb54 print goodbye as well as hello
 Added 0 files, modified 1 files, removed 0 files
 ```
 

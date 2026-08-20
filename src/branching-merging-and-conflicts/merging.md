@@ -4,11 +4,11 @@ Let's recall where we are:
 
 ```console
 > jj log
-@  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
+@  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
 │  (empty) create hello and goodbye functions
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
 ```
 
@@ -19,23 +19,23 @@ on our main branch while we were doing the work:
 
 ```console
 > jj new o -m "added some cool new feature"
-Working copy now at: pzoqtwuv 9353442b (empty) added some cool new feature
-Parent commit      : ootnlvpt b5db7940 only print hello world
+Working copy  (@) now at: pzoqtwuv 9353442b (empty) added some cool new feature
+Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 ```
 
 Let's take a look:
 
 ```console
 > jj log --limit 5
-@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
+│ ○  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
 ├─╯  (empty) create hello and goodbye functions
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -45,8 +45,8 @@ is already getting a little long.
 ## Merging branches
 
 Now, you may expect that you'd use a command like `jj merge` to merge branches
-together. However, as of `0.14.0`, `jj merge` is deprecated, and will be removed
-some time later this year. So how the heck do we create merges?
+together. There is no such command: it was deprecated in `0.14.0` and has since
+been removed. So how the heck do we create merges?
 
 Well, what is a merge anyway? It's a new change that has more than one parent.
 How do we make new changes? With `jj new`. So let's ask it to make a change that
@@ -54,9 +54,9 @@ has both `pzoqtwuv` and `yykpmnuq` as parents:
 
 ```console
 > jj new pzoqtwuv yykpmnuq -m "merge better documentation"
-Working copy now at: rxzyvnkx f1c1bde8 (empty) merge better documentation
-Parent commit      : pzoqtwuv 9353442b (empty) added some cool new feature
-Parent commit      : yykpmnuq 210283e8 (empty) add better documentation
+Working copy  (@) now at: rxzyvnkx f1c1bde8 (empty) merge better documentation
+Parent commit (@-)      : pzoqtwuv 9353442b (empty) added some cool new feature
+Parent commit (@-)      : yykpmnuq 210283e8 (empty) add better documentation
 ```
 
 Just like we'd pass a parent revision to `jj new`, we can pass multiple parents,
@@ -65,17 +65,17 @@ choosing six as the limit since we just added a new change:
 
 ```console
 > jj log --limit 6
-@    rxzyvnkx steve@steveklabnik.com 2024-03-01 15:21:11.000 -06:00 f1c1bde8
+@    rxzyvnkx steve@steveklabnik.com 2024-03-01 15:21:11 f1c1bde8
 ├─╮  (empty) merge better documentation
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 │ │  (empty) add better documentation
-◉ │  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+○ │  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 ├─╯  (empty) added some cool new feature
-│ ◉  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
+│ ○  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
 ├─╯  (empty) create hello and goodbye functions
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -88,18 +88,20 @@ I haven't told you about yet:
 
 ```console
 $ jj undo
-Working copy now at: pzoqtwuv 9353442b (empty) added some cool new feature
-Parent commit      : ootnlvpt b5db7940 only print hello world
+Undid operation: 4a1f0e6c8b2d (2024-03-01 15:21:11) new empty commit
+Restored to operation: 91c33bb0d5ef (2024-03-01 15:06:59) new empty commit
+Working copy  (@) now at: pzoqtwuv 9353442b (empty) added some cool new feature
+Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 $ jj log --limit 5
-@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
+│ ○  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
 ├─╯  (empty) create hello and goodbye functions
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -110,21 +112,22 @@ Let's try merging all three in at the same time:
 
 ```console
 $ jj new pzoqtwuv yykpmnuq xrslwzvq -m "merge three branches"
-Working copy now at: pzoqtwuv 9353442b (empty) added some cool new feature
-Parent commit      : yykpmnuq 210283e8 (empty) add better documentation
-Parent commit      : xrslwzvq a70d464c (empty) create hello and goodbye functions
+Working copy  (@) now at: vuztuxmz 717232df (empty) merge three branches
+Parent commit (@-)      : pzoqtwuv 9353442b (empty) added some cool new feature
+Parent commit (@-)      : yykpmnuq 210283e8 (empty) add better documentation
+Parent commit (@-)      : xrslwzvq a70d464c (empty) create hello and goodbye functions
 $ jj log --limit 6
-@      vuztuxmz steve@steveklabnik.com 2024-03-01 15:38:49.000 -06:00 717232df
+@      vuztuxmz steve@steveklabnik.com 2024-03-01 15:38:49 717232df
 ├─┬─╮  (empty) merge three branches
-│ │ ◉  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
+│ │ ○  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
 │ │ │  (empty) create hello and goodbye functions
-│ ◉ │  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○ │  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 │ ├─╯  (empty) add better documentation
-◉ │  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+○ │  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 ├─╯  (empty) added some cool new feature
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -147,18 +150,20 @@ Let's undo our merge again:
 
 ```console
 $ jj undo
-Working copy now at: pzoqtwuv 9353442b (empty) added some cool new feature
-Parent commit      : ootnlvpt b5db7940 only print hello world
+Undid operation: 4a1f0e6c8b2d (2024-03-01 15:21:11) new empty commit
+Restored to operation: 91c33bb0d5ef (2024-03-01 15:06:59) new empty commit
+Working copy  (@) now at: pzoqtwuv 9353442b (empty) added some cool new feature
+Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 $ jj log --limit 5
-@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
+│ ○  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
 ├─╯  (empty) create hello and goodbye functions
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -170,6 +175,7 @@ change on top of our current change:
 
 ```console
 $ jj rebase -r xrslwzvq -o pzoqtwuv
+Rebased 1 commits to destination.
 ```
 
 This rebases a single revision with `-r`, *onto* a certain destination revision,
@@ -177,19 +183,19 @@ hence `-o`. Since our branch only had one revision, this would be the same as
 passing `-b xrslwzvq`, which would move the whole branch that revision is on,
 or `-s xrslwzvq`, which rebases that revision as well as all of its descendants.
 
-We didn't get any output though. Let's look at our log:
+Note that the working copy didn't move. Let's look at our log:
 
 ```console
 $ jj log --limit 5
-◉  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37.000 -06:00 6c4afc8f
+○  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37 6c4afc8f
 │  (empty) create hello and goodbye functions
-@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -222,17 +228,17 @@ flag you can pass instead to create a new change but not modify `@`:
 $ jj new -m "not gonna start this yet" --no-edit
 Created new commit owlpoptm df6620cb (empty) not gonna start this yet
 $ jj log --limit 6
-◉  owlpoptm steve@steveklabnik.com 2024-03-01 16:28:54.000 -06:00 df6620cb
+○  owlpoptm steve@steveklabnik.com 2024-03-01 16:28:54 df6620cb
 │  (empty) not gonna start this yet
-│ ◉  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37.000 -06:00 6c4afc8f
+│ ○  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37 6c4afc8f
 ├─╯  (empty) create hello and goodbye functions
-@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -240,16 +246,18 @@ New change, yet we're still where we are. Let's undo that real quick:
 
 ```console
 $ jj undo
+Undid operation: 7d2b41ac9e08 (2024-03-01 16:28:54) new empty commit
+Restored to operation: 1e5f77c2ab3d (2024-03-01 16:08:37) rebase commit
 $ jj log --limit 5
-◉  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37.000 -06:00 6c4afc8f
+○  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37 6c4afc8f
 │  (empty) create hello and goodbye functions
-@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -259,18 +267,18 @@ but what about when we *do* want to move `@`? Well, the fact that the
 
 ```console
 $ jj edit xrslwzvq
-Working copy now at: xrslwzvq 6c4afc8f (empty) create hello and goodbye functions
-Parent commit      : pzoqtwuv 9353442b (empty) added some cool new feature
+Working copy  (@) now at: xrslwzvq 6c4afc8f (empty) create hello and goodbye functions
+Parent commit (@-)      : pzoqtwuv 9353442b (empty) added some cool new feature
 $ jj log --limit 5
-@  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37.000 -06:00 6c4afc8f
+@  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37 6c4afc8f
 │  (empty) create hello and goodbye functions
-◉  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+○  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -278,16 +286,17 @@ We can now rebase our other change on top too:
 
 ```console
 $ jj rebase -r yykpmnuq -o xrslwzvq
+Rebased 1 commits to destination.
 $ jj log --limit 5
-◉  yykpmnuq steve@steveklabnik.com 2024-03-01 16:35:47.000 -06:00 7bea29b6
+○  yykpmnuq steve@steveklabnik.com 2024-03-01 16:35:47 7bea29b6
 │  (empty) add better documentation
-@  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37.000 -06:00 6c4afc8f
+@  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37 6c4afc8f
 │  (empty) create hello and goodbye functions
-◉  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+○  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -297,8 +306,8 @@ isn't that hard. But we can also use a revset:
 
 ```console
 $ jj edit @+
-Working copy now at: yykpmnuq 7bea29b6 (empty) add better documentation
-Parent commit      : xrslwzvq 6c4afc8f (empty) create hello and goodbye functions
+Working copy  (@) now at: yykpmnuq 7bea29b6 (empty) add better documentation
+Parent commit (@-)      : xrslwzvq 6c4afc8f (empty) create hello and goodbye functions
 ```
 
 `+` means "the child of this revision", so `@+` is "the child revision of the

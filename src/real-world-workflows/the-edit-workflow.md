@@ -32,8 +32,8 @@ But since we have an empty change, what we'll actually do is:
 
 ```console
 > jj describe -m "only print hello world"
-Working copy now at: ootnlvpt bb06f041 (empty) only print hello world
-Parent commit      : ywnkulko ed71bb54 print goodbye as well as hello
+Working copy  (@) now at: ootnlvpt bb06f041 (empty) only print hello world
+Parent commit (@-)      : ywnkulko ed71bb54 print goodbye as well as hello
 ```
 
 We are now ready to do some work.
@@ -65,9 +65,9 @@ Let's try this:
 
 ```console
 $ jj new -B @ -m "add more comments"
-Rebased 1 descendant commits
-Working copy now at: nmptruqn 30a1f33b (empty) add more comments
-Parent commit      : ywnkulko ed71bb54 print goodbye as well as hello
+Rebased 1 descendant commits.
+Working copy  (@) now at: nmptruqn 30a1f33b (empty) add more comments
+Parent commit (@-)      : ywnkulko ed71bb54 print goodbye as well as hello
 Added 0 files, modified 1 files, removed 0 files
 ```
 
@@ -77,7 +77,7 @@ We have a new flag to `jj new`, `-B`. This says to create the new change
 The first line of the output should raise some eyebrows:
 
 ```text
-Rebased 1 descendant commits
+Rebased 1 descendant commits.
 ```
 
 That's right, because we have created a change before the one we're on, it
@@ -91,17 +91,17 @@ In the meantime, let's examine our log:
 
 ```console
 $ jj log
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 22:59:46.000 -06:00 be40656e
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 22:59:46 be40656e
 │  only print hello world
-@  nmptruqn steve@steveklabnik.com 2024-02-28 22:59:46.000 -06:00 30a1f33b
+@  nmptruqn steve@steveklabnik.com 2024-02-28 22:59:46 30a1f33b
 │  (empty) add more comments
-◉  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40.000 -06:00 ed71bb54
+○  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40 ed71bb54
 │  print goodbye as well as hello
-◉  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13.000 -06:00 7a096b8a
+○  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13 7a096b8a
 │  it's important to comment our code
-◉  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56.000 -06:00 ac691d85
+○  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56 ac691d85
 │  hello world
-◉  zzzzzzzz root() 00000000
+◆  zzzzzzzz root() 00000000
 ```
 
 We can see that `@` is at our new empty change, and that we have our original
@@ -141,11 +141,11 @@ This is very silly. Regardless, we have finished. Let's see our current status:
 
 ```console
 $ jj st
-Rebased 1 descendant commits onto updated working copy
+Rebased 1 descendant commits onto updated working copy.
 Working copy changes:
-M src\main.rs
-Working copy : nmptruqn 90a2e97f add more comments
-Parent commit: ywnkulko ed71bb54 print goodbye as well as hello
+M src/main.rs
+Working copy  (@) : nmptruqn 90a2e97f add more comments
+Parent commit (@-): ywnkulko ed71bb54 print goodbye as well as hello
 ```
 
 Yet again, a rebase. Because we have changed the contents of our change,
@@ -172,8 +172,8 @@ simpler command:
 
 ```console
 $ jj next --edit
-Working copy now at: ootnlvpt e13b2585 only print hello world
-Parent commit      : nmptruqn 90a2e97f refactor printing
+Working copy  (@) now at: ootnlvpt e13b2585 only print hello world
+Parent commit (@-)      : nmptruqn 90a2e97f refactor printing
 Added 0 files, modified 1 files, removed 0 files
 ```
 
@@ -186,17 +186,17 @@ Let's double check with `jj log`:
 
 ```console
 $ jj log
-@  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+@  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  add more comments
-◉  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40.000 -06:00 ed71bb54
+○  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40 ed71bb54
 │  print goodbye as well as hello
-◉  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13.000 -06:00 7a096b8a
+○  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13 7a096b8a
 │  it's important to comment our code
-◉  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56.000 -06:00 ac691d85
+○  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56 ac691d85
 │  hello world
-◉  zzzzzzzz root() 00000000
+◆  zzzzzzzz root() 00000000
 ```
 
 That's correct, `@` is at our original change.
