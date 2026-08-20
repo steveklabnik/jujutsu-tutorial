@@ -14,6 +14,7 @@
 - [Real-world workflows](real-world-workflows/intro.md)
     - [The Squash Workflow](real-world-workflows/the-squash-workflow.md)
     - [The Edit Workflow](real-world-workflows/the-edit-workflow.md)
+    - [Splitting a change with `jj split`](real-world-workflows/splitting-changes.md)
 
 - [Branching, merging, and conflicts](branching-merging-and-conflicts/intro.md)
     - [What anonymous branches are, and how to use them](branching-merging-and-conflicts/anonymous-branches.md)
@@ -31,7 +32,7 @@
 
 - [More advanced workflows](advanced/more-advanced-workflows.md)
     - [Working on all of your branches simultaneously](advanced/simultaneous-edits.md)
-    - [Stacked PRs]()
+    - [Stacked pull requests](advanced/stacked-prs.md)
     - [Workspaces]()
     - [Colocated Repositories]()
 

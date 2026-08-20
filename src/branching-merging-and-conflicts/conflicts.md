@@ -346,5 +346,6 @@ Great, we've cleaned that up.
 
 These behaviors, namely recording conflicts and automatic rebasing, form the
 behaviors necessary for a very cool `jj` workflow, and that's stacking pull
-requests. Before we talk about that though, we have to talk about how to
-use `jj` with GitHub in the first place! Let's go over that next.
+requests. We'll get to it in the "More advanced workflows" section. Before we
+can talk about that though, we have to talk about how to use `jj` with GitHub
+in the first place! Let's go over that next.
