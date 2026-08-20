@@ -84,7 +84,7 @@ Excellent:
 $ jj log --limit 3
 @  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:29:12 5f858c15
 │  refactor printing
-│ ×  povouosx steve@steveklabnik.com 2024-03-01 17:27:14 28010506
+│ ○  povouosx steve@steveklabnik.com 2024-03-01 17:27:14 28010506
 ├─╯  remove goodbye message
 ○  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36 2b93da0c
 │  (empty) add better documentation
@@ -319,7 +319,7 @@ So fix the conflict in `main.rs` again, and then let's see what happens:
 ```console
 > jj log --limit 4
 Rebased 1 descendant commits onto updated working copy.
-×  mlzwmxzs steve@steveklabnik.com 2024-03-01 18:12:43 9a4ad229
+○  mlzwmxzs steve@steveklabnik.com 2024-03-01 18:12:43 9a4ad229
 │  (empty) (no description set)
 @  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 f68d1623
 │  remove goodbye message
