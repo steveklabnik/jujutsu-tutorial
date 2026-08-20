@@ -12,5 +12,7 @@ Here's what we're going to learn:
 * A pull request workflow called "Stacked PRs"
 * Copying a change to another branch with `jj duplicate`
 * Running formatters across a whole stack with `jj fix`
+* Running any command across a stack with `jj run`
 * Workspaces that let you have multiple local checkouts
+* The rules of working alongside `git` in the default colocated repository
 * Non-colocated repositories, and where the line between `jj` and `git` sits

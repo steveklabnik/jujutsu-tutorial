@@ -18,6 +18,7 @@
     - [The Edit Workflow](real-world-workflows/the-edit-workflow.md)
     - [Splitting a change with `jj split`](real-world-workflows/splitting-changes.md)
     - [Absorbing changes with `jj absorb`](real-world-workflows/absorbing-changes.md)
+    - [Editing a commit's diff with `jj diffedit`](real-world-workflows/editing-a-commit.md)
 
 - [Branching, merging, and conflicts](branching-merging-and-conflicts/intro.md)
     - [What anonymous branches are, and how to use them](branching-merging-and-conflicts/anonymous-branches.md)
@@ -40,7 +41,9 @@
     - [Stacked pull requests](advanced/stacked-prs.md)
     - [Copying a change with `jj duplicate`](advanced/duplicating-changes.md)
     - [Running formatters with `jj fix`](advanced/fixing-files.md)
+    - [Running a command across revisions with `jj run`](advanced/running-commands.md)
     - [Workspaces](advanced/workspaces.md)
+    - [Working alongside `git`](advanced/working-alongside-git.md)
     - [Non-colocated repositories](advanced/non-colocated-repos.md)
 
 - [Fixing Problems](fixing-problems/intro.md)

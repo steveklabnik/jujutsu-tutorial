@@ -1,17 +1,19 @@
 # Configuring `jj`
 
-Configuration lives in TOML files, and you get at them through `jj config`.
+`jj` stores its configuration in TOML files, and we can work with them through
+`jj config`. Let's start by seeing where they live.
 
 ## Where settings live
 
-There are four layers, and later ones win:
+There are four layers. Settings later in this list take precedence over earlier
+ones:
 
 1. built-in defaults
 2. your user config
 3. the repository's config
 4. `--config` on the command line
 
-Ask `jj` where the files are rather than guessing:
+We can ask `jj` where the files are rather than guessing:
 
 ```console
 $ jj config path --user
@@ -21,12 +23,12 @@ $ jj config path --repo
 /home/steve/.config/jj/repos/07d925992ceecfee7f5a/config.toml
 ```
 
-The repository config is worth a second look: it lives in *your* config
-directory, keyed by repository, not inside the repository itself. So it's
-per-repository but private to you — you can't accidentally commit it, and it
-won't turn up in anyone else's checkout.
+The repository config is worth a second look. It lives in *our* config
+directory, keyed by repository, rather than inside the repository itself. So we
+get per-repository settings that stay private to us. We can't accidentally
+commit them, and they won't turn up in anyone else's checkout.
 
-Three ways to change something. Set one key:
+There are three ways to change a setting. We can set one key:
 
 ```console
 $ jj config set --user ui.default-command log
@@ -38,8 +40,8 @@ Open the file in your editor:
 $ jj config edit --user
 ```
 
-Or override for a single command, which is the right tool for trying something
-out:
+Or we can override a setting for one command, which is handy when trying
+something out:
 
 ```console
 $ jj --config ui.graph.style=ascii log
@@ -49,7 +51,8 @@ $ jj --config ui.graph.style=ascii log
 |  upstream commit 2
 ```
 
-To see what's actually in effect, including everything you've never set:
+We can also ask what is currently in effect, including settings we've never
+changed ourselves:
 
 ```console
 $ jj config list                       # your settings
@@ -60,7 +63,7 @@ $ jj config get ui.editor
 `jj config unset --repo ui.default-command` removes a key and lets the layer
 underneath show through again.
 
-## Settings worth knowing about
+## Some useful settings
 
 ### What bare `jj` does
 
@@ -69,8 +72,8 @@ underneath show through again.
 default-command = "log"
 ```
 
-Out of the box, typing `jj` with no arguments prints the help. Most people set
-this to `log` or `status` within a week.
+Out of the box, typing `jj` with no arguments prints the help. I prefer to have
+it run `log` or `status` instead.
 
 ### Editors
 
@@ -82,9 +85,9 @@ merge-editor = "meld"  # resolving conflicts in jj resolve
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
 ```
 
-Four different jobs, four different settings, because the right tool differs for
-each. The built-in TUI we've used for interactive splits is `:builtin`, and it's
-the default; `diff-editor` is how you swap in something else.
+These are four different jobs, so they have four different settings. The
+built-in TUI we've used for interactive splits is `:builtin`, and it's the
+default. We can change `diff-editor` if we prefer something else.
 
 ### Paging
 
@@ -105,7 +108,7 @@ edit = true
 ```
 
 Back in the edit workflow chapter we kept typing `jj next --edit`. Set this and
-`jj next` and `jj prev` edit by default; `--no-edit` gets the other behaviour
+`jj next` and `jj prev` edit by default; `--no-edit` gets the other behavior
 when you want it. If you've settled on the edit workflow, set it and stop
 typing the flag.
 
@@ -117,8 +120,9 @@ fetch = "origin"
 push = "origin"
 ```
 
-Which remote `jj git fetch` and `jj git push` use when you don't say. Useful on
-a fork, where you fetch from `upstream` and push to `origin`.
+These settings choose which remotes `jj git fetch` and `jj git push` use when we
+don't name one. They're especially useful on a fork, where we may fetch from
+`upstream` and push to `origin`.
 
 ### Keeping work off the remote
 
@@ -131,6 +135,36 @@ Any commit matching that revset — and anything descended from it — is refuse
 `jj git push`. A safety net for the "checkpoint" commits you make for yourself
 and never mean to publish. `jj git push` already refuses commits with no
 description and commits containing conflicts; this lets you add your own rule.
+
+### Signing your commits
+
+Some projects require every commit to be signed. `jj` does it for you, given a
+backend and a key:
+
+```toml
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "~/.ssh/id_ed25519.pub"
+```
+
+`behavior` is the interesting setting. `own` signs commits we author whenever
+`jj` writes them, which is what we usually want. The default, `keep`, only
+re-signs our commits that were already signed before a rewrite. `force` signs
+every commit it writes, even when somebody else authored it, while `drop`
+removes a signature when a commit is rewritten. The backends are `ssh`, `gpg`,
+and `gpgsm`.
+
+`jj sign` signs a revision after the fact, and `jj unsign` removes one. To be
+sure nothing unsigned escapes:
+
+```toml
+[git]
+sign-on-push = true
+```
+
+Signatures aren't shown by default, since most of the time they're noise.
+`ui.show-cryptographic-signatures = true` puts them in the log.
 
 ### Stale workspaces
 
@@ -155,7 +189,7 @@ against a filesystem watcher, and needs the `watchman` binary on your `PATH`.
 
 ## Aliases
 
-Aliases save whole command lines:
+We can use aliases to save whole command lines:
 
 ```toml
 [aliases]
@@ -170,12 +204,12 @@ $ jj l
 ```
 
 The value is an array of arguments, not a string to be parsed by a shell.
-Anything you type after the alias is appended, so `jj l --limit 3` works.
+Anything we type after the alias is appended, so `jj l --limit 3` works.
 
 ## Revset aliases
 
-This is the more interesting kind. Revsets are a language, and you can add words
-to it:
+Revset aliases are a little more interesting. Revsets are a language, and we
+can add our own words to it:
 
 ```toml
 [revset-aliases]
@@ -186,14 +220,13 @@ to it:
 $ jj log -r 'mine()'
 ```
 
-Now `mine()` is available anywhere a revset is, including inside other aliases
-and other revset expressions. `trunk()` itself is one of these — `jj git clone`
-writes `revset-aliases."trunk()" = "main@origin"` into your repository config,
+Now `mine()` is available anywhere we can use a revset, including inside other
+aliases and revset expressions. `trunk()` itself is one of these. `jj git clone`
+writes `revset-aliases."trunk()" = "main@origin"` into our repository config,
 which is why the built-in defaults can refer to `trunk()` without knowing what
-your project calls its main branch.
+our project calls its main branch.
 
-The alias worth understanding is the one governing what you're allowed to
-rewrite:
+One alias worth understanding governs what we're allowed to rewrite:
 
 ```toml
 [revset-aliases]
@@ -234,5 +267,5 @@ l = ["log", "-r", "trunk()..@"]
 "mine()" = "trunk()..@"
 ```
 
-Small, but it removes several dozen keystrokes a day. Add to it when something
-irritates you twice.
+This is deliberately small, but it removes a bunch of repeated typing. I add to
+it when I notice myself reaching for the same option again and again.

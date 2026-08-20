@@ -69,10 +69,11 @@ $ git log --oneline
 c4b8fac hello world
 ```
 
-Don't use this as an excuse to run `git` commands that *change* things, though.
-Let `jj` do the mutating, or the two tools will fight over the same store. If
-you'd rather not have a `.git` directory at all, pass `--no-colocate`, and the
-`git` repository gets tucked away inside `.jj` where other tools can't see it.
+Because both tools share one store, we'll let `jj` make changes to the
+repository and use `git` for reading it. We'll look at the details later in the
+tutorial. If we'd rather not have a `.git` directory at all, we can pass
+`--no-colocate`; the Git repository then lives inside `.jj`, where other tools
+won't discover it automatically.
 
 Anyway, now we've got a repository! In the next section, we'll take a peek
 inside.
