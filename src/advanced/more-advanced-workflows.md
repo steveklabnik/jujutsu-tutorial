@@ -10,5 +10,6 @@ Here's what we're going to learn:
 
 * Working on all your branches simultaneously
 * A pull request workflow called "Stacked PRs"
+* Copying a change to another branch with `jj duplicate`
 * Workspaces that let you have multiple local checkouts
 * Non-colocated repositories, and where the line between `jj` and `git` sits

@@ -10,6 +10,8 @@
     - [Using `jj describe` to describe our commits in a human-friendly way](hello-world/describing-commits.md)
     - [Using `jj new` to create new changes](hello-world/creating-new-changes.md)
     - [Viewing the contents of your repository with `jj log`](hello-world/viewing-contents.md)
+    - [Seeing what changed with `jj diff` and `jj show`](hello-world/viewing-changes.md)
+    - [Which files `jj` tracks](hello-world/tracking-files.md)
     - [A recap and some thoughts](hello-world/recap.md)
 - [Real-world workflows](real-world-workflows/intro.md)
     - [The Squash Workflow](real-world-workflows/the-squash-workflow.md)
@@ -22,6 +24,7 @@
     - [Figuring out where our changes are with revsets](branching-merging-and-conflicts/revsets.md)
     - [Merging anonymous branches](branching-merging-and-conflicts/merging.md)
     - [Dealing with conflicts](branching-merging-and-conflicts/conflicts.md)
+    - [Resolving conflicts with `jj resolve`](branching-merging-and-conflicts/resolving-conflicts.md)
 
 - [Sharing your code with others](sharing-code/intro.md)
     - [Using named branches in jj](sharing-code/named-branches.md)
@@ -34,6 +37,7 @@
 - [More advanced workflows](advanced/more-advanced-workflows.md)
     - [Working on all of your branches simultaneously](advanced/simultaneous-edits.md)
     - [Stacked pull requests](advanced/stacked-prs.md)
+    - [Copying a change with `jj duplicate`](advanced/duplicating-changes.md)
     - [Workspaces](advanced/workspaces.md)
     - [Non-colocated repositories](advanced/non-colocated-repos.md)
 
