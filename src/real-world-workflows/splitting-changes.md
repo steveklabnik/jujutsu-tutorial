@@ -1,11 +1,11 @@
 # Splitting a change with `jj split`
 
-`jj squash` takes two changes and makes them one. Sooner or later you'll want
-to go the other way: you sat down to fix a bug, noticed some unrelated mess,
-tidied it up while you were in there, and now one change is doing two jobs. The
-reviewer is going to ask you to separate them, and they're right.
+`jj squash` takes two changes and makes them one. Sooner or later, we'll want to
+go the other way. Maybe we sat down to fix a bug, noticed something unrelated,
+tidied it up while we were there, and ended up with one change doing two jobs.
+Those jobs will be easier to understand and review if we separate them.
 
-That's `jj split`.
+That's what `jj split` is for.
 
 Here's the situation. We meant to add a function, but we wrote some
 documentation at the same time:
@@ -44,8 +44,8 @@ $ jj log --limit 3
 
 The docs went into the first change, and everything else stayed in the second.
 The second still has the old description, "two unrelated things at once", which
-is now a lie — so `jj describe` it into something honest. `jj` can split your
-change for you but it can't know what the halves should be called.
+isn't accurate any more. We should use `jj describe` to give it a better name.
+`jj` can split the change for us, but it can't know what the two parts mean.
 
 One detail worth noticing: the *selected* part kept the original change ID,
 `ynplyknw`, and the remainder got a fresh one. The part you pull out is treated
@@ -78,9 +78,9 @@ Working copy  (@) now at: uwmkvzlt f2e56704 a child commit
 Parent commit (@-)      : nkrkylxx 6f0f5589 the middle commit
 ```
 
-That change was in the middle of a stack with work on top of it, and you can
-see `jj` rebased the descendants without being asked. Same story as always: it
-just works, and your working copy didn't move.
+That change was in the middle of a stack with work on top of it, and we can see
+that `jj` rebased the descendants automatically. Just like our earlier
+rewrites, the working copy didn't move.
 
 The automatic rebase is especially useful when the change is in the middle of
 a stack. With `git`, we would usually start an interactive rebase, stop at the
@@ -103,8 +103,8 @@ you split one change into two pull requests that don't depend on each other.
 
 ## Where this fits
 
-Between `jj squash` and `jj split` you can push work in either direction: merge
-changes together, break them apart, and move pieces between them. Add `jj absorb`
-from a couple of chapters ago, which shoves each hunk into whichever ancestor
-already touched those lines, and rearranging history stops feeling like surgery
-and starts feeling like editing.
+Between `jj squash` and `jj split`, we can move work in either direction: merge
+changes together, break them apart, and move pieces between them. The next
+chapter adds `jj absorb`, which places each hunk into whichever ancestor already
+touched those lines. Together, these commands make rearranging history feel a
+lot more like ordinary editing.

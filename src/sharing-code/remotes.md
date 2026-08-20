@@ -13,6 +13,12 @@ as an upstream like this:
 > jj git remote add origin git@github.com:steveklabnik/jj-hello-world.git
 ```
 
+That's the direction we need here, because our repository already exists. Going
+the other way, `jj git clone <url>` takes a project that's already on a server
+and makes a `jj` repository from it. Like `jj git init`, it gives you a
+colocated repository — a `.jj` directory and a working `.git` one — so `gh` and
+anything else that reads `.git` keep working in a clone too.
+
 Before we push our commit up, we need to fix our repository:
 
 ```console

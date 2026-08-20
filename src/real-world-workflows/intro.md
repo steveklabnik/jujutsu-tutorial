@@ -10,4 +10,7 @@ commands, we can have nicer workflows that let us work a bit more naturally.
 
 We'll start with the "squash workflow," as it is the workflow that Martin, the
 creator of `jj`, prefers. We'll then talk about the "edit workflow," which is
-popular among people who don't like the squash workflow.
+popular among people who don't like the squash workflow. Finally, we'll cover two
+commands you'll want whichever workflow you settle on: `jj split`, which pulls
+one change apart into two, and `jj absorb`, which files a pile of small fixes
+back into the commits they belong to.

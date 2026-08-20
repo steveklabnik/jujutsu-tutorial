@@ -15,6 +15,7 @@
     - [The Squash Workflow](real-world-workflows/the-squash-workflow.md)
     - [The Edit Workflow](real-world-workflows/the-edit-workflow.md)
     - [Splitting a change with `jj split`](real-world-workflows/splitting-changes.md)
+    - [Absorbing changes with `jj absorb`](real-world-workflows/absorbing-changes.md)
 
 - [Branching, merging, and conflicts](branching-merging-and-conflicts/intro.md)
     - [What anonymous branches are, and how to use them](branching-merging-and-conflicts/anonymous-branches.md)
@@ -42,6 +43,6 @@
     - [Watching a change evolve with `jj evolog`](fixing-problems/the-evolog.md)
     - [Throwing work away on purpose](fixing-problems/reverting-changes.md)
 
-- [Customizing your experience]()
-    - [Configuring `jj`]()
+- [Customizing your experience](customization/customizing-your-experience.md)
+    - [Configuring `jj`](customization/configuring-jj.md)
     - [Customizing the output of various `jj` commands with templates](customization/templates.md)

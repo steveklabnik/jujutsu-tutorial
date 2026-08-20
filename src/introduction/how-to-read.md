@@ -52,8 +52,10 @@ to make it easier to understand. This section will show you the power of `jj`'s
 various primitive operations by some practical workflows you may decide to
 incorporate into your usage of `jj`.
 
-Additionally, we'll cover some advanced features of the tool: workspaces and
-colocated repositories. You may not use these, but it's good to know about them.
+Additionally, we'll cover two features you may never need, but should know
+exist: workspaces, which give you several working copies over one repository,
+and non-colocated repositories, which put the `git` repository backing your work
+out of other tools' reach.
 
 ## Fixing problems
 
