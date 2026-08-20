@@ -27,14 +27,14 @@
     - [Working with remotes, e.g., GitHub](sharing-code/remotes.md)
     - [Responding to pull request feedback](sharing-code/updating-prs.md)
     - [Tagging a release with `jj tag`](sharing-code/tags.md)
-    - [Updating trunk from upstream]()
+    - [Updating trunk from upstream](sharing-code/updating-trunk.md)
     - [Using jj with Gerrit](sharing-code/gerrit.md)
 
 - [More advanced workflows](advanced/more-advanced-workflows.md)
     - [Working on all of your branches simultaneously](advanced/simultaneous-edits.md)
     - [Stacked pull requests](advanced/stacked-prs.md)
-    - [Workspaces]()
-    - [Colocated Repositories]()
+    - [Workspaces](advanced/workspaces.md)
+    - [Non-colocated repositories](advanced/non-colocated-repos.md)
 
 - [Fixing Problems](fixing-problems/intro.md)
     - [Undoing mistakes with `jj undo`](fixing-problems/undoing-mistakes.md)
