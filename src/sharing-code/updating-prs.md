@@ -132,7 +132,8 @@ Working copy  (@) now at: vmunwxsk 9410db49 push-vmunwxsksqvk* | add a comment t
 Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 Added 0 files, modified 1 files, removed 0 files
 $ jj abandon nzsvmmzl
-Abandoned commit nzsvmmzl ad6b9b14 push-vmunwxsksqvk@origin | respond to feedback
+Abandoned 1 commits:
+  nzsvmmzl ad6b9b14 push-vmunwxsksqvk@origin | respond to feedback
 $ jj log
 @  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30 push-vmunwxsksqvk* 9410db49
 │  add a comment to main
@@ -274,7 +275,7 @@ And check our work:
 ```console
 $ jj st
  jj st
-Rebased 1 descendant commits onto updated working copy
+Rebased 1 descendant commits onto updated working copy.
 Working copy changes:
 M src/main.rs
 Working copy  (@) : vmunwxsk f6f7dce9 add a comment to main

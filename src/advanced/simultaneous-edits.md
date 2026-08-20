@@ -254,6 +254,7 @@ Yikes! Don't worry, we can fix that with a rebase:
 
 ```console
 > jj rebase -r xn -o m -o ym -o yx -o r -o kv
+Rebased 1 commits to destination.
 ```
 
 We want to rebase the revision `xn` "onto" the following destination revisions:
@@ -360,7 +361,7 @@ We can rebase all of our PRs with one command:
 
 ```console
 > jj rebase -s 'all:roots(trunk..@)' -o trunk
-Rebased 14 commits
+Rebased 14 commits to destination.
 Working copy  (@) now at: ltupzukw 9a496ef6 (empty) (no description set)
 Parent commit (@-)      : xnutwmso 6be25a32 (empty) merge: steve's branch
 ```
@@ -489,7 +490,8 @@ Let's move `@` back to where we want it:
 Working copy  (@) now at: vvvouunp 78919d69 (empty) (no description set)
 Parent commit (@-)      : xnutwmso ce833ae7 (empty) merge: steve's branch
 > jj abandon l
-Abandoned commit ltupzukw edf9cd58 (empty) (no description set)
+Abandoned 1 commits:
+  ltupzukw edf9cd58 (empty) (no description set)
 > jj log
 @  vvvouunp steve@steveklabnik.com 2024-03-17 16:02:39 78919d69
 │  (empty) (no description set)
@@ -530,12 +532,14 @@ that branch:
 
 ```console
 > jj abandon push-vmunwxsksqvk
-Abandoned commit msmntwvo?? 21569f7a push-vmunwxsksqvk* | (empty) add a new function
+Abandoned 1 commits:
+  msmntwvo?? 21569f7a push-vmunwxsksqvk* | (empty) add a new function
 Rebased 3 descendant commits onto parents of abandoned commits
 Working copy  (@) now at: vvvouunp ace3f1a2 (empty) (no description set)
 Parent commit (@-)      : xnutwmso 32871810 (empty) merge: steve's branch
 > jj abandon push-vmunwxsksqvk
-Abandoned commit vmunwxsk?? 9a050939 push-vmunwxsksqvk* | (empty) add a comment to main
+Abandoned 1 commits:
+  vmunwxsk?? 9a050939 push-vmunwxsksqvk* | (empty) add a comment to main
 Rebased 3 descendant commits onto parents of abandoned commits
 Working copy  (@) now at: vvvouunp e3f9254f (empty) (no description set)
 Parent commit (@-)      : xnutwmso 0459bd1c (empty) merge: steve's branch

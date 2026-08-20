@@ -150,7 +150,7 @@ And then we check our log again:
 
 ```console
 $ jj log --limit 3
-Rebased 1 descendant commits onto updated working copy
+Rebased 1 descendant commits onto updated working copy.
 ○  povouosx steve@steveklabnik.com 2024-03-01 17:49:07 a912c809 conflict
 │  remove goodbye message
 @  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
@@ -292,7 +292,7 @@ So fix the conflict in `main.rs` again, and then let's see what happens:
 
 ```console
 > jj log --limit 4
-Rebased 1 descendant commits onto updated working copy
+Rebased 1 descendant commits onto updated working copy.
 ○  mlzwmxzs steve@steveklabnik.com 2024-03-01 18:12:43 9a4ad229
 │  (empty) (no description set)
 @  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 f68d1623

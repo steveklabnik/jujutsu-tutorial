@@ -33,7 +33,8 @@ Parent commit (@-)      : vvmrvwuz d41c079b refactor printing
 $ jj bookmark set trunk --allow-backwards
 Moved 1 bookmarks to povouosx f68d1623 | remove goodbye message
 $ jj abandon pzkrzopz
-Abandoned commit pzkrzopz fcf669c5 (empty) (no description set)
+Abandoned 1 commits:
+  pzkrzopz fcf669c5 (empty) (no description set)
 $ jj log --limit 2
 @  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 trunk f68d1623
 │  remove goodbye message

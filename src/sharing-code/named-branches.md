@@ -53,7 +53,8 @@ let's forget about it:
 
 ```console
 > jj abandon qt
-Abandoned commit qtlkpytx e6667f9e (empty) (no description set)
+Abandoned 1 commits:
+  qtlkpytx e6667f9e (empty) (no description set)
 > jj log --limit 3
 @  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37 fcf669c5
 │  (empty) (no description set)

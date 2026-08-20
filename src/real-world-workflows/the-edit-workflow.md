@@ -65,7 +65,7 @@ Let's try this:
 
 ```console
 $ jj new -B @ -m "add more comments"
-Rebased 1 descendant commits
+Rebased 1 descendant commits.
 Working copy  (@) now at: nmptruqn 30a1f33b (empty) add more comments
 Parent commit (@-)      : ywnkulko ed71bb54 print goodbye as well as hello
 Added 0 files, modified 1 files, removed 0 files
@@ -77,7 +77,7 @@ We have a new flag to `jj new`, `-B`. This says to create the new change
 The first line of the output should raise some eyebrows:
 
 ```text
-Rebased 1 descendant commits
+Rebased 1 descendant commits.
 ```
 
 That's right, because we have created a change before the one we're on, it
@@ -141,7 +141,7 @@ This is very silly. Regardless, we have finished. Let's see our current status:
 
 ```console
 $ jj st
-Rebased 1 descendant commits onto updated working copy
+Rebased 1 descendant commits onto updated working copy.
 Working copy changes:
 M src/main.rs
 Working copy  (@) : nmptruqn 90a2e97f add more comments

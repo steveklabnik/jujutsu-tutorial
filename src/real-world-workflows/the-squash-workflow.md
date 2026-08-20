@@ -142,7 +142,8 @@ the stuff in `@` with `jj abandon`:
 
 ```console
 $ jj abandon
-Abandoned commit oopolqyp 44665581 (no description set)
+Abandoned 1 commits:
+  oopolqyp 44665581 (no description set)
 Working copy  (@) now at: ootnlvpt 97b7a559 (empty) (no description set)
 Parent commit (@-)      : ywnkulko ed71bb54 print goodbye as well as hello
 Added 0 files, modified 1 files, removed 0 files
