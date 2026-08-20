@@ -258,8 +258,8 @@ review comments in the next section.
 By default, `jj git push` will push to `origin`, requiring `--remote myfork`
 to push to a fork.
 
-If you wish to push to your fork by default, you can add this line of
-configuration:
+If you wish to push to your fork by default, you can configure it. `git.fetch`
+takes several remotes, `git.push` takes one:
 
 ```toml
 [git]
@@ -267,5 +267,9 @@ fetch = ["origin", "myfork"]
 push = "myfork"
 ```
 
-This can either go in the repo-specific `.jj/repo/config.toml` or the global
-config if you expect most of your repos to have the same remotes.
+Use `--repo` to set this for one repository, or `--user` if you expect most of
+your repositories to have the same remotes. `jj config path --repo` will tell
+you where the repository's own config file lives.
+
+There's more to say about two remotes, and we'll say it in the chapter on
+working with a fork.

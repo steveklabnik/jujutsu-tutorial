@@ -32,12 +32,14 @@
     - [Responding to pull request feedback](sharing-code/updating-prs.md)
     - [Tagging a release with `jj tag`](sharing-code/tags.md)
     - [Updating trunk from upstream](sharing-code/updating-trunk.md)
+    - [Working with a fork](sharing-code/forks.md)
     - [Using jj with Gerrit](sharing-code/gerrit.md)
 
 - [More advanced workflows](advanced/more-advanced-workflows.md)
     - [Working on all of your branches simultaneously](advanced/simultaneous-edits.md)
     - [Stacked pull requests](advanced/stacked-prs.md)
     - [Copying a change with `jj duplicate`](advanced/duplicating-changes.md)
+    - [Running formatters with `jj fix`](advanced/fixing-files.md)
     - [Workspaces](advanced/workspaces.md)
     - [Non-colocated repositories](advanced/non-colocated-repos.md)
 
@@ -46,6 +48,7 @@
     - [The operation log](fixing-problems/the-operation-log.md)
     - [Watching a change evolve with `jj evolog`](fixing-problems/the-evolog.md)
     - [Throwing work away on purpose](fixing-problems/reverting-changes.md)
+    - [Finding the commit that broke it with `jj bisect`](fixing-problems/bisecting.md)
 
 - [Customizing your experience](customization/customizing-your-experience.md)
     - [Configuring `jj`](customization/configuring-jj.md)
