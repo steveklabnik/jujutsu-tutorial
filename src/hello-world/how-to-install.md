@@ -1,6 +1,6 @@
 # How to install `jj`
 
-This tutorial is written when `jj` is at version 0.23.0. It may work for
+This tutorial is written when `jj` is at version 0.44.0. It may work for
 later versions, but you also may need to adapt.
 
 For the full range of ways to install `jj`, you can visit the [Installation and
@@ -10,7 +10,7 @@ a Rust developer, and `jj` is written in Rust, I installed my copy like this:
 [install]: https://docs.jj-vcs.dev/latest/install-and-setup/
 
 ```console
-$ cargo install jj-cli@0.23.0 --locked
+$ cargo install jj-cli@0.44.0 --locked
 ```
 
 If you're not a Rust developer, please read the documentation to figure out how
