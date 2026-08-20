@@ -274,7 +274,6 @@ And check our work:
 
 ```console
 $ jj st
- jj st
 Rebased 1 descendant commits onto updated working copy.
 Working copy changes:
 M src/main.rs

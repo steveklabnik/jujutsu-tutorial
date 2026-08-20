@@ -112,7 +112,8 @@ Let's try merging all three in at the same time:
 
 ```console
 $ jj new pzoqtwuv yykpmnuq xrslwzvq -m "merge three branches"
-Working copy  (@) now at: pzoqtwuv 9353442b (empty) added some cool new feature
+Working copy  (@) now at: vuztuxmz 717232df (empty) merge three branches
+Parent commit (@-)      : pzoqtwuv 9353442b (empty) added some cool new feature
 Parent commit (@-)      : yykpmnuq 210283e8 (empty) add better documentation
 Parent commit (@-)      : xrslwzvq a70d464c (empty) create hello and goodbye functions
 $ jj log --limit 6

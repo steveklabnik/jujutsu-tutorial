@@ -91,7 +91,7 @@ bookmark: trunk@origin [updated] tracked
 $ jj log --limit 3
 ◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
-│ @  znurnwmk steve@steveklabnik.com 2024-03-01 18:15:00.000 f853107d
+│ @  znurnwmk steve@steveklabnik.com 2024-03-01 18:15:00 f853107d
 ├─╯  (empty) (no description set)
 ◆  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 f68d1623
 │  remove goodbye message
