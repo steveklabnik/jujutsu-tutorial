@@ -25,6 +25,7 @@
     - [Using named branches in jj](sharing-code/named-branches.md)
     - [Working with remotes, e.g., GitHub](sharing-code/remotes.md)
     - [Responding to pull request feedback](sharing-code/updating-prs.md)
+    - [Tagging a release with `jj tag`](sharing-code/tags.md)
     - [Updating trunk from upstream]()
     - [Using jj with Gerrit](sharing-code/gerrit.md)
 

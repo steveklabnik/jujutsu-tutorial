@@ -10,6 +10,13 @@ So here is our current workflow:
 
 Finally, we can review our repository's contents with `jj log`.
 
+Steps 3 and 5 are common enough together that there's a shorthand for them:
+`jj commit -m "message"` describes the current change and then starts a new one
+on top, which is exactly `jj describe` followed by `jj new`. It reads like
+`git commit`, which makes it a comfortable landing spot on your way in. I'll
+keep using the two separate commands in this book, because they make it clearer
+which of the two things is happening.
+
 This is... pretty simple! We don't need that many concepts to get started.
 Of course, we aren't yet able to do some very important things like "share our
 code with others." But we'll get there.

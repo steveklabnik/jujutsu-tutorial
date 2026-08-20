@@ -49,13 +49,18 @@ issues with doing this.
 
 Anyway, let's push `trunk` up to GitHub. A bare `jj git push` won't do it:
 `jj` refuses to create a bookmark on the remote that it doesn't already know
-about, so we have to name it explicitly with `-b`:
+about, so we have to name it explicitly with `-b`. We can use `--dry-run` to
+inspect that push before performing it:
 
 ```console
 $ jj git push
 Warning: Refusing to create new remote bookmark trunk@origin
 Hint: Run `jj bookmark track trunk@origin` and try again.
 Nothing changed.
+$ jj git push --dry-run -b trunk
+Changes to push to origin:
+  bookmark: trunk [add to f68d16233bdc]
+Dry-run requested, not pushing.
 $ jj git push -b trunk
 Changes to push to origin:
   bookmark: trunk [add to f68d16233bdc]
@@ -66,6 +71,72 @@ Parent commit (@-)      : povouosx f68d1623 trunk | remove goodbye message
 
 Once the bookmark exists on the remote and is tracked, a bare `jj git push` is
 enough for subsequent pushes.
+
+That warning in the middle deserves a word. Remember those `◆` symbols from
+back when we first looked at `jj log`? Pushing `trunk` just created some more
+of them:
+
+```console
+$ jj log
+@  znurnwmk steve@steveklabnik.com 2024-03-01 18:15:00 f853107d
+│  (empty) (no description set)
+◆  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 trunk f68d1623
+│  remove goodbye message
+~
+```
+
+Two things happened. `trunk` turned into a `◆`, and everything below it
+vanished behind a `~`. That's not `--limit` doing it. With no `-r`, `jj log`
+uses this revset:
+
+```text
+present(@) | ancestors(immutable_heads().., 2) | trunk()
+```
+
+Which is to say: the working copy, whatever's stacked above the immutable
+commits, and trunk. History you can't rewrite doesn't get drawn, on the theory
+that it's rarely what you're looking at. Ask for it explicitly and it's all
+still there:
+
+```console
+$ jj log -r '::@'
+@  znurnwmk steve@steveklabnik.com 2024-03-01 18:15:00 f853107d
+│  (empty) (no description set)
+◆  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 trunk f68d1623
+│  remove goodbye message
+◆  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
+│  refactor printing
+◆  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36 2b93da0c
+│  (empty) add better documentation
+```
+
+`trunk` and everything behind it are now immutable. The idea is simple: other
+people can see this history now, so rewriting it would be antisocial. `jj`
+enforces that for you rather than trusting you to remember:
+
+```console
+$ jj describe trunk -m "let's rewrite some shared history"
+Error: Commit f68d16233bdc is immutable
+Hint: Could not modify commit: povouosx f68d1623 trunk | remove goodbye message
+Hint: Immutable commits are used to protect shared history.
+Hint: For more information, see:
+      - https://docs.jj-vcs.dev/latest/config/#set-of-immutable-commits
+      - `jj help -k config`, "Set of immutable commits"
+Hint: This operation would rewrite 1 immutable commits.
+```
+
+This is also why we got that warning during the push. Our working copy was
+sitting *on* `povouosx`, and `povouosx` had just become immutable, so `jj`
+moved us up to a fresh change on top of it. It didn't ask, because there's no
+sensible alternative: you can't keep editing a commit you're no longer allowed
+to edit.
+
+By default the immutable set is `trunk()`, any tags, and any remote bookmarks
+you're not tracking. It's a configuration setting, not a law of nature; if you
+really do need to rewrite shared history, you can adjust
+`revset-aliases."immutable_heads()"` or pass `--ignore-immutable`. But the
+default is a good default, and I'd leave it alone until you have a specific
+reason not to.
 
 And now our project is up on GitHub!
 
@@ -192,4 +263,3 @@ push = "myfork"
 
 This can either go in the repo-specific `.jj/repo/config.toml` or the global
 config if you expect most of your repos to have the same remotes.
-
