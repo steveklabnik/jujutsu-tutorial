@@ -45,8 +45,8 @@ is already getting a little long.
 ## Merging branches
 
 Now, you may expect that you'd use a command like `jj merge` to merge branches
-together. However, as of `0.14.0`, `jj merge` is deprecated, and will be removed
-some time later this year. So how the heck do we create merges?
+together. There is no such command: it was deprecated in `0.14.0` and has since
+been removed. So how the heck do we create merges?
 
 Well, what is a merge anyway? It's a new change that has more than one parent.
 How do we make new changes? With `jj new`. So let's ask it to make a change that

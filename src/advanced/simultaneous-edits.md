@@ -360,7 +360,7 @@ above that that is true.
 We can rebase all of our PRs with one command:
 
 ```console
-> jj rebase -s 'all:roots(trunk..@)' -o trunk
+> jj rebase -s 'roots(trunk..@)' -o trunk
 Rebased 14 commits to destination.
 Working copy  (@) now at: ltupzukw 9a496ef6 (empty) (no description set)
 Parent commit (@-)      : xnutwmso 6be25a32 (empty) merge: steve's branch
@@ -372,8 +372,8 @@ This is using `jj rebase -s` rather than `-r`, like we've been doing before. Her
 the description from `jj rebase --help`:
 
 ```text
-  -s, --source <SOURCE>
-          Rebase specified revision(s) together their tree of descendants (can be repeated)
+  -s, --source <REVSETS>
+          Rebase specified revision(s) together with their trees of descendants (can be repeated)
 ```
 
 That's a little rough. There are some helpful diagrams in `jj rebase --help` that
@@ -402,29 +402,10 @@ A - B
 
 as both `C` and `D` are somewhere else now. `-b` works to rebase a branch.
 
-The next part, `all:` is a prefix. What's the prefix do? Well, let's try running
-the command without it:
-
-```console
-> jj rebase -s 'roots(trunk..@)' -o trunk
-Error: Revset "roots(trunk..@)" resolved to more than one revision
-Hint: The revset "roots(trunk..@)" resolved to these revisions:
-opwqpunl ba100a96 (empty) display the birthday date on the settings page
-tmnmvxyy 462dcf72 (empty) prepare to deploy to the cloud
-tzsloruo fdba6abd (empty) another feature
-xulymzyp abbf424e (empty) updating dependencies
-vmunwxsk?? 2ce46bd0 (empty) add a comment to main
-Prefix the expression with 'all' to allow any number of revisions (i.e. 'all:roots(trunk..@)').
-```
-
-This is basically a way to help make sure you've got the right arguments: sometimes
-when working with revsets, you expect the result to be only one revision, and
-sometimes you expect it to be many revisions. For some commands, one or the
-other may be not necessarily what you want. In this case, most of the time,
-when you rebase, you only want one parent. So if we use a revset that returns
-more than one change, that might be a bug! So `jj rebase` wants us to reassure
-it that we are creating a change with multiple parents by putting `all:` as a
-prefix.
+Note that `-s` takes a revset that may resolve to many revisions, and every one
+of them gets rebased. Older versions of `jj` made you write an `all:` prefix
+(`'all:roots(trunk..@)'`) to confirm you meant more than one revision. That
+prefix has been removed; passing it now is a parse error.
 
 Finally, `trunk..@` is being passed to the `roots()` function. `trunk..@` is
 a range, so it will give every change between where `trunk` is and `@`. The
@@ -439,7 +420,7 @@ themselves. The roots of the tree.
 Let's put it all together:
 
 ```console
-$ jj rebase -s 'all:roots(trunk..@)' -o trunk
+$ jj rebase -s 'roots(trunk..@)' -o trunk
 ```
 
 > We're rebasing all of the root changes from `trunk` to `@` onto `trunk`.
