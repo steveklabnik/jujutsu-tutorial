@@ -8,11 +8,36 @@ Let's set some quick configuration:
 
 ```console
 $ jj config set --user user.name "Steve Klabnik"
+Warning: This setting will only impact future commits.
+The author of the working copy will stay "you <you@example.com>".
+To change the working copy author, use "jj metaedit --update-author".
 $ jj config set --user user.email "steve@steveklabnik.com"
+Warning: This setting will only impact future commits.
+The author of the working copy will stay "you <you@example.com>".
+To change the working copy author, use "jj metaedit --update-author".
 ```
 
 Obviously, unless you're me, you should be putting your own name and email in
-there. Okay, with that out of the way, we're ready to describe some changes.
+there.
+
+About that warning: we created our repository before we set our identity, and
+`jj` had already made a working copy change for us at that point, stamped with
+whatever identity it could find. Changing the setting doesn't reach back and
+rewrite it. Since our first change is about to be described anyway, let's just
+fix the author on it:
+
+```console
+$ jj metaedit --update-author
+Modified 1 commits:
+  qzmzpxyl bc915fcd (no description set)
+Working copy  (@) now at: qzmzpxyl bc915fcd (no description set)
+Parent commit (@-)      : zzzzzzzz 00000000 (empty) (no description set)
+```
+
+`jj metaedit` changes a commit's metadata without touching its contents. Set
+your identity before `jj git init` next time and you'll never see the warning.
+
+Okay, with that out of the way, we're ready to describe some changes.
 
 Whenever we feel like it, we can describe our changes with `jj describe`.
 The simplest way to use it is with the `-m`, or "message" flag. This allows us
