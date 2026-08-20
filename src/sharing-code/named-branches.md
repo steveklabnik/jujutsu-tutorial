@@ -37,8 +37,8 @@ new change:
 
 ```console
 > jj new
-Working copy now at: pzkrzopz 3f14c03f (empty) (no description set)
-Parent commit      : povouosx 7ec11c41 trunk | remove goodbye message
+Working copy  (@) now at: pzkrzopz 3f14c03f (empty) (no description set)
+Parent commit (@-)      : povouosx 7ec11c41 trunk | remove goodbye message
 > jj log
 @  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37.000 -06:00 fcf669c5
 │  (empty) (no description set)

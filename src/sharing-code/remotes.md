@@ -28,8 +28,8 @@ do that like this:
 
 ```console
 $ jj edit @-
-Working copy now at: povouosx f68d1623 remove goodbye message
-Parent commit      : vvmrvwuz d41c079b refactor printing
+Working copy  (@) now at: povouosx f68d1623 remove goodbye message
+Parent commit (@-)      : vvmrvwuz d41c079b refactor printing
 $ jj bookmark set trunk --allow-backwards
 Moved 1 bookmarks to povouosx f68d1623 | remove goodbye message
 $ jj abandon pzkrzopz
@@ -53,8 +53,8 @@ $ jj git push
 Changes to push to origin:
   Add bookmark trunk to f68d16233bdc
 Warning: The working-copy commit in workspace 'default' became immutable, so a new commit has been created on top of it.
-Working copy now at: znurnwmk f853107d (empty) (no description set)
-Parent commit      : povouosx f68d1623 | remove goodbye message
+Working copy  (@) now at: znurnwmk f853107d (empty) (no description set)
+Parent commit (@-)      : povouosx f68d1623 | remove goodbye message
 ```
 
 And now our project is up on GitHub!
@@ -96,8 +96,8 @@ Let's fix that:
 
 ```console
 $ jj new trunk
-Working copy now at: vmunwxsk be917d2e (empty) (no description set)
-Parent commit      : ksrmwuon e202b67c trunk | Update Cargo.toml
+Working copy  (@) now at: vmunwxsk be917d2e (empty) (no description set)
+Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 Added 0 files, modified 1 files, removed 0 files
 ```
 
@@ -134,8 +134,8 @@ Then let's add a description, and push our change to GitHub so we can make a PR:
 
 ```console
 $ jj describe -m "add a comment to main"
-Working copy now at: vmunwxsk 9410db49 add a comment to main
-Parent commit      : ksrmwuon e202b67c trunk | Update Cargo.toml
+Working copy  (@) now at: vmunwxsk 9410db49 add a comment to main
+Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 $ jj git push -c @
 Creating bookmark push-vmunwxsksqvk for revision vmunwxsksqvk
 Changes to push to origin:

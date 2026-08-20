@@ -31,8 +31,8 @@ A .gitignore
 A Cargo.lock
 A Cargo.toml
 A src/main.rs
-Working copy : qzmzpxyl bc915fcd (no description set)
-Parent commit: zzzzzzzz 00000000 (empty) (no description set)
+Working copy  (@) : qzmzpxyl bc915fcd (no description set)
+Parent commit (@-): zzzzzzzz 00000000 (empty) (no description set)
 ```
 
 There's a surprising amount of stuff to talk about here! Let's dig into it.
@@ -63,8 +63,8 @@ copy (the files on disk) and takes a snapshot. So here, it's noticed that we've
 `A`dded some new files. You'll also see `M`odified files, and `D`eleted files.
 
 ```text
-Working copy : qzmzpxyl bc915fcd (no description set)
-Parent commit: zzzzzzzz 00000000 (empty) (no description set)
+Working copy  (@) : qzmzpxyl bc915fcd (no description set)
+Parent commit (@-): zzzzzzzz 00000000 (empty) (no description set)
 ```
 
 Our brand new repo shows that we have two *changes*. You'll notice that the

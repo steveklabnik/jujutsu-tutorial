@@ -20,8 +20,8 @@ to pass the description on the command line:
 
 ```console
 $ jj describe -m "hello world"
-Working copy now at: yyrsmnoo 524d2bf4 hello world
-Parent commit      : zzzzzzzz 00000000 (empty) (no description set)
+Working copy  (@) now at: yyrsmnoo 524d2bf4 hello world
+Parent commit (@-)      : zzzzzzzz 00000000 (empty) (no description set)
 ```
 
 (You may notice that the change ID changed here: that's just some book-writing
@@ -69,8 +69,8 @@ JJ: Lines starting with "JJ: " (like this one) will be removed.
 After saving and closing, we'll get this output:
 
 ```console
-Working copy now at: yyrsmnoo ac691d85 hello world
-Parent commit      : zzzzzzzz 00000000 (empty) (no description set)
+Working copy  (@) now at: yyrsmnoo ac691d85 hello world
+Parent commit (@-)      : zzzzzzzz 00000000 (empty) (no description set)
 ```
 
 We only see that first line, but the rest are still there.
@@ -79,8 +79,8 @@ Eagle eyed readers may notice one other change. Let's take two of these outputs
 and put them next to each other:
 
 ```text
-Working copy now at: yyrsmnoo 524d2bf4 hello world
-Working copy now at: yyrsmnoo ac691d85 hello world
+Working copy  (@) now at: yyrsmnoo 524d2bf4 hello world
+Working copy  (@) now at: yyrsmnoo ac691d85 hello world
 ```
 
 Changing our description changed the commit ID! This is why we have both IDs:

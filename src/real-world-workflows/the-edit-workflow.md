@@ -32,8 +32,8 @@ But since we have an empty change, what we'll actually do is:
 
 ```console
 > jj describe -m "only print hello world"
-Working copy now at: ootnlvpt bb06f041 (empty) only print hello world
-Parent commit      : ywnkulko ed71bb54 print goodbye as well as hello
+Working copy  (@) now at: ootnlvpt bb06f041 (empty) only print hello world
+Parent commit (@-)      : ywnkulko ed71bb54 print goodbye as well as hello
 ```
 
 We are now ready to do some work.
@@ -66,8 +66,8 @@ Let's try this:
 ```console
 $ jj new -B @ -m "add more comments"
 Rebased 1 descendant commits
-Working copy now at: nmptruqn 30a1f33b (empty) add more comments
-Parent commit      : ywnkulko ed71bb54 print goodbye as well as hello
+Working copy  (@) now at: nmptruqn 30a1f33b (empty) add more comments
+Parent commit (@-)      : ywnkulko ed71bb54 print goodbye as well as hello
 Added 0 files, modified 1 files, removed 0 files
 ```
 
@@ -144,8 +144,8 @@ $ jj st
 Rebased 1 descendant commits onto updated working copy
 Working copy changes:
 M src/main.rs
-Working copy : nmptruqn 90a2e97f add more comments
-Parent commit: ywnkulko ed71bb54 print goodbye as well as hello
+Working copy  (@) : nmptruqn 90a2e97f add more comments
+Parent commit (@-): ywnkulko ed71bb54 print goodbye as well as hello
 ```
 
 Yet again, a rebase. Because we have changed the contents of our change,
@@ -172,8 +172,8 @@ simpler command:
 
 ```console
 $ jj next --edit
-Working copy now at: ootnlvpt e13b2585 only print hello world
-Parent commit      : nmptruqn 90a2e97f refactor printing
+Working copy  (@) now at: ootnlvpt e13b2585 only print hello world
+Parent commit (@-)      : nmptruqn 90a2e97f refactor printing
 Added 0 files, modified 1 files, removed 0 files
 ```
 

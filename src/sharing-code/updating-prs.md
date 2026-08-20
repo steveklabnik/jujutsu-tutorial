@@ -21,8 +21,8 @@ Let's create a new change:
 
 ```console
 $ jj new -m "respond to feedback"
-Working copy now at: nzsvmmzl 3b663200 (empty) respond to feedback
-Parent commit      : vmunwxsk 9410db49 push-vmunwxsksqvk | add a comment to main
+Working copy  (@) now at: nzsvmmzl 3b663200 (empty) respond to feedback
+Parent commit (@-)      : vmunwxsk 9410db49 push-vmunwxsksqvk | add a comment to main
 ```
 
 And change the text of the comment in `src/main.rs`:
@@ -128,8 +128,8 @@ So let's move the branch backwards, then abandon our new change:
 $ jj bookmark set push-vmunwxsksqvk -r @- --allow-backwards
 Moved 1 bookmarks to vmunwxsk 9410db49 push-vmunwxsksqvk* | add a comment to main
 $ jj edit vmunwxsk
-Working copy now at: vmunwxsk 9410db49 push-vmunwxsksqvk* | add a comment to main
-Parent commit      : ksrmwuon e202b67c trunk | Update Cargo.toml
+Working copy  (@) now at: vmunwxsk 9410db49 push-vmunwxsksqvk* | add a comment to main
+Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 Added 0 files, modified 1 files, removed 0 files
 $ jj abandon nzsvmmzl
 Abandoned commit nzsvmmzl ad6b9b14 push-vmunwxsksqvk@origin | respond to feedback
@@ -208,8 +208,8 @@ new`:
 
 ```output
 $  jj new -m "add a new function"
-Working copy now at: msmntwvo baaa23e8 (empty) add a new function
-Parent commit      : vmunwxsk 6da57c93 push-vmunwxsksqvk* | add a comment to main
+Working copy  (@) now at: msmntwvo baaa23e8 (empty) add a new function
+Parent commit (@-)      : vmunwxsk 6da57c93 push-vmunwxsksqvk* | add a comment to main
 ```
 
 And then add some new functionality:
@@ -246,8 +246,8 @@ since we're okay with rebasing, we can just edit that commit directly:
 
 ```console
 $ jj edit vmunwxsk
-Working copy now at: vmunwxsk 6da57c93 add a comment to main
-Parent commit      : ksrmwuon e202b67c trunk | Update Cargo.toml
+Working copy  (@) now at: vmunwxsk 6da57c93 add a comment to main
+Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 Added 0 files, modified 1 files, removed 0 files
 ```
 
@@ -277,8 +277,8 @@ $ jj st
 Rebased 1 descendant commits onto updated working copy
 Working copy changes:
 M src/main.rs
-Working copy : vmunwxsk f6f7dce9 add a comment to main
-Parent commit: ksrmwuon e202b67c trunk | Update Cargo.toml
+Working copy  (@) : vmunwxsk f6f7dce9 add a comment to main
+Parent commit (@-): ksrmwuon e202b67c trunk | Update Cargo.toml
 ```
 
 There's that automatic rebase again! We don't need to do anything with our
@@ -295,8 +295,8 @@ $ jj log
 │  Update Cargo.toml
 ~
 $ jj next --edit
-Working copy now at: msmntwvo 752534be push-vmunwxsksqvk* | add a new function
-Parent commit      : vmunwxsk f6f7dce9 add a comment to main
+Working copy  (@) now at: msmntwvo 752534be push-vmunwxsksqvk* | add a new function
+Parent commit (@-)      : vmunwxsk f6f7dce9 add a comment to main
 Added 0 files, modified 1 files, removed 0 files
 $ jj git push
 Changes to push to origin:

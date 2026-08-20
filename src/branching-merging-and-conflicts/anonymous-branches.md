@@ -55,8 +55,8 @@ use `jj new` to create one. We want to start from a blank slate here.
 
 ```console
 $ jj new
-Working copy now at: yykpmnuq 0bc7a425 (empty) (no description set)
-Parent commit      : ootnlvpt b5db7940 only print hello world
+Working copy  (@) now at: yykpmnuq 0bc7a425 (empty) (no description set)
+Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 ```
 
 A common reason for branching is to work on two different ideas at once. Let's
@@ -68,8 +68,8 @@ to be working on that:
 
 ```console
 > jj describe -m "add better documentation"
-Working copy now at: yykpmnuq 4a95c1f9 (empty) add better documentation
-Parent commit      : ootnlvpt b5db7940 only print hello world
+Working copy  (@) now at: yykpmnuq 4a95c1f9 (empty) add better documentation
+Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 ```
 
 Next, we want to make a change to work on our hello and goodbye functions.
@@ -77,8 +77,8 @@ We want this change to build on top of `ootnlvpt`, so we can just say that:
 
 ```console
 $ jj new o
-Working copy now at: xrslwzvq e9249c85 (empty) (no description set)
-Parent commit      : ootnlvpt b5db7940 only print hello world
+Working copy  (@) now at: xrslwzvq e9249c85 (empty) (no description set)
+Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 ```
 
 We want to create our new change with the parent `o`, which we could see is the
@@ -90,8 +90,8 @@ Let's describe this one too:
 
 ```console
 $ jj describe -m "create hello and goodbye functions"
-Working copy now at: xrslwzvq a70d464c (empty) create hello and goodbye functions
-Parent commit      : ootnlvpt b5db7940 only print hello world
+Working copy  (@) now at: xrslwzvq a70d464c (empty) create hello and goodbye functions
+Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 ```
 
 Excellent. We've got two different changes, `yykpmnuq` and `xrslwzvq`, both with

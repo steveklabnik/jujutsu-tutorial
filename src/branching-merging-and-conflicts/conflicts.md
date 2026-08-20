@@ -9,8 +9,8 @@ Let's deliberately introduce a conflict. First, we make a new change:
 
 ```console
 $ jj new -m "remove goodbye message"
-Working copy now at: povouosx e2c9628c (empty) remove goodbye message
-Parent commit      : yykpmnuq 2b93da0c (empty) add better documentation
+Working copy  (@) now at: povouosx e2c9628c (empty) remove goodbye message
+Parent commit (@-)      : yykpmnuq 2b93da0c (empty) add better documentation
 ```
 
 And then update `src/main.rs` appropriately:
@@ -33,8 +33,8 @@ Let's also make a new change off of the previous head:
 
 ```console
 $ jj new yykpmnuq -m "refactor printing"
-Working copy now at: vvmrvwuz 44205653 (empty) refactor printing
-Parent commit      : yykpmnuq 2b93da0c (empty) add better documentation
+Working copy  (@) now at: vvmrvwuz 44205653 (empty) refactor printing
+Parent commit (@-)      : yykpmnuq 2b93da0c (empty) add better documentation
 Added 0 files, modified 1 files, removed 0 files
 ```
 
@@ -185,8 +185,8 @@ remove the conflict markers directly:
 
 ```console
 > jj edit povouosx
-Working copy now at: povouosx a912c809 (conflict) remove goodbye message
-Parent commit      : vvmrvwuz d41c079b refactor printing
+Working copy  (@) now at: povouosx a912c809 (conflict) remove goodbye message
+Parent commit (@-)      : vvmrvwuz d41c079b refactor printing
 Added 0 files, modified 1 files, removed 0 files
 ```
 
@@ -243,8 +243,8 @@ Let's take a look:
 $ jj st
 Working copy changes:
 M src/main.rs
-Working copy : povouosx 7647f7a0 remove goodbye message
-Parent commit: vvmrvwuz d41c079b refactor printing
+Working copy  (@) : povouosx 7647f7a0 remove goodbye message
+Parent commit (@-): vvmrvwuz d41c079b refactor printing
 $ jj log --limit 3
 @  povouosx steve@steveklabnik.com 2024-03-01 18:08:23.000 -06:00 7647f7a0
 │  remove goodbye message
@@ -271,8 +271,8 @@ To resolve the conflicts, start by updating to it:
 Then use `jj resolve`, or edit the conflict markers in the file directly.
 Once the conflicts are resolved, you may want inspect the result with `jj diff`.
 Then run `jj squash` to move the resolution into the conflicted commit.
-Working copy now at: povouosx a912c809 (conflict) remove goodbye message
-Parent commit      : vvmrvwuz d41c079b refactor printing
+Working copy  (@) now at: povouosx a912c809 (conflict) remove goodbye message
+Parent commit (@-)      : vvmrvwuz d41c079b refactor printing
 Added 0 files, modified 1 files, removed 0 files
 > jj new povouosxlror --no-edit
 Created new commit mlzwmxzs 07bb727d (conflict) (empty) (no description set)

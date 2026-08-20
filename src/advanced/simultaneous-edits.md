@@ -40,8 +40,8 @@ other:
 
 ```console
 > jj new trunk
-Working copy now at: opwqpunl 7ede4eb9 (empty) (no description set)
-Parent commit      : ksrmwuon e202b67c trunk | Update Cargo.toml
+Working copy  (@) now at: opwqpunl 7ede4eb9 (empty) (no description set)
+Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 Added 0 files, modified 1 files, removed 0 files
 ~/Documents/GitHub/sample-jj-project/hello-world> jj log
 @  opwqpunl steve@steveklabnik.com 2024-03-17 14:12:52.000 -05:00 7ede4eb9
@@ -62,11 +62,11 @@ matter for our purposes.
 
 ```console
 > jj describe -m "display the birthday date on the settings page"
-Working copy now at: opwqpunl 1a66beb1 (empty) display the birthday date on the settings page
-Parent commit      : ksrmwuon e202b67c trunk | Update Cargo.toml
+Working copy  (@) now at: opwqpunl 1a66beb1 (empty) display the birthday date on the settings page
+Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 > jj new -m "have galactus query eks with time range"
-Working copy now at: yxxppztp 3d123151 (empty) have galactus query eks with time range
-Parent commit      : opwqpunl 1a66beb1 (empty) display the birthday date on the settings page
+Working copy  (@) now at: yxxppztp 3d123151 (empty) have galactus query eks with time range
+Parent commit (@-)      : opwqpunl 1a66beb1 (empty) display the birthday date on the settings page
 > jj git push -c @
 Creating branch push-yxxppztpoyqq for revision @
 Branch changes to push to origin:
@@ -90,11 +90,11 @@ three times. It's cooler with more branches, trust me.
 
 ```console
 > jj new trunk -m "prepare to deploy to the cloud"
-Working copy now at: tmnmvxyy 105cf6b5 (empty) prepare to deploy to the cloud
-Parent commit      : ksrmwuon e202b67c trunk | Update Cargo.toml
+Working copy  (@) now at: tmnmvxyy 105cf6b5 (empty) prepare to deploy to the cloud
+Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 > jj new -m "various fixes"
-Working copy now at: rxpztwms 902a6cd2 (empty) various fixes
-Parent commit      : tmnmvxyy 105cf6b5 (empty) prepare to deploy to the cloud
+Working copy  (@) now at: rxpztwms 902a6cd2 (empty) various fixes
+Parent commit (@-)      : tmnmvxyy 105cf6b5 (empty) prepare to deploy to the cloud
 > jj git push -c @
 Creating branch push-rxpztwmsszvk for revision @
 Branch changes to push to origin:
@@ -145,12 +145,12 @@ of them! Anyway:
 
 ```console
 > jj new ym z r yx m -m "merge: steve's branch"
-Working copy now at: xnutwmso 695806ff (empty) merge: steve's branch
-Parent commit      : ymvptyyq 728dbb1e push-ymvptyyqmyul | (empty) fixing all the breakage from updating dependencies
-Parent commit      : zxyukunn 30081a6b push-zxyukunnwolo | (empty) first 80% done
-Parent commit      : rxpztwms 902a6cd2 push-rxpztwmsszvk | (empty) various fixes
-Parent commit      : yxxppztp 3d123151 push-yxxppztpoyqq | (empty) have galactus query eks with time range
-Parent commit      : msmntwvo 752534be push-vmunwxsksqvk | add a new function
+Working copy  (@) now at: xnutwmso 695806ff (empty) merge: steve's branch
+Parent commit (@-)      : ymvptyyq 728dbb1e push-ymvptyyqmyul | (empty) fixing all the breakage from updating dependencies
+Parent commit (@-)      : zxyukunn 30081a6b push-zxyukunnwolo | (empty) first 80% done
+Parent commit (@-)      : rxpztwms 902a6cd2 push-rxpztwmsszvk | (empty) various fixes
+Parent commit (@-)      : yxxppztp 3d123151 push-yxxppztpoyqq | (empty) have galactus query eks with time range
+Parent commit (@-)      : msmntwvo 752534be push-vmunwxsksqvk | add a new function
 Added 0 files, modified 1 files, removed 0 files
 ```
 
@@ -173,8 +173,8 @@ squash-style workflow more easily: we temporarily work on a `@` change, and then
 
 ```console
 > jj new
-Working copy now at: nllzosqm 85324040 (empty) (no description set)
-Parent commit      : xnutwmso 695806ff (empty) merge: steve's branch
+Working copy  (@) now at: nllzosqm 85324040 (empty) (no description set)
+Parent commit (@-)      : xnutwmso 695806ff (empty) merge: steve's branch
 ```
 
 Check out this `jj log`:
@@ -218,8 +218,8 @@ it's not too bad:
 
 ```console
 > jj new z -m "second 80% done"
-Working copy now at: kvupxvpv 2ea49586 (empty) second 80% done
-Parent commit      : zxyukunn 30081a6b push-zxyukunnwolo | (empty) first 80% done
+Working copy  (@) now at: kvupxvpv 2ea49586 (empty) second 80% done
+Parent commit (@-)      : zxyukunn 30081a6b push-zxyukunnwolo | (empty) first 80% done
 Added 0 files, modified 1 files, removed 0 files
 > jj log
     @  kvupxvpv steve@steveklabnik.com 2024-03-17 14:43:28.000 -05:00 46cb6847
@@ -285,8 +285,8 @@ shuffle. It was empty anyway! Let's bring it back:
 
 ```console
 > jj new xn
-Working copy now at: pptrunzw 06442487 (empty) (no description set)
-Parent commit      : xnutwmso bcf8a74b (empty) merge: steve's branch
+Working copy  (@) now at: pptrunzw 06442487 (empty) (no description set)
+Parent commit (@-)      : xnutwmso bcf8a74b (empty) merge: steve's branch
 Added 0 files, modified 2 files, removed 0 files
 > jj log
 @  pptrunzw steve@steveklabnik.com 2024-03-17 14:55:59.000 -05:00 06442487
@@ -361,8 +361,8 @@ We can rebase all of our PRs with one command:
 ```console
 > jj rebase -s 'all:roots(trunk..@)' -o trunk
 Rebased 14 commits
-Working copy now at: ltupzukw 9a496ef6 (empty) (no description set)
-Parent commit      : xnutwmso 6be25a32 (empty) merge: steve's branch
+Working copy  (@) now at: ltupzukw 9a496ef6 (empty) (no description set)
+Parent commit (@-)      : xnutwmso 6be25a32 (empty) merge: steve's branch
 ```
 
 This is using some revset stuff we haven't seen before! Let's break it down:
@@ -486,8 +486,8 @@ Let's move `@` back to where we want it:
 
 ```console
 > jj new xn
-Working copy now at: vvvouunp 78919d69 (empty) (no description set)
-Parent commit      : xnutwmso ce833ae7 (empty) merge: steve's branch
+Working copy  (@) now at: vvvouunp 78919d69 (empty) (no description set)
+Parent commit (@-)      : xnutwmso ce833ae7 (empty) merge: steve's branch
 > jj abandon l
 Abandoned commit ltupzukw edf9cd58 (empty) (no description set)
 > jj log
@@ -532,13 +532,13 @@ that branch:
 > jj abandon push-vmunwxsksqvk
 Abandoned commit msmntwvo?? 21569f7a push-vmunwxsksqvk* | (empty) add a new function
 Rebased 3 descendant commits onto parents of abandoned commits
-Working copy now at: vvvouunp ace3f1a2 (empty) (no description set)
-Parent commit      : xnutwmso 32871810 (empty) merge: steve's branch
+Working copy  (@) now at: vvvouunp ace3f1a2 (empty) (no description set)
+Parent commit (@-)      : xnutwmso 32871810 (empty) merge: steve's branch
 > jj abandon push-vmunwxsksqvk
 Abandoned commit vmunwxsk?? 9a050939 push-vmunwxsksqvk* | (empty) add a comment to main
 Rebased 3 descendant commits onto parents of abandoned commits
-Working copy now at: vvvouunp e3f9254f (empty) (no description set)
-Parent commit      : xnutwmso 0459bd1c (empty) merge: steve's branch
+Working copy  (@) now at: vvvouunp e3f9254f (empty) (no description set)
+Parent commit (@-)      : xnutwmso 0459bd1c (empty) merge: steve's branch
 ```
 
 And now our log is clean:
