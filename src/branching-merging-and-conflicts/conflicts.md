@@ -194,7 +194,7 @@ src/main.rs    2-sided conflict
 
 Here's `src/main.rs`:
 
-```rust
+```rust,ignore
 /// A "Hello, world!" program.
 /// 
 /// This is the best implementation of this program to ever exist.
