@@ -21,11 +21,11 @@ Let's check out our example project to make sure we're on the same place:
 
 ```console
 > jj log
-@  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 push-vmunwxsksqvk 752534be
+@  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08 push-vmunwxsksqvk 752534be
 │  add a new function
-◉  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 f6f7dce9
+○  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08 f6f7dce9
 │  add a comment to main
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 ```
 
@@ -44,13 +44,13 @@ Working copy  (@) now at: opwqpunl 7ede4eb9 (empty) (no description set)
 Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 Added 0 files, modified 1 files, removed 0 files
 ~/Documents/GitHub/sample-jj-project/hello-world> jj log
-@  opwqpunl steve@steveklabnik.com 2024-03-17 14:12:52.000 -05:00 7ede4eb9
+@  opwqpunl steve@steveklabnik.com 2024-03-17 14:12:52 7ede4eb9
 │  (empty) (no description set)
-│ ◉  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 push-vmunwxsksqvk 752534be
+│ ○  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08 push-vmunwxsksqvk 752534be
 │ │  add a new function
-│ ◉  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 f6f7dce9
+│ ○  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08 f6f7dce9
 ├─╯  add a comment to main
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 ~
 ```
@@ -72,15 +72,15 @@ Creating branch push-yxxppztpoyqq for revision @
 Branch changes to push to origin:
   Add branch push-yxxppztpoyqq to 3d1231518dbf
 > jj log
-@  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00.000 -05:00 push-yxxppztpoyqq 3d123151
+@  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00 push-yxxppztpoyqq 3d123151
 │  (empty) have galactus query eks with time range
-◉  opwqpunl steve@steveklabnik.com 2024-03-17 14:15:58.000 -05:00 1a66beb1
+○  opwqpunl steve@steveklabnik.com 2024-03-17 14:15:58 1a66beb1
 │  (empty) display the birthday date on the settings page
-│ ◉  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 push-vmunwxsksqvk 752534be
+│ ○  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08 push-vmunwxsksqvk 752534be
 │ │  add a new function
-│ ◉  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 f6f7dce9
+│ ○  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08 f6f7dce9
 ├─╯  add a comment to main
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 ~
 ```
@@ -105,27 +105,27 @@ Your `jj log` will look like this:
 
 ```console
 > jj log
-@  ymvptyyq steve@steveklabnik.com 2024-03-17 14:25:31.000 -05:00 push-ymvptyyqmyul 728dbb1e
+@  ymvptyyq steve@steveklabnik.com 2024-03-17 14:25:31 push-ymvptyyqmyul 728dbb1e
 │  (empty) fixing all the breakage from updating dependencies
-◉  xulymzyp steve@steveklabnik.com 2024-03-17 14:25:14.000 -05:00 1f7c69a5
+○  xulymzyp steve@steveklabnik.com 2024-03-17 14:25:14 1f7c69a5
 │  (empty) updating dependencies
-│ ◉  zxyukunn steve@steveklabnik.com 2024-03-17 14:24:56.000 -05:00 push-zxyukunnwolo 30081a6b
+│ ○  zxyukunn steve@steveklabnik.com 2024-03-17 14:24:56 push-zxyukunnwolo 30081a6b
 │ │  (empty) first 80% done
-│ ◉  tzsloruo steve@steveklabnik.com 2024-03-17 14:24:21.000 -05:00 7c02f6ce
+│ ○  tzsloruo steve@steveklabnik.com 2024-03-17 14:24:21 7c02f6ce
 ├─╯  (empty) another feature
-│ ◉  rxpztwms steve@steveklabnik.com 2024-03-17 14:23:00.000 -05:00 push-rxpztwmsszvk 902a6cd2
+│ ○  rxpztwms steve@steveklabnik.com 2024-03-17 14:23:00 push-rxpztwmsszvk 902a6cd2
 │ │  (empty) various fixes
-│ ◉  tmnmvxyy steve@steveklabnik.com 2024-03-17 14:22:15.000 -05:00 105cf6b5
+│ ○  tmnmvxyy steve@steveklabnik.com 2024-03-17 14:22:15 105cf6b5
 ├─╯  (empty) prepare to deploy to the cloud
-│ ◉  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00.000 -05:00 push-yxxppztpoyqq 3d123151
+│ ○  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00 push-yxxppztpoyqq 3d123151
 │ │  (empty) have galactus query eks with time range
-│ ◉  opwqpunl steve@steveklabnik.com 2024-03-17 14:15:58.000 -05:00 1a66beb1
+│ ○  opwqpunl steve@steveklabnik.com 2024-03-17 14:15:58 1a66beb1
 ├─╯  (empty) display the birthday date on the settings page
-│ ◉  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 push-vmunwxsksqvk 752534be
+│ ○  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08 push-vmunwxsksqvk 752534be
 │ │  add a new function
-│ ◉  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 f6f7dce9
+│ ○  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08 f6f7dce9
 ├─╯  add a comment to main
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 ```
 
@@ -181,31 +181,31 @@ Check out this `jj log`:
 
 ```console
 > jj log
-@  nllzosqm steve@steveklabnik.com 2024-03-17 14:36:36.000 -05:00 85324040
+@  nllzosqm steve@steveklabnik.com 2024-03-17 14:36:36 85324040
 │  (empty) (no description set)
-◉          xnutwmso steve@steveklabnik.com 2024-03-17 14:30:52.000 -05:00 695806ff
+○          xnutwmso steve@steveklabnik.com 2024-03-17 14:30:52 695806ff
 ├─┬─┬─┬─╮  (empty) merge: steve's branch
-│ │ │ │ ◉  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 push-vmunwxsksqvk 752534be
+│ │ │ │ ○  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08 push-vmunwxsksqvk 752534be
 │ │ │ │ │  add a new function
-│ │ │ │ ◉  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 f6f7dce9
+│ │ │ │ ○  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08 f6f7dce9
 │ │ │ │ │  add a comment to main
-│ │ │ ◉ │  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00.000 -05:00 push-yxxppztpoyqq 3d123151
+│ │ │ ○ │  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00 push-yxxppztpoyqq 3d123151
 │ │ │ │ │  (empty) have galactus query eks with time range
-│ │ │ ◉ │  opwqpunl steve@steveklabnik.com 2024-03-17 14:15:58.000 -05:00 1a66beb1
+│ │ │ ○ │  opwqpunl steve@steveklabnik.com 2024-03-17 14:15:58 1a66beb1
 │ │ │ ├─╯  (empty) display the birthday date on the settings page
-│ │ ◉ │  rxpztwms steve@steveklabnik.com 2024-03-17 14:23:00.000 -05:00 push-rxpztwmsszvk 902a6cd2
+│ │ ○ │  rxpztwms steve@steveklabnik.com 2024-03-17 14:23:00 push-rxpztwmsszvk 902a6cd2
 │ │ │ │  (empty) various fixes
-│ │ ◉ │  tmnmvxyy steve@steveklabnik.com 2024-03-17 14:22:15.000 -05:00 105cf6b5
+│ │ ○ │  tmnmvxyy steve@steveklabnik.com 2024-03-17 14:22:15 105cf6b5
 │ │ ├─╯  (empty) prepare to deploy to the cloud
-│ ◉ │  zxyukunn steve@steveklabnik.com 2024-03-17 14:24:56.000 -05:00 push-zxyukunnwolo 30081a6b
+│ ○ │  zxyukunn steve@steveklabnik.com 2024-03-17 14:24:56 push-zxyukunnwolo 30081a6b
 │ │ │  (empty) first 80% done
-│ ◉ │  tzsloruo steve@steveklabnik.com 2024-03-17 14:24:21.000 -05:00 7c02f6ce
+│ ○ │  tzsloruo steve@steveklabnik.com 2024-03-17 14:24:21 7c02f6ce
 │ ├─╯  (empty) another feature
-◉ │  ymvptyyq steve@steveklabnik.com 2024-03-17 14:25:31.000 -05:00 push-ymvptyyqmyul 728dbb1e
+○ │  ymvptyyq steve@steveklabnik.com 2024-03-17 14:25:31 push-ymvptyyqmyul 728dbb1e
 │ │  (empty) fixing all the breakage from updating dependencies
-◉ │  xulymzyp steve@steveklabnik.com 2024-03-17 14:25:14.000 -05:00 1f7c69a5
+○ │  xulymzyp steve@steveklabnik.com 2024-03-17 14:25:14 1f7c69a5
 ├─╯  (empty) updating dependencies
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 ```
 
@@ -222,31 +222,31 @@ Working copy  (@) now at: kvupxvpv 2ea49586 (empty) second 80% done
 Parent commit (@-)      : zxyukunn 30081a6b push-zxyukunnwolo | (empty) first 80% done
 Added 0 files, modified 1 files, removed 0 files
 > jj log
-    @  kvupxvpv steve@steveklabnik.com 2024-03-17 14:43:28.000 -05:00 46cb6847
+    @  kvupxvpv steve@steveklabnik.com 2024-03-17 14:43:28 46cb6847
     | (empty) second 80% done
-  ◉ |      xnutwmso steve@steveklabnik.com 2024-03-17 14:30:52.000 -05:00 695806ff
+  ○ |      xnutwmso steve@steveklabnik.com 2024-03-17 14:30:52 695806ff
 ╭─┼─┬─┬─╮  (empty) merge: steve's branch
-◉ │ │ │ │  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 push-vmunwxsksqvk 752534be
+○ │ │ │ │  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08 push-vmunwxsksqvk 752534be
 │ │ │ │ │  add a new function
-◉ │ │ │ │  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 f6f7dce9
+○ │ │ │ │  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08 f6f7dce9
 │ │ │ │ │  add a comment to main
-│ │ │ │ ◉  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00.000 -05:00 push-yxxppztpoyqq 3d123151
+│ │ │ │ ○  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00 push-yxxppztpoyqq 3d123151
 │ │ │ │ │  (empty) have galactus query eks with time range
-│ │ │ │ ◉  opwqpunl steve@steveklabnik.com 2024-03-17 14:15:58.000 -05:00 1a66beb1
+│ │ │ │ ○  opwqpunl steve@steveklabnik.com 2024-03-17 14:15:58 1a66beb1
 ├───────╯  (empty) display the birthday date on the settings page
-│ │ │ ◉  rxpztwms steve@steveklabnik.com 2024-03-17 14:23:00.000 -05:00 push-rxpztwmsszvk 902a6cd2
+│ │ │ ○  rxpztwms steve@steveklabnik.com 2024-03-17 14:23:00 push-rxpztwmsszvk 902a6cd2
 │ │ │ │  (empty) various fixes
-│ │ │ ◉  tmnmvxyy steve@steveklabnik.com 2024-03-17 14:22:15.000 -05:00 105cf6b5
+│ │ │ ○  tmnmvxyy steve@steveklabnik.com 2024-03-17 14:22:15 105cf6b5
 ├─────╯  (empty) prepare to deploy to the cloud
-│ │ ◉  zxyukunn steve@steveklabnik.com 2024-03-17 14:24:56.000 -05:00 push-zxyukunnwolo 30081a6b
+│ │ ○  zxyukunn steve@steveklabnik.com 2024-03-17 14:24:56 push-zxyukunnwolo 30081a6b
 │ │ │  (empty) first 80% done
-│ │ ◉  tzsloruo steve@steveklabnik.com 2024-03-17 14:24:21.000 -05:00 7c02f6ce
+│ │ ○  tzsloruo steve@steveklabnik.com 2024-03-17 14:24:21 7c02f6ce
 ├───╯  (empty) another feature
-│ ◉  ymvptyyq steve@steveklabnik.com 2024-03-17 14:25:31.000 -05:00 push-ymvptyyqmyul 728dbb1e
+│ ○  ymvptyyq steve@steveklabnik.com 2024-03-17 14:25:31 push-ymvptyyqmyul 728dbb1e
 │ │  (empty) fixing all the breakage from updating dependencies
-│ ◉  xulymzyp steve@steveklabnik.com 2024-03-17 14:25:14.000 -05:00 1f7c69a5
+│ ○  xulymzyp steve@steveklabnik.com 2024-03-17 14:25:14 1f7c69a5
 ├─╯  (empty) updating dependencies
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 ```
 
@@ -262,19 +262,19 @@ happen:
 
 ```console
 > jj log
-◉          xnutwmso steve@steveklabnik.com 2024-03-17 15:16:36.000 -05:00 da67dfe1
+○          xnutwmso steve@steveklabnik.com 2024-03-17 15:16:36 da67dfe1
 ├─┬─┬─┬─╮  (empty) merge: steve's branch
-│ │ │ │ @  kvupxvpv steve@steveklabnik.com 2024-03-17 15:15:20.000 -05:00 2ea49586
+│ │ │ │ @  kvupxvpv steve@steveklabnik.com 2024-03-17 15:15:20 2ea49586
 │ │ │ │ │  (empty) second 80% done
-│ │ │ │ ◉  zxyukunn steve@steveklabnik.com 2024-03-17 14:24:56.000 -05:00 push-zxyukunnwolo 30081a6b
+│ │ │ │ ○  zxyukunn steve@steveklabnik.com 2024-03-17 14:24:56 push-zxyukunnwolo 30081a6b
 │ │ │ │ │  (empty) first 80% done
-│ │ │ │ ◉  tzsloruo steve@steveklabnik.com 2024-03-17 14:24:21.000 -05:00 7c02f6ce
+│ │ │ │ ○  tzsloruo steve@steveklabnik.com 2024-03-17 14:24:21 7c02f6ce
 │ │ │ │ │  (empty) another feature
-│ │ │ ◉ │  rxpztwms steve@steveklabnik.com 2024-03-17 14:23:00.000 -05:00 push-rxpztwmsszvk 902a6cd2
+│ │ │ ○ │  rxpztwms steve@steveklabnik.com 2024-03-17 14:23:00 push-rxpztwmsszvk 902a6cd2
 │ │ │ │ │  (empty) various fixes
-│ │ │ ◉ │  tmnmvxyy steve@steveklabnik.com 2024-03-17 14:22:15.000 -05:00 105cf6b5
+│ │ │ ○ │  tmnmvxyy steve@steveklabnik.com 2024-03-17 14:22:15 105cf6b5
 │ │ │ ├─╯  (empty) prepare to deploy to the cloud
-│ │ ◉ │  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00.000 -05:00 push-yxxppztpoyqq 3d123151
+│ │ ○ │  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00 push-yxxppztpoyqq 3d123151
 │ │ │ │  (empty) have galactus query eks with time range
 <snip>
 ~
@@ -289,9 +289,9 @@ Working copy  (@) now at: pptrunzw 06442487 (empty) (no description set)
 Parent commit (@-)      : xnutwmso bcf8a74b (empty) merge: steve's branch
 Added 0 files, modified 2 files, removed 0 files
 > jj log
-@  pptrunzw steve@steveklabnik.com 2024-03-17 14:55:59.000 -05:00 06442487
+@  pptrunzw steve@steveklabnik.com 2024-03-17 14:55:59 06442487
 │  (empty) (no description set)
-◉          xnutwmso steve@steveklabnik.com 2024-03-17 14:52:08.000 -05:00 bcf8a74b
+○          xnutwmso steve@steveklabnik.com 2024-03-17 14:52:08 bcf8a74b
 ├─┬─┬─┬─╮  (empty) merge: steve's branch
 
 <snip>
@@ -316,35 +316,35 @@ After fetching changes, our log looks like this:
 ```console
 > jj git fetch
 > jj log
-@  xqkmpxlq steve@steveklabnik.com 2024-03-17 15:18:11.000 -05:00 fccf0626
+@  xqkmpxlq steve@steveklabnik.com 2024-03-17 15:18:11 fccf0626
 │  (empty) (no description set)
-◉          xnutwmso steve@steveklabnik.com 2024-03-17 15:16:36.000 -05:00 da67dfe1
+○          xnutwmso steve@steveklabnik.com 2024-03-17 15:16:36 da67dfe1
 ├─┬─┬─┬─╮  (empty) merge: steve's branch
-│ │ │ │ ◉  kvupxvpv steve@steveklabnik.com 2024-03-17 15:15:20.000 -05:00 2ea49586
+│ │ │ │ ○  kvupxvpv steve@steveklabnik.com 2024-03-17 15:15:20 2ea49586
 │ │ │ │ │  (empty) second 80% done
-│ │ │ │ ◉  zxyukunn steve@steveklabnik.com 2024-03-17 14:24:56.000 -05:00 push-zxyukunnwolo 30081a6b
+│ │ │ │ ○  zxyukunn steve@steveklabnik.com 2024-03-17 14:24:56 push-zxyukunnwolo 30081a6b
 │ │ │ │ │  (empty) first 80% done
-│ │ │ │ ◉  tzsloruo steve@steveklabnik.com 2024-03-17 14:24:21.000 -05:00 7c02f6ce
+│ │ │ │ ○  tzsloruo steve@steveklabnik.com 2024-03-17 14:24:21 7c02f6ce
 │ │ │ │ │  (empty) another feature
-│ │ │ ◉ │  rxpztwms steve@steveklabnik.com 2024-03-17 14:23:00.000 -05:00 push-rxpztwmsszvk 902a6cd2
+│ │ │ ○ │  rxpztwms steve@steveklabnik.com 2024-03-17 14:23:00 push-rxpztwmsszvk 902a6cd2
 │ │ │ │ │  (empty) various fixes
-│ │ │ ◉ │  tmnmvxyy steve@steveklabnik.com 2024-03-17 14:22:15.000 -05:00 105cf6b5
+│ │ │ ○ │  tmnmvxyy steve@steveklabnik.com 2024-03-17 14:22:15 105cf6b5
 │ │ │ ├─╯  (empty) prepare to deploy to the cloud
-│ │ ◉ │  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00.000 -05:00 push-yxxppztpoyqq 3d123151
+│ │ ○ │  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00 push-yxxppztpoyqq 3d123151
 │ │ │ │  (empty) have galactus query eks with time range
-│ │ ◉ │  opwqpunl steve@steveklabnik.com 2024-03-17 14:15:58.000 -05:00 1a66beb1
+│ │ ○ │  opwqpunl steve@steveklabnik.com 2024-03-17 14:15:58 1a66beb1
 │ │ ├─╯  (empty) display the birthday date on the settings page
-│ ◉ │  ymvptyyq steve@steveklabnik.com 2024-03-17 14:25:31.000 -05:00 push-ymvptyyqmyul 728dbb1e
+│ ○ │  ymvptyyq steve@steveklabnik.com 2024-03-17 14:25:31 push-ymvptyyqmyul 728dbb1e
 │ │ │  (empty) fixing all the breakage from updating dependencies
-│ ◉ │  xulymzyp steve@steveklabnik.com 2024-03-17 14:25:14.000 -05:00 1f7c69a5
+│ ○ │  xulymzyp steve@steveklabnik.com 2024-03-17 14:25:14 1f7c69a5
 │ ├─╯  (empty) updating dependencies
-◉ │  msmntwvo?? steve@steveklabnik.com 2024-03-17 14:45:41.000 -05:00 push-vmunwxsksqvk* cdca9211
+○ │  msmntwvo?? steve@steveklabnik.com 2024-03-17 14:45:41 push-vmunwxsksqvk* cdca9211
 │ │  add a new function
-◉ │  vmunwxsk?? steve@steveklabnik.com 2024-03-17 14:45:41.000 -05:00 3a08be8a
+○ │  vmunwxsk?? steve@steveklabnik.com 2024-03-17 14:45:41 3a08be8a
 ├─╯  add a comment to main
-│ ◉  okyzuxnk steve@steveklabnik.com 2024-03-17 14:59:02.000 -05:00 trunk b7f9d708
+│ ◆  okyzuxnk steve@steveklabnik.com 2024-03-17 14:59:02 trunk b7f9d708
 ╭─╯  (empty) Merge pull request #1 from steveklabnik/push-vmunwxsksqvk
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 e202b67c
 │  Update Cargo.toml
 ~
 ```
@@ -449,35 +449,35 @@ Here's what our `jj log` looks like:
 
 ```console
 > jj log
-◉  xnutwmso steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 ce833ae7
+○  xnutwmso steve@steveklabnik.com 2024-03-17 16:01:56 ce833ae7
 │  (empty) merge: steve's branch
-◉          xqkmpxlq steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 5dc292c2
+○          xqkmpxlq steve@steveklabnik.com 2024-03-17 16:01:56 5dc292c2
 ├─┬─┬─┬─╮  (empty) (no description set)
-│ │ │ │ │ @  ltupzukw steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 edf9cd58
+│ │ │ │ │ @  ltupzukw steve@steveklabnik.com 2024-03-17 16:01:56 edf9cd58
 ╭─┬─┬─┬─┬─╯  (empty) (no description set)
-│ │ │ │ ◉  yxxppztp steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-yxxppztpoyqq* b3db74d3
+│ │ │ │ ○  yxxppztp steve@steveklabnik.com 2024-03-17 16:01:56 push-yxxppztpoyqq* b3db74d3
 │ │ │ │ │  (empty) have galactus query eks with time range
-│ │ │ │ ◉  opwqpunl steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 713c692d
+│ │ │ │ ○  opwqpunl steve@steveklabnik.com 2024-03-17 16:01:56 713c692d
 │ │ │ │ │  (empty) display the birthday date on the settings page
-│ │ │ ◉ │  rxpztwms steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-rxpztwmsszvk* 76dbbcd1
+│ │ │ ○ │  rxpztwms steve@steveklabnik.com 2024-03-17 16:01:56 push-rxpztwmsszvk* 76dbbcd1
 │ │ │ │ │  (empty) various fixes
-│ │ │ ◉ │  tmnmvxyy steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 d0f7f627
+│ │ │ ○ │  tmnmvxyy steve@steveklabnik.com 2024-03-17 16:01:56 d0f7f627
 │ │ │ ├─╯  (empty) prepare to deploy to the cloud
-│ │ ◉ │  ymvptyyq steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-ymvptyyqmyul* f448e93a
+│ │ ○ │  ymvptyyq steve@steveklabnik.com 2024-03-17 16:01:56 push-ymvptyyqmyul* f448e93a
 │ │ │ │  (empty) fixing all the breakage from updating dependencies
-│ │ ◉ │  xulymzyp steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 d608ebd3
+│ │ ○ │  xulymzyp steve@steveklabnik.com 2024-03-17 16:01:56 d608ebd3
 │ │ ├─╯  (empty) updating dependencies
-│ ◉ │  msmntwvo?? steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-vmunwxsksqvk* 21569f7a
+│ ○ │  msmntwvo?? steve@steveklabnik.com 2024-03-17 16:01:56 push-vmunwxsksqvk* 21569f7a
 │ │ │  (empty) add a new function
-│ ◉ │  vmunwxsk?? steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 9a050939
+│ ○ │  vmunwxsk?? steve@steveklabnik.com 2024-03-17 16:01:56 9a050939
 │ ├─╯  (empty) add a comment to main
-◉ │  kvupxvpv steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 3b0a722a
+○ │  kvupxvpv steve@steveklabnik.com 2024-03-17 16:01:56 3b0a722a
 │ │  (empty) second 80% done
-◉ │  zxyukunn steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-zxyukunnwolo* 7e826ad4
+○ │  zxyukunn steve@steveklabnik.com 2024-03-17 16:01:56 push-zxyukunnwolo* 7e826ad4
 │ │  (empty) first 80% done
-◉ │  tzsloruo steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 792cc601
+○ │  tzsloruo steve@steveklabnik.com 2024-03-17 16:01:56 792cc601
 ├─╯  (empty) another feature
-◉  okyzuxnk steve@steveklabnik.com 2024-03-17 14:59:02.000 -05:00 trunk b7f9d708
+◆  okyzuxnk steve@steveklabnik.com 2024-03-17 14:59:02 trunk b7f9d708
 │  (empty) Merge pull request #1 from steveklabnik/push-vmunwxsksqvk
 ~
 ```
@@ -491,35 +491,35 @@ Parent commit (@-)      : xnutwmso ce833ae7 (empty) merge: steve's branch
 > jj abandon l
 Abandoned commit ltupzukw edf9cd58 (empty) (no description set)
 > jj log
-@  vvvouunp steve@steveklabnik.com 2024-03-17 16:02:39.000 -05:00 78919d69
+@  vvvouunp steve@steveklabnik.com 2024-03-17 16:02:39 78919d69
 │  (empty) (no description set)
-◉  xnutwmso steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 ce833ae7
+○  xnutwmso steve@steveklabnik.com 2024-03-17 16:01:56 ce833ae7
 │  (empty) merge: steve's branch
-◉          xqkmpxlq steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 5dc292c2
+○          xqkmpxlq steve@steveklabnik.com 2024-03-17 16:01:56 5dc292c2
 ├─┬─┬─┬─╮  (empty) (no description set)
-│ │ │ │ ◉  yxxppztp steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-yxxppztpoyqq* b3db74d3
+│ │ │ │ ○  yxxppztp steve@steveklabnik.com 2024-03-17 16:01:56 push-yxxppztpoyqq* b3db74d3
 │ │ │ │ │  (empty) have galactus query eks with time range
-│ │ │ │ ◉  opwqpunl steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 713c692d
+│ │ │ │ ○  opwqpunl steve@steveklabnik.com 2024-03-17 16:01:56 713c692d
 │ │ │ │ │  (empty) display the birthday date on the settings page
-│ │ │ ◉ │  rxpztwms steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-rxpztwmsszvk* 76dbbcd1
+│ │ │ ○ │  rxpztwms steve@steveklabnik.com 2024-03-17 16:01:56 push-rxpztwmsszvk* 76dbbcd1
 │ │ │ │ │  (empty) various fixes
-│ │ │ ◉ │  tmnmvxyy steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 d0f7f627
+│ │ │ ○ │  tmnmvxyy steve@steveklabnik.com 2024-03-17 16:01:56 d0f7f627
 │ │ │ ├─╯  (empty) prepare to deploy to the cloud
-│ │ ◉ │  ymvptyyq steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-ymvptyyqmyul* f448e93a
+│ │ ○ │  ymvptyyq steve@steveklabnik.com 2024-03-17 16:01:56 push-ymvptyyqmyul* f448e93a
 │ │ │ │  (empty) fixing all the breakage from updating dependencies
-│ │ ◉ │  xulymzyp steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 d608ebd3
+│ │ ○ │  xulymzyp steve@steveklabnik.com 2024-03-17 16:01:56 d608ebd3
 │ │ ├─╯  (empty) updating dependencies
-│ ◉ │  msmntwvo?? steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-vmunwxsksqvk* 21569f7a
+│ ○ │  msmntwvo?? steve@steveklabnik.com 2024-03-17 16:01:56 push-vmunwxsksqvk* 21569f7a
 │ │ │  (empty) add a new function
-│ ◉ │  vmunwxsk?? steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 9a050939
+│ ○ │  vmunwxsk?? steve@steveklabnik.com 2024-03-17 16:01:56 9a050939
 │ ├─╯  (empty) add a comment to main
-◉ │  kvupxvpv steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 3b0a722a
+○ │  kvupxvpv steve@steveklabnik.com 2024-03-17 16:01:56 3b0a722a
 │ │  (empty) second 80% done
-◉ │  zxyukunn steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-zxyukunnwolo* 7e826ad4
+○ │  zxyukunn steve@steveklabnik.com 2024-03-17 16:01:56 push-zxyukunnwolo* 7e826ad4
 │ │  (empty) first 80% done
-◉ │  tzsloruo steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 792cc601
+○ │  tzsloruo steve@steveklabnik.com 2024-03-17 16:01:56 792cc601
 ├─╯  (empty) another feature
-◉  okyzuxnk steve@steveklabnik.com 2024-03-17 14:59:02.000 -05:00 trunk b7f9d708
+◆  okyzuxnk steve@steveklabnik.com 2024-03-17 14:59:02 trunk b7f9d708
 │  (empty) Merge pull request #1 from steveklabnik/push-vmunwxsksqvk
 ~
 ```
@@ -545,31 +545,31 @@ And now our log is clean:
 
 ```text
 > jj log
-@  vvvouunp steve@steveklabnik.com 2024-03-17 16:06:15.000 -05:00 e3f9254f
+@  vvvouunp steve@steveklabnik.com 2024-03-17 16:06:15 e3f9254f
 │  (empty) (no description set)
-◉  xnutwmso steve@steveklabnik.com 2024-03-17 16:06:15.000 -05:00 0459bd1c
+○  xnutwmso steve@steveklabnik.com 2024-03-17 16:06:15 0459bd1c
 │  (empty) merge: steve's branch
-◉        xqkmpxlq steve@steveklabnik.com 2024-03-17 16:06:15.000 -05:00 c9e5fa35
+○        xqkmpxlq steve@steveklabnik.com 2024-03-17 16:06:15 c9e5fa35
 ├─┬─┬─╮  (empty) (no description set)
-│ │ │ ◉  yxxppztp steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-yxxppztpoyqq* b3db74d3
+│ │ │ ○  yxxppztp steve@steveklabnik.com 2024-03-17 16:01:56 push-yxxppztpoyqq* b3db74d3
 │ │ │ │  (empty) have galactus query eks with time range
-│ │ │ ◉  opwqpunl steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 713c692d
+│ │ │ ○  opwqpunl steve@steveklabnik.com 2024-03-17 16:01:56 713c692d
 │ │ │ │  (empty) display the birthday date on the settings page
-│ │ ◉ │  rxpztwms steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-rxpztwmsszvk* 76dbbcd1
+│ │ ○ │  rxpztwms steve@steveklabnik.com 2024-03-17 16:01:56 push-rxpztwmsszvk* 76dbbcd1
 │ │ │ │  (empty) various fixes
-│ │ ◉ │  tmnmvxyy steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 d0f7f627
+│ │ ○ │  tmnmvxyy steve@steveklabnik.com 2024-03-17 16:01:56 d0f7f627
 │ │ ├─╯  (empty) prepare to deploy to the cloud
-│ ◉ │  ymvptyyq steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-ymvptyyqmyul* f448e93a
+│ ○ │  ymvptyyq steve@steveklabnik.com 2024-03-17 16:01:56 push-ymvptyyqmyul* f448e93a
 │ │ │  (empty) fixing all the breakage from updating dependencies
-│ ◉ │  xulymzyp steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 d608ebd3
+│ ○ │  xulymzyp steve@steveklabnik.com 2024-03-17 16:01:56 d608ebd3
 │ ├─╯  (empty) updating dependencies
-◉ │  kvupxvpv steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 3b0a722a
+○ │  kvupxvpv steve@steveklabnik.com 2024-03-17 16:01:56 3b0a722a
 │ │  (empty) second 80% done
-◉ │  zxyukunn steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 push-zxyukunnwolo* 7e826ad4
+○ │  zxyukunn steve@steveklabnik.com 2024-03-17 16:01:56 push-zxyukunnwolo* 7e826ad4
 │ │  (empty) first 80% done
-◉ │  tzsloruo steve@steveklabnik.com 2024-03-17 16:01:56.000 -05:00 792cc601
+○ │  tzsloruo steve@steveklabnik.com 2024-03-17 16:01:56 792cc601
 ├─╯  (empty) another feature
-◉  okyzuxnk steve@steveklabnik.com 2024-03-17 14:59:02.000 -05:00 push-vmunwxsksqvk* trunk b7f9d708
+◆  okyzuxnk steve@steveklabnik.com 2024-03-17 14:59:02 push-vmunwxsksqvk* trunk b7f9d708
 │  (empty) Merge pull request #1 from steveklabnik/push-vmunwxsksqvk
 ~
 ```

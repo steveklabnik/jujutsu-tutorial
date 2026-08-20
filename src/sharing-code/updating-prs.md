@@ -47,11 +47,11 @@ Our change is ready, but one thing is missing:
 
 ```console
 $ jj log
-@  nzsvmmzl steve@steveklabnik.com 2024-03-02 09:22:40.000 -06:00 ad6b9b14
+@  nzsvmmzl steve@steveklabnik.com 2024-03-02 09:22:40 ad6b9b14
 │  respond to feedback
-◉  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30.000 -06:00 push-vmunwxsksqvk 9410db49
+○  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30 push-vmunwxsksqvk 9410db49
 │  add a comment to main
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 ~
 ```
@@ -113,11 +113,11 @@ First, we have to undo what we just did. Here's where we are:
 
 ```console
 > jj log
-@  nzsvmmzl steve@steveklabnik.com 2024-03-02 09:22:40.000 -06:00 push-vmunwxsksqvk ad6b9b14
+@  nzsvmmzl steve@steveklabnik.com 2024-03-02 09:22:40 push-vmunwxsksqvk ad6b9b14
 │  respond to feedback
-◉  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30.000 -06:00 9410db49
+○  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30 9410db49
 │  add a comment to main
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 ~
 ```
@@ -134,9 +134,9 @@ Added 0 files, modified 1 files, removed 0 files
 $ jj abandon nzsvmmzl
 Abandoned commit nzsvmmzl ad6b9b14 push-vmunwxsksqvk@origin | respond to feedback
 $ jj log
-@  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30.000 -06:00 push-vmunwxsksqvk* 9410db49
+@  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30 push-vmunwxsksqvk* 9410db49
 │  add a comment to main
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 ~
 ```
@@ -287,11 +287,11 @@ push:
 
 ```console
 $ jj log
-◉  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 push-vmunwxsksqvk* 752534be
+○  msmntwvo steve@steveklabnik.com 2024-03-02 11:47:08 push-vmunwxsksqvk* 752534be
 │  add a new function
-@  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08.000 -06:00 f6f7dce9
+@  vmunwxsk steve@steveklabnik.com 2024-03-02 11:47:08 f6f7dce9
 │  add a comment to main
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 ~
 $ jj next --edit

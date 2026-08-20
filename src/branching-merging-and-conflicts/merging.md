@@ -4,11 +4,11 @@ Let's recall where we are:
 
 ```console
 > jj log
-@  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
+@  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
 │  (empty) create hello and goodbye functions
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
 ```
 
@@ -27,15 +27,15 @@ Let's take a look:
 
 ```console
 > jj log --limit 5
-@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
+│ ○  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
 ├─╯  (empty) create hello and goodbye functions
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -65,17 +65,17 @@ choosing six as the limit since we just added a new change:
 
 ```console
 > jj log --limit 6
-@    rxzyvnkx steve@steveklabnik.com 2024-03-01 15:21:11.000 -06:00 f1c1bde8
+@    rxzyvnkx steve@steveklabnik.com 2024-03-01 15:21:11 f1c1bde8
 ├─╮  (empty) merge better documentation
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 │ │  (empty) add better documentation
-◉ │  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+○ │  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 ├─╯  (empty) added some cool new feature
-│ ◉  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
+│ ○  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
 ├─╯  (empty) create hello and goodbye functions
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -91,15 +91,15 @@ $ jj undo
 Working copy  (@) now at: pzoqtwuv 9353442b (empty) added some cool new feature
 Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 $ jj log --limit 5
-@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
+│ ○  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
 ├─╯  (empty) create hello and goodbye functions
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -114,17 +114,17 @@ Working copy  (@) now at: pzoqtwuv 9353442b (empty) added some cool new feature
 Parent commit (@-)      : yykpmnuq 210283e8 (empty) add better documentation
 Parent commit (@-)      : xrslwzvq a70d464c (empty) create hello and goodbye functions
 $ jj log --limit 6
-@      vuztuxmz steve@steveklabnik.com 2024-03-01 15:38:49.000 -06:00 717232df
+@      vuztuxmz steve@steveklabnik.com 2024-03-01 15:38:49 717232df
 ├─┬─╮  (empty) merge three branches
-│ │ ◉  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
+│ │ ○  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
 │ │ │  (empty) create hello and goodbye functions
-│ ◉ │  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○ │  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 │ ├─╯  (empty) add better documentation
-◉ │  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+○ │  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 ├─╯  (empty) added some cool new feature
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -150,15 +150,15 @@ $ jj undo
 Working copy  (@) now at: pzoqtwuv 9353442b (empty) added some cool new feature
 Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 $ jj log --limit 5
-@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
+│ ○  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
 ├─╯  (empty) create hello and goodbye functions
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -181,15 +181,15 @@ We didn't get any output though. Let's look at our log:
 
 ```console
 $ jj log --limit 5
-◉  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37.000 -06:00 6c4afc8f
+○  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37 6c4afc8f
 │  (empty) create hello and goodbye functions
-@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -222,17 +222,17 @@ flag you can pass instead to create a new change but not modify `@`:
 $ jj new -m "not gonna start this yet" --no-edit
 Created new commit owlpoptm df6620cb (empty) not gonna start this yet
 $ jj log --limit 6
-◉  owlpoptm steve@steveklabnik.com 2024-03-01 16:28:54.000 -06:00 df6620cb
+○  owlpoptm steve@steveklabnik.com 2024-03-01 16:28:54 df6620cb
 │  (empty) not gonna start this yet
-│ ◉  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37.000 -06:00 6c4afc8f
+│ ○  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37 6c4afc8f
 ├─╯  (empty) create hello and goodbye functions
-@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -241,15 +241,15 @@ New change, yet we're still where we are. Let's undo that real quick:
 ```console
 $ jj undo
 $ jj log --limit 5
-◉  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37.000 -06:00 6c4afc8f
+○  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37 6c4afc8f
 │  (empty) create hello and goodbye functions
-@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+@  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -262,15 +262,15 @@ $ jj edit xrslwzvq
 Working copy  (@) now at: xrslwzvq 6c4afc8f (empty) create hello and goodbye functions
 Parent commit (@-)      : pzoqtwuv 9353442b (empty) added some cool new feature
 $ jj log --limit 5
-@  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37.000 -06:00 6c4afc8f
+@  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37 6c4afc8f
 │  (empty) create hello and goodbye functions
-◉  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+○  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 
@@ -279,15 +279,15 @@ We can now rebase our other change on top too:
 ```console
 $ jj rebase -r yykpmnuq -o xrslwzvq
 $ jj log --limit 5
-◉  yykpmnuq steve@steveklabnik.com 2024-03-01 16:35:47.000 -06:00 7bea29b6
+○  yykpmnuq steve@steveklabnik.com 2024-03-01 16:35:47 7bea29b6
 │  (empty) add better documentation
-@  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37.000 -06:00 6c4afc8f
+@  xrslwzvq steve@steveklabnik.com 2024-03-01 16:08:37 6c4afc8f
 │  (empty) create hello and goodbye functions
-◉  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59.000 -06:00 9353442b
+○  pzoqtwuv steve@steveklabnik.com 2024-03-01 15:06:59 9353442b
 │  (empty) added some cool new feature
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  refactor printing
 ```
 

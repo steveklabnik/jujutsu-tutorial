@@ -17,9 +17,9 @@ Before we push our commit up, we need to fix our repository:
 
 ```console
 $ jj log --limit 2
-@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37.000 -06:00 trunk fcf669c5
+@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37 trunk fcf669c5
 │  (empty) (no description set)
-◉  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 f68d1623
+○  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 f68d1623
 │  remove goodbye message
 ```
 
@@ -35,9 +35,9 @@ Moved 1 bookmarks to povouosx f68d1623 | remove goodbye message
 $ jj abandon pzkrzopz
 Abandoned commit pzkrzopz fcf669c5 (empty) (no description set)
 $ jj log --limit 2
-@  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 trunk f68d1623
+@  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 trunk f68d1623
 │  remove goodbye message
-◉  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07.000 -06:00 d41c079b
+○  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
 │  refactor printing
 ```
 
@@ -79,11 +79,11 @@ Let's fetch those changes:
 $ jj git fetch
 bookmark: trunk@origin [updated] tracked
 $ jj log --limit 3
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 │ @  znurnwmk steve@steveklabnik.com 2024-03-01 18:15:00.000 f853107d
 ├─╯  (empty) (no description set)
-@  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 f68d1623
+◆  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 f68d1623
 │  remove goodbye message
 ~
 ```
@@ -141,9 +141,9 @@ Creating bookmark push-vmunwxsksqvk for revision vmunwxsksqvk
 Changes to push to origin:
   Add bookmark push-vmunwxsksqvk to 9410db49f9ba
 $ jj log
-@  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30.000 -06:00 push-vmunwxsksqvk 9410db49
+@  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30 push-vmunwxsksqvk 9410db49
 │  add a comment to main
-◉  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35.000 -06:00 trunk e202b67c
+◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
 │  Update Cargo.toml
 ~
 ```

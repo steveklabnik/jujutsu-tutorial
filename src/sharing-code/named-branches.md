@@ -11,9 +11,9 @@ To create a named branch (bookmark) in `jj`, we can use `jj bookmark create`:
 ```console
 $ jj bookmark create trunk
 $ jj log --limit 2
-@  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 trunk f68d1623
+@  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 trunk f68d1623
 │  remove goodbye message
-◉  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07.000 -06:00 d41c079b
+○  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
 │  refactor printing
 ```
 
@@ -24,9 +24,9 @@ revision or use it in a revset if we'd like:
 
 ```console
 > jj log -r 'ancestors(trunk, 2)'
-@  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 trunk f68d1623
+@  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 trunk f68d1623
 │  remove goodbye message
-◉  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07.000 -06:00 d41c079b
+○  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
 │  refactor printing
 ~
 ```
@@ -40,11 +40,11 @@ new change:
 Working copy  (@) now at: pzkrzopz 3f14c03f (empty) (no description set)
 Parent commit (@-)      : povouosx 7ec11c41 trunk | remove goodbye message
 > jj log
-@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37.000 -06:00 fcf669c5
+@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37 fcf669c5
 │  (empty) (no description set)
-│ ◉  qtlkpytx steve@steveklabnik.com 2024-03-01 20:09:25.000 -06:00 e6667f9e
+│ ○  qtlkpytx steve@steveklabnik.com 2024-03-01 20:09:25 e6667f9e
 ├─╯  (empty) (no description set)
-◉  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 trunk f68d1623
+○  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 trunk f68d1623
 │  remove goodbye message
 ```
 
@@ -55,11 +55,11 @@ let's forget about it:
 > jj abandon qt
 Abandoned commit qtlkpytx e6667f9e (empty) (no description set)
 > jj log --limit 3
-@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37.000 -06:00 fcf669c5
+@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37 fcf669c5
 │  (empty) (no description set)
-◉  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 trunk f68d1623
+○  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 trunk f68d1623
 │  remove goodbye message
-◉  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07.000 -06:00 d41c079b
+○  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
 │  refactor printing
 ```
 
@@ -73,9 +73,9 @@ Regardless, let's update `trunk` to point at `@`:
 $ jj bookmark set trunk
 Moved 1 bookmarks to pzkrzopz fcf669c5 trunk | (empty) (no description set)
 $ jj log --limit 2
-@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37.000 -06:00 trunk fcf669c5
+@  pzkrzopz steve@steveklabnik.com 2024-03-01 22:41:37 trunk fcf669c5
 │  (empty) (no description set)
-◉  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 f68d1623
+○  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 f68d1623
 │  remove goodbye message
 ```
 

@@ -91,17 +91,17 @@ In the meantime, let's examine our log:
 
 ```console
 $ jj log
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 22:59:46.000 -06:00 be40656e
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 22:59:46 be40656e
 │  only print hello world
-@  nmptruqn steve@steveklabnik.com 2024-02-28 22:59:46.000 -06:00 30a1f33b
+@  nmptruqn steve@steveklabnik.com 2024-02-28 22:59:46 30a1f33b
 │  (empty) add more comments
-◉  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40.000 -06:00 ed71bb54
+○  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40 ed71bb54
 │  print goodbye as well as hello
-◉  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13.000 -06:00 7a096b8a
+○  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13 7a096b8a
 │  it's important to comment our code
-◉  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56.000 -06:00 ac691d85
+○  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56 ac691d85
 │  hello world
-◉  zzzzzzzz root() 00000000
+◆  zzzzzzzz root() 00000000
 ```
 
 We can see that `@` is at our new empty change, and that we have our original
@@ -186,17 +186,17 @@ Let's double check with `jj log`:
 
 ```console
 $ jj log
-@  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+@  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
 │  add more comments
-◉  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40.000 -06:00 ed71bb54
+○  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40 ed71bb54
 │  print goodbye as well as hello
-◉  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13.000 -06:00 7a096b8a
+○  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13 7a096b8a
 │  it's important to comment our code
-◉  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56.000 -06:00 ac691d85
+○  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56 ac691d85
 │  hello world
-◉  zzzzzzzz root() 00000000
+◆  zzzzzzzz root() 00000000
 ```
 
 That's correct, `@` is at our original change.

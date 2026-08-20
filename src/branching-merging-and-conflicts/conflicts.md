@@ -82,11 +82,11 @@ Excellent:
 
 ```console
 $ jj log --limit 3
-@  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:29:12.000 -06:00 5f858c15
+@  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:29:12 5f858c15
 │  refactor printing
-│ ◉  povouosx steve@steveklabnik.com 2024-03-01 17:27:14.000 -06:00 28010506
+│ ○  povouosx steve@steveklabnik.com 2024-03-01 17:27:14 28010506
 ├─╯  remove goodbye message
-◉  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36.000 -06:00 2b93da0c
+○  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36 2b93da0c
 │  (empty) add better documentation
 ```
 
@@ -111,11 +111,11 @@ as there's only one commit that starts like this.)
 
 ```console
 > jj log --limit 3
-◉  povouosx steve@steveklabnik.com 2024-03-01 17:30:32.000 -06:00 793ce8e0 conflict
+○  povouosx steve@steveklabnik.com 2024-03-01 17:30:32 793ce8e0 conflict
 │  remove goodbye message
-@  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:29:12.000 -06:00 5f858c15
+@  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:29:12 5f858c15
 │  refactor printing
-◉  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36.000 -06:00 2b93da0c
+○  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36 2b93da0c
 │  (empty) add better documentation
 ```
 
@@ -151,11 +151,11 @@ And then we check our log again:
 ```console
 $ jj log --limit 3
 Rebased 1 descendant commits onto updated working copy
-◉  povouosx steve@steveklabnik.com 2024-03-01 17:49:07.000 -06:00 a912c809 conflict
+○  povouosx steve@steveklabnik.com 2024-03-01 17:49:07 a912c809 conflict
 │  remove goodbye message
-@  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07.000 -06:00 d41c079b
+@  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
 │  refactor printing
-◉  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36.000 -06:00 2b93da0c
+○  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36 2b93da0c
 │  (empty) add better documentation
 ```
 
@@ -246,11 +246,11 @@ M src/main.rs
 Working copy  (@) : povouosx 7647f7a0 remove goodbye message
 Parent commit (@-): vvmrvwuz d41c079b refactor printing
 $ jj log --limit 3
-@  povouosx steve@steveklabnik.com 2024-03-01 18:08:23.000 -06:00 7647f7a0
+@  povouosx steve@steveklabnik.com 2024-03-01 18:08:23 7647f7a0
 │  remove goodbye message
-◉  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07.000 -06:00 d41c079b
+○  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
 │  refactor printing
-◉  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36.000 -06:00 2b93da0c
+○  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36 2b93da0c
 │  (empty) add better documentation
 ```
 
@@ -277,13 +277,13 @@ Added 0 files, modified 1 files, removed 0 files
 > jj new povouosxlror --no-edit
 Created new commit mlzwmxzs 07bb727d (conflict) (empty) (no description set)
 > jj log --limit 4
-◉  mlzwmxzs steve@steveklabnik.com 2024-03-01 18:10:08.000 -06:00 07bb727d conflict
+○  mlzwmxzs steve@steveklabnik.com 2024-03-01 18:10:08 07bb727d conflict
 │  (empty) (no description set)
-@  povouosx steve@steveklabnik.com 2024-03-01 17:49:07.000 -06:00 a912c809 conflict
+@  povouosx steve@steveklabnik.com 2024-03-01 17:49:07 a912c809 conflict
 │  remove goodbye message
-◉  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07.000 -06:00 d41c079b
+○  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
 │  refactor printing
-◉  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36.000 -06:00 2b93da0c
+○  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36 2b93da0c
 │  (empty) add better documentation
 ```
 
@@ -293,13 +293,13 @@ So fix the conflict in `main.rs` again, and then let's see what happens:
 ```console
 > jj log --limit 4
 Rebased 1 descendant commits onto updated working copy
-◉  mlzwmxzs steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 9a4ad229
+○  mlzwmxzs steve@steveklabnik.com 2024-03-01 18:12:43 9a4ad229
 │  (empty) (no description set)
-@  povouosx steve@steveklabnik.com 2024-03-01 18:12:43.000 -06:00 f68d1623
+@  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 f68d1623
 │  remove goodbye message
-◉  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07.000 -06:00 d41c079b
+○  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
 │  refactor printing
-◉  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36.000 -06:00 2b93da0c
+○  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36 2b93da0c
 │  (empty) add better documentation
 ```
 
