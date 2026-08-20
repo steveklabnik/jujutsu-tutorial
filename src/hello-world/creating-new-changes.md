@@ -52,12 +52,12 @@ We can double check that `jj` has noticed our change:
 ```console
 $ jj st
 Working copy changes:
-M src\main.rs
+M src/main.rs
 Working copy : puomrwxl 7a096b8a it's important to comment our code
 Parent commit: yyrsmnoo ac691d85 hello world
 ```
 
-Excellent, `src\main.rs` has been `M`odified, we have a new commit ID. Since
+Excellent, `src/main.rs` has been `M`odified, we have a new commit ID. Since
 we're done with this change, let's start a new one:
 
 ```console

@@ -276,7 +276,7 @@ $ jj st
  jj st
 Rebased 1 descendant commits onto updated working copy
 Working copy changes:
-M src\main.rs
+M src/main.rs
 Working copy : vmunwxsk f6f7dce9 add a comment to main
 Parent commit: ksrmwuon e202b67c trunk | Update Cargo.toml
 ```

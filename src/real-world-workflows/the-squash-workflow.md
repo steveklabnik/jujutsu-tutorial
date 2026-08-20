@@ -80,7 +80,7 @@ Now that our "feature" has been implemented, let's see our current changes:
 ```console
 $ jj st
 Working copy changes:
-M src\main.rs
+M src/main.rs
 Working copy : rkvxolny aee5266d (no description set)
 Parent commit: ywnkulko 4bfe3940 (empty) print goodbye as well as hello
 ```

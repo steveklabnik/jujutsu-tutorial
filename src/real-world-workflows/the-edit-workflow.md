@@ -143,7 +143,7 @@ This is very silly. Regardless, we have finished. Let's see our current status:
 $ jj st
 Rebased 1 descendant commits onto updated working copy
 Working copy changes:
-M src\main.rs
+M src/main.rs
 Working copy : nmptruqn 90a2e97f add more comments
 Parent commit: ywnkulko ed71bb54 print goodbye as well as hello
 ```

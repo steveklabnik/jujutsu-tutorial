@@ -61,7 +61,7 @@ JJ: This commit contains the following changes:
 JJ:     A .gitignore
 JJ:     A Cargo.lock
 JJ:     A Cargo.toml
-JJ:     A src\main.rs
+JJ:     A src/main.rs
 
 JJ: Lines starting with "JJ: " (like this one) will be removed.
 ```

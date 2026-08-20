@@ -30,7 +30,7 @@ Working copy changes:
 A .gitignore
 A Cargo.lock
 A Cargo.toml
-A src\main.rs
+A src/main.rs
 Working copy : qzmzpxyl bc915fcd (no description set)
 Parent commit: zzzzzzzz 00000000 (empty) (no description set)
 ```
@@ -42,7 +42,7 @@ Working copy changes:
 A .gitignore
 A Cargo.lock
 A Cargo.toml
-A src\main.rs
+A src/main.rs
 ```
 
 This is the first thing we need to talk about: unlike `git`, `jj` has no index.

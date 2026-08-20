@@ -242,7 +242,7 @@ Let's take a look:
 ```console
 $ jj st
 Working copy changes:
-M src\main.rs
+M src/main.rs
 Working copy : povouosx 7647f7a0 remove goodbye message
 Parent commit: vvmrvwuz d41c079b refactor printing
 $ jj log --limit 3
