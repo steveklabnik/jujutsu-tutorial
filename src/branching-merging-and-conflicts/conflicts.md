@@ -84,7 +84,7 @@ Excellent:
 $ jj log --limit 3
 @  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:29:12 5f858c15
 │  refactor printing
-│ ○  povouosx steve@steveklabnik.com 2024-03-01 17:27:14 28010506
+│ ×  povouosx steve@steveklabnik.com 2024-03-01 17:27:14 28010506
 ├─╯  remove goodbye message
 ○  yykpmnuq steve@steveklabnik.com 2024-03-01 17:07:36 2b93da0c
 │  (empty) add better documentation
@@ -95,23 +95,22 @@ our refactor printing change:
 
 ```console
 $ jj rebase -r povouosx -o @
-New conflicts appeared in these commits:
+Rebased 1 commits to destination.
+New conflicts appeared in 1 commits:
   povouosx 793ce8e0 (conflict) remove goodbye message
-To resolve the conflicts, start by updating to it:
-  jj new povouosxlror
+Hint: To resolve the conflicts, start by creating a commit on top of
+the conflicted commit:
+  jj new povouosx
 Then use `jj resolve`, or edit the conflict markers in the file directly.
-Once the conflicts are resolved, you may want inspect the result with `jj diff`.
+Once the conflicts are resolved, you can inspect the result with `jj diff`.
 Then run `jj squash` to move the resolution into the conflicted commit.
 ```
 
 Wait a minute, I thought I told you that rebases always succeed. Well... it did:
-(And, as an aside, `povouosxlror` is giving a few more letters of the change ID
-than `povouosx` used elsewhere. Both can be used interchangeably at this point
-as there's only one commit that starts like this.)
 
 ```console
 > jj log --limit 3
-○  povouosx steve@steveklabnik.com 2024-03-01 17:30:32 793ce8e0 conflict
+×  povouosx steve@steveklabnik.com 2024-03-01 17:30:32 793ce8e0 (conflict)
 │  remove goodbye message
 @  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:29:12 5f858c15
 │  refactor printing
@@ -151,7 +150,7 @@ And then we check our log again:
 ```console
 $ jj log --limit 3
 Rebased 1 descendant commits onto updated working copy.
-○  povouosx steve@steveklabnik.com 2024-03-01 17:49:07 a912c809 conflict
+×  povouosx steve@steveklabnik.com 2024-03-01 17:49:07 a912c809 (conflict)
 │  remove goodbye message
 @  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
 │  refactor printing
@@ -170,10 +169,11 @@ automatically.
 The output we got back when the conflict was created gave us some advice:
 
 ```text
-To resolve the conflicts, start by updating to it:
-  jj new povouosxlror
+Hint: To resolve the conflicts, start by creating a commit on top of
+the conflicted commit:
+  jj new povouosx
 Then use `jj resolve`, or edit the conflict markers in the file directly.
-Once the conflicts are resolved, you may want inspect the result with `jj diff`.
+Once the conflicts are resolved, you can inspect the result with `jj diff`.
 Then run `jj squash` to move the resolution into the conflicted commit.
 ```
 
@@ -188,6 +188,8 @@ remove the conflict markers directly:
 Working copy  (@) now at: povouosx a912c809 (conflict) remove goodbye message
 Parent commit (@-)      : vvmrvwuz d41c079b refactor printing
 Added 0 files, modified 1 files, removed 0 files
+Warning: There are unresolved conflicts at these paths:
+src/main.rs    2-sided conflict
 ```
 
 Here's `src/main.rs`:
@@ -198,29 +200,50 @@ Here's `src/main.rs`:
 /// This is the best implementation of this program to ever exist.
 
 fn main() {
-<<<<<<<
-+++++++
+<<<<<<< conflict 1 of 1
++++++++ vvmrvwuz d41c079b "refactor printing" (rebase destination)
     print("Hello, world!");
     print("Goodbye, world!");
-%%%%%%%
-     print_hello();
--    print_goodbye();
->>>>>>>
 }
 
 // a function that prints a message
 fn print(m: &str) {
     println!("{m}")
 }
+%%%%%%% diff from: yykpmnuq 2b93da0c "add better documentation" (parents of rebased revision)
+\\\\\\\        to: povouosx 28010506 "remove goodbye message" (rebased revision)
+     print_hello();
+-    print_goodbye();
+ }
+ 
+ fn print_hello() {
+     println!("Hello, world!");
+ }
+-
+-fn print_goodbye() {
+-    println!("Goodbye, world!");
+-}
+>>>>>>> conflict 1 of 1 ends
 ```
 
 `git` uses a combination of `<<<<`, `=====`, and `>>>>` to mark conflicts. `jj`
-has more rich conflict markers. It still uses the `>>>` and `<<<`s to indicate
-the start and end, but has two other markers: `+++++++` and `%%%%%%%`. The `+`s
-indicate the start of a snapshot, and `%`s mark the start of a diff. So we can
-see that we have two `print` lines, but our changes wanted to remove one of them,
-but since that's not the same thing, conflict. To resolve this, we apply our own
-take on the diff to the snapshot:
+has richer conflict markers. It still uses the `>>>` and `<<<`s to indicate the
+start and end, but has two others: `+++++++` marks a snapshot, and `%%%%%%%`
+marks a diff. Each one is labelled with the commit it came from, which is what
+makes them readable.
+
+So: the snapshot is the destination we rebased onto, `vvmrvwuz`, verbatim. Then
+the diff is our own change, expressed as what `povouosx` did to its old parent
+`yykpmnuq` — it dropped the `print_goodbye()` call and the whole
+`print_goodbye` function. `jj` couldn't apply that diff to that snapshot,
+because the lines it wanted to remove aren't there any more; `vvmrvwuz` rewrote
+them into `print(...)` calls. So it hands you both halves and lets you do it.
+
+Notice how much of the file is inside the conflict region. `jj` isn't
+conflicting on one line — the diff and the snapshot overlap across most of
+`main()` and the functions below it, so the whole span gets marked.
+
+To resolve this, we apply our own take on the diff to the snapshot:
 
 ```rust
 /// A "Hello, world!" program.
@@ -264,22 +287,25 @@ and then we'll make a new change on top of our conflicted change:
 
 ```console
 > jj undo
-New conflicts appeared in these commits:
+Undid operation: 3c9a71fd50e2 (2024-03-01 18:08:23) snapshot working copy
+Restored to operation: 8b40cc21ae77 (2024-03-01 17:49:07) snapshot working copy
+New conflicts appeared in 1 commits:
   povouosx a912c809 (conflict) remove goodbye message
-To resolve the conflicts, start by updating to it:
-  jj new povouosxlror
+Hint: To resolve the conflicts, start by creating a commit on top of
+the conflicted commit:
+  jj new povouosx
 Then use `jj resolve`, or edit the conflict markers in the file directly.
-Once the conflicts are resolved, you may want inspect the result with `jj diff`.
+Once the conflicts are resolved, you can inspect the result with `jj diff`.
 Then run `jj squash` to move the resolution into the conflicted commit.
 Working copy  (@) now at: povouosx a912c809 (conflict) remove goodbye message
 Parent commit (@-)      : vvmrvwuz d41c079b refactor printing
 Added 0 files, modified 1 files, removed 0 files
-> jj new povouosxlror --no-edit
+> jj new povouosx --no-edit
 Created new commit mlzwmxzs 07bb727d (conflict) (empty) (no description set)
 > jj log --limit 4
-○  mlzwmxzs steve@steveklabnik.com 2024-03-01 18:10:08 07bb727d conflict
+×  mlzwmxzs steve@steveklabnik.com 2024-03-01 18:10:08 07bb727d (conflict)
 │  (empty) (no description set)
-@  povouosx steve@steveklabnik.com 2024-03-01 17:49:07 a912c809 conflict
+@  povouosx steve@steveklabnik.com 2024-03-01 17:49:07 a912c809 (conflict)
 │  remove goodbye message
 ○  vvmrvwuz steve@steveklabnik.com 2024-03-01 17:49:07 d41c079b
 │  refactor printing
@@ -293,7 +319,7 @@ So fix the conflict in `main.rs` again, and then let's see what happens:
 ```console
 > jj log --limit 4
 Rebased 1 descendant commits onto updated working copy.
-○  mlzwmxzs steve@steveklabnik.com 2024-03-01 18:12:43 9a4ad229
+×  mlzwmxzs steve@steveklabnik.com 2024-03-01 18:12:43 9a4ad229
 │  (empty) (no description set)
 @  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 f68d1623
 │  remove goodbye message
@@ -312,7 +338,8 @@ right now:
 
 ```console
 $ jj abandon mlzwmxzs
-Abandoned commit mlzwmxzs 9a4ad229 (empty) (no description set)
+Abandoned 1 commits:
+  mlzwmxzs 9a4ad229 (empty) (no description set)
 ```
 
 Great, we've cleaned that up.
