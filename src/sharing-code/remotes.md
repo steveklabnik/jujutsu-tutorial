@@ -31,7 +31,7 @@ $ jj edit @-
 Working copy  (@) now at: povouosx f68d1623 remove goodbye message
 Parent commit (@-)      : vvmrvwuz d41c079b refactor printing
 $ jj bookmark set trunk --allow-backwards
-Moved 1 bookmarks to povouosx f68d1623 | remove goodbye message
+Moved 1 bookmarks to povouosx f68d1623 trunk | remove goodbye message
 $ jj abandon pzkrzopz
 Abandoned 1 commits:
   pzkrzopz fcf669c5 (empty) (no description set)
@@ -47,16 +47,25 @@ commit because it is a dangerous operation: if we had pushed `trunk`, things
 would get weird when we try and push now. We've kept it all local, so there's no
 issues with doing this.
 
-Anyway, let's push `trunk` up to GitHub:
+Anyway, let's push `trunk` up to GitHub. A bare `jj git push` won't do it:
+`jj` refuses to create a bookmark on the remote that it doesn't already know
+about, so we have to name it explicitly with `-b`:
 
 ```console
 $ jj git push
+Warning: Refusing to create new remote bookmark trunk@origin
+Hint: Run `jj bookmark track trunk@origin` and try again.
+Nothing changed.
+$ jj git push -b trunk
 Changes to push to origin:
-  Add bookmark trunk to f68d16233bdc
-Warning: The working-copy commit in workspace 'default' became immutable, so a new commit has been created on top of it.
+  bookmark: trunk [add to f68d16233bdc]
+Warning: The working-copy commit became immutable; a new commit has been created on top of it.
 Working copy  (@) now at: znurnwmk f853107d (empty) (no description set)
-Parent commit (@-)      : povouosx f68d1623 | remove goodbye message
+Parent commit (@-)      : povouosx f68d1623 trunk | remove goodbye message
 ```
+
+Once the bookmark exists on the remote and is tracked, a bare `jj git push` is
+enough for subsequent pushes.
 
 And now our project is up on GitHub!
 
@@ -140,7 +149,7 @@ Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 $ jj git push -c @
 Creating bookmark push-vmunwxsksqvk for revision vmunwxsksqvk
 Changes to push to origin:
-  Add bookmark push-vmunwxsksqvk to 9410db49f9ba
+  bookmark: push-vmunwxsksqvk [add to 9410db49f9ba]
 $ jj log
 @  vmunwxsk steve@steveklabnik.com 2024-03-02 08:27:30 push-vmunwxsksqvk 9410db49
 │  add a comment to main

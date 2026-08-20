@@ -10,6 +10,7 @@ To create a named branch (bookmark) in `jj`, we can use `jj bookmark create`:
 
 ```console
 $ jj bookmark create trunk
+Created 1 bookmarks pointing to povouosx f68d1623 trunk | remove goodbye message
 $ jj log --limit 2
 @  povouosx steve@steveklabnik.com 2024-03-01 18:12:43 trunk f68d1623
 │  remove goodbye message

@@ -60,7 +60,7 @@ Remember, `jj new` won't move any branches, and so if we push, nothing happens:
 
 ```console
 $ jj git push
-Warning: No bookmarks found in the default push revset: remote_bookmarks(remote=origin)..@
+Warning: No bookmarks/tags found in the default push revset: remote_bookmarks(remote=origin)..@
 Nothing changed.
 ```
 
@@ -71,7 +71,7 @@ $ jj bookmark set push-vmunwxsksqvk
 Moved 1 bookmarks to nzsvmmzl ad6b9b14 push-vmunwxsksqvk* | respond to feedback
 $ jj git push
 Changes to push to origin:
-  Move forward bookmark push-vmunwxsksqvk from 9410db49f9ba to ad6b9b149f88
+  bookmark: push-vmunwxsksqvk [move forward from 9410db49f9ba to ad6b9b149f88]
 ```
 
 ![a screenshot of github, showing the new commit below our review](../images/new-pr-commit.png)
@@ -170,7 +170,7 @@ already been "rebased" in a sense. So we can just push:
 ```console
 > jj git push
 Changes to push to origin:
-  Move sideways bookmark push-vmunwxsksqvk from ad6b9b149f88 to 586ea9fd213f
+  bookmark: push-vmunwxsksqvk [move sideways from ad6b9b149f88 to 586ea9fd213f]
 ```
 
 We can see that reflected on GitHub:
@@ -239,7 +239,7 @@ Let's update our branch and push:
 Moved 1 bookmarks to msmntwvo 8f7dcd91 push-vmunwxsksqvk* | add a new function
 > jj git push
 Changes to push to origin:
-  Move sideways bookmark push-vmunwxsksqvk from 586ea9fd213f to 8f7dcd91ecbf
+  bookmark: push-vmunwxsksqvk [move sideways from 586ea9fd213f to 8f7dcd91ecbf]
 ```
 
 We now have two changes again. So what happens when we address our review? Well,
@@ -301,7 +301,7 @@ Parent commit (@-)      : vmunwxsk f6f7dce9 add a comment to main
 Added 0 files, modified 1 files, removed 0 files
 $ jj git push
 Changes to push to origin:
-  Move sideways bookmark push-vmunwxsksqvk from 8f7dcd91ecbf to 752534beb39f
+  bookmark: push-vmunwxsksqvk [move sideways from 8f7dcd91ecbf to 752534beb39f]
 ```
 
 And now we're good! Just that easy. If we didn't want to move `@`, we could have

@@ -68,9 +68,9 @@ Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 Working copy  (@) now at: yxxppztp 3d123151 (empty) have galactus query eks with time range
 Parent commit (@-)      : opwqpunl 1a66beb1 (empty) display the birthday date on the settings page
 > jj git push -c @
-Creating branch push-yxxppztpoyqq for revision @
-Branch changes to push to origin:
-  Add branch push-yxxppztpoyqq to 3d1231518dbf
+Creating bookmark push-yxxppztpoyqq for revision yxxppztpoyqq
+Changes to push to origin:
+  bookmark: push-yxxppztpoyqq [add to 3d1231518dbf]
 > jj log
 @  yxxppztp steve@steveklabnik.com 2024-03-17 14:18:00 push-yxxppztpoyqq 3d123151
 │  (empty) have galactus query eks with time range
@@ -96,9 +96,9 @@ Parent commit (@-)      : ksrmwuon e202b67c trunk | Update Cargo.toml
 Working copy  (@) now at: rxpztwms 902a6cd2 (empty) various fixes
 Parent commit (@-)      : tmnmvxyy 105cf6b5 (empty) prepare to deploy to the cloud
 > jj git push -c @
-Creating branch push-rxpztwmsszvk for revision @
-Branch changes to push to origin:
-  Add branch push-rxpztwmsszvk to 902a6cd22f30
+Creating bookmark push-rxpztwmsszvk for revision rxpztwmsszvk
+Changes to push to origin:
+  bookmark: push-rxpztwmsszvk [add to 902a6cd22f30]
 ```
 
 Your `jj log` will look like this:
@@ -165,7 +165,7 @@ squash-style workflow more easily: we temporarily work on a `@` change, and then
 > ```sh
 > jj absorb         # absorb from @ into appropriate mutable parents
 > jj absorb src/    # limit to a file tree
-> jj absorb -f @ -t mutable()  # explicit source/target
+> jj absorb -f @ --into 'mutable()'  # explicit source/target
 > jj op show -p     # inspect the planned moves
 > ```
 >
