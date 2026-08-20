@@ -105,8 +105,9 @@ $ jj log --limit 5
 │  refactor printing
 ```
 
-That's right, we can undo our last command with a simple `jj undo`. We'll talk
-about it more in the future. But for now, it's like our merge never happened.
+That's right, we can undo our last command with a simple `jj undo`. There's a
+whole section on this later — "Fixing Problems" — because it goes much deeper
+than it looks. For now, it's like our merge never happened.
 
 Let's try merging all three in at the same time:
 

@@ -35,11 +35,11 @@
     - [Workspaces]()
     - [Colocated Repositories]()
 
-- [Fixing Problems]()
-    - [Undoing mistakes]()
-    - [Reverting changes]()
-    - [The Operation Log]()
-    - [The evolog]()
+- [Fixing Problems](fixing-problems/intro.md)
+    - [Undoing mistakes with `jj undo`](fixing-problems/undoing-mistakes.md)
+    - [The operation log](fixing-problems/the-operation-log.md)
+    - [Watching a change evolve with `jj evolog`](fixing-problems/the-evolog.md)
+    - [Throwing work away on purpose](fixing-problems/reverting-changes.md)
 
 - [Customizing your experience]()
     - [Configuring `jj`]()
