@@ -19,6 +19,15 @@ and makes a `jj` repository from it. Like `jj git init`, it gives you a
 colocated repository — a `.jj` directory and a working `.git` one — so `gh` and
 anything else that reads `.git` keep working in a clone too.
 
+You may have noticed we've been talking about change IDs as if they were
+permanent, and they usually are, even across a clone. `jj` writes each change
+ID into a small header on the underlying git commit, so a plain `git clone`
+carries it along too, not just `jj git clone` — and it survives any number of
+repeated clones, pure `git` included, as long as none of them rewrite the
+commit. The one thing that loses it is rewriting the commit along the way, say
+with `git rebase` or a squash-merge on GitHub, since that header isn't part of
+git's own data model.
+
 Before we push our commit up, we need to fix our repository:
 
 ```console

@@ -42,9 +42,11 @@ than the others: `◆` instead of `○`. That shape means the commit is
 *immutable*: `jj` will refuse to rewrite it. That makes sense for the root
 commit, which is the foundation the whole repository is built on. Right now
 it's the only immutable commit we have. Once we start sharing code, `jj` will
-also protect commits selected by its immutability policy, such as trunk and
-tags. A pushed feature commit is not necessarily immutable; we'll return to the
-exact rules when we work with remotes.
+also protect commits selected by its immutability policy, such as *trunk* and
+tags. Trunk is the main line of development everyone shares — usually the `main`
+branch on the `origin` remote, which `jj` writes `main@origin`. A pushed feature
+commit is not necessarily immutable; we'll return to the exact rules when we work
+with remotes.
 
 One more thing: my text representation of the output of `jj log` was missing
 something. Here's a screenshot of my terminal, and you may notice something

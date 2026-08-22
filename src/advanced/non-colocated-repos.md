@@ -6,7 +6,10 @@ the same working copy. `git` can see everything we do, and tools such as `gh`
 and our editor can work without knowing that `jj` exists.
 
 There's a second arrangement. Even if we never switch to it, looking at it will
-help us understand where the line between `jj` and `git` actually sits.
+help us understand where the line between `jj` and `git` actually sits. This is
+a specialized alternative rather than another default: we should start with a
+colocated repository unless keeping Git-aware tools out is important to our
+workflow.
 
 ```console
 $ jj git init --no-colocate
@@ -142,9 +145,10 @@ git
 ```
 
 `jj` does have a storage format of its own, and chapter one mentioned it in
-passing. It is still a work in progress, and `jj` 0.44.0 does not provide a
-command for creating a repository that uses it. For now, both arrangements in
-this chapter use the `git` backend; colocation only decides whether the Git
+passing. Its `SimpleBackend` is a proof of concept, and `jj` 0.44.0 does not
+provide a command for creating a repository that uses it. It isn't a third
+everyday choice for us to consider. For normal use, both arrangements in this
+chapter use the `git` backend; colocation only decides whether the Git
 repository is exposed at the top of our working copy.
 
 ## Unsupported `git` features

@@ -75,10 +75,12 @@ $ jj log -r 'trunk()'
 ```
 
 Right now, this doesn't look very useful, but it will be more useful when we
-get into sharing our changes. `trunk()` looks for a remote named `origin` or
-`upstream`, and looks for a `main`, `master`, or `trunk` branch, and then
-provides that. Since we don't have any of those right now, it gives us the same
-as `root()`.
+get into sharing our changes. `trunk()` resolves to the tip of the shared main
+line of development — in most repositories that's `main@origin`, the `main`
+branch on the `origin` remote. More precisely, it looks for a remote named
+`origin` or `upstream`, looks for a `main`, `master`, or `trunk` branch on it,
+and provides that. Since we don't have any of those right now, it gives us the
+same as `root()`.
 
 Additionally, on the `jj` Discord, several folks have settled on this as a
 decent revset for larger repositories:

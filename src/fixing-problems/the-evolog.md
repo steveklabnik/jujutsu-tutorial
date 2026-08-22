@@ -49,6 +49,68 @@ If we pass `-p`, we get the diff at each step. This is the version I usually
 reach for, because it shows us what the change *contained* over time, not just
 what it was called.
 
+## When two versions stay visible
+
+Normally, only the newest entry in an evolog is visible. There is one awkward
+case worth recognizing: we can rewrite a stack, move its bookmark to the new
+tip, and still see both versions of its changes in `jj log`. They are marked
+`(divergent)` because each change ID now names two visible commit IDs.
+
+This can be surprising when the bookmark looks right. In a repository where I
+ran into this, the local bookmark, its Git copy, and the tracked remote bookmark
+all pointed at the new commit:
+
+```console
+$ jj bookmark list --all
+new-chapters: ynossmku 0854177d clarify repository mode defaults
+  @git: ynossmku 0854177d clarify repository mode defaults
+  @origin: ynossmku 0854177d clarify repository mode defaults
+```
+
+The old stack was still an anonymous visible head. Moving and pushing a
+bookmark selects the new line, but it does not abandon another visible head.
+We can see both versions without guessing from the graph:
+
+```console
+$ jj log -r 'heads(divergent())' --no-graph \
+    -T 'change_id.short() ++ " " ++ commit_id.short() ++ "\n"'
+vxmynnlnrlzt 0c71df124215
+vxmynnlnrlzt 11ff48792102
+```
+
+Here `0c71df124215` is on the line retained by `new-chapters`, while
+`11ff48792102` is the tip of the old line. The repeated change ID tells us that
+these are divergent versions of the same logical change. `jj log -r
+'divergent()'` shows every affected version, and `jj log -r 'heads(all())'`
+helps us spot unbookmarked heads.
+
+Before throwing the old line away, let's check that no bookmark points into it
+and that nothing descends from its tip. We use commit IDs throughout, because
+the change IDs are precisely what is ambiguous here:
+
+```console
+$ jj log -r \
+    'd5487b35a605::11ff48792102 & (bookmarks() | remote_bookmarks())'
+$ jj log -r 'children(11ff48792102)'
+```
+
+Both commands produced no commits in this case. We can now abandon the whole
+old range, from its first divergent commit through its tip:
+
+```console
+$ jj abandon 'd5487b35a605::11ff48792102'
+Abandoned 27 commits:
+  vxmynnln/19 11ff4879 (divergent) note jj change ID stability across plain git clones
+  ...
+$ jj log -r 'divergent()'
+```
+
+That last log is empty. Abandoning only `11ff48792102` would not have finished
+the job: its parent would become the old line's next anonymous head, leaving the
+other 26 changes divergent. If the checks find a bookmark or descendants, we
+should stop and decide whether to move or rebase them before abandoning
+anything.
+
 ## evolog versus op log
 
 These two commands can be easy to confuse, so let's put the distinction in one
