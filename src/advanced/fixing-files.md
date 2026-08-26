@@ -62,6 +62,10 @@ $ jj fix -s 'all()'
 Error: The root commit 000000000000 is immutable
 ```
 
+That's a purely local repository talking; in a repository with a pushed trunk,
+the refusal names the trunk commit instead. Either way, nothing shared gets
+rewritten.
+
 If you'd rather it defaulted to something else, `revsets.fix` in your config
 sets the default scope.
 

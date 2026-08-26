@@ -213,15 +213,18 @@ can add our own words to it:
 
 ```toml
 [revset-aliases]
-"mine()" = "trunk()..@"
+"stack()" = "trunk()..@"
 ```
 
 ```console
-$ jj log -r 'mine()'
+$ jj log -r 'stack()'
 ```
 
-Now `mine()` is available anywhere we can use a revset, including inside other
-aliases and revset expressions. `trunk()` itself is one of these. `jj git clone`
+Now `stack()` is available anywhere we can use a revset, including inside other
+aliases and revset expressions. One note on naming: `jj` will happily let an
+alias shadow a built-in function — remember `mine()` from the revsets chapter —
+and it won't warn you when it does, so pick names that aren't already taken.
+`trunk()` itself is one of these aliases. `jj git clone`
 writes `revset-aliases."trunk()" = "main@origin"` into our repository config,
 which is why the built-in defaults can refer to `trunk()` without knowing what
 our project calls its main branch.
@@ -264,7 +267,7 @@ edit = true
 l = ["log", "-r", "trunk()..@"]
 
 [revset-aliases]
-"mine()" = "trunk()..@"
+"stack()" = "trunk()..@"
 ```
 
 This is deliberately small, but it removes a bunch of repeated typing. I add to

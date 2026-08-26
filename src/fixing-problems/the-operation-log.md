@@ -149,6 +149,18 @@ diffs as well.
 There's also `jj op diff`, which compares two operations rather than showing
 one, when you want to know what changed between two points in the afternoon.
 
+## Does this grow forever?
+
+You may be wondering: if every command is recorded, and hidden commits are
+kept around, doesn't the repository just grow without bound? Yes, it does —
+nothing prunes any of this automatically. In practice it takes a long time to
+matter, since operations and hidden commits are small. If a busy repository
+does get bulky, `jj op abandon ..<old-op-id>` marks old operations as
+disposable, and `jj util gc` then reclaims whatever nothing refers to any
+more. The price is exactly what you'd expect: you can no longer undo your way
+back past the operations you abandoned. I've never needed to do this, but it's
+good to know the ratchet has a release.
+
 Operations cover the repository. Sometimes the question is narrower than that:
 not "what did I do to this repo?" but "what happened to *this one change*?"
 That's the next chapter.

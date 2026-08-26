@@ -167,6 +167,44 @@ For the record, one thing that *isn't* a hazard: `jj` keeps `.jj` out of `git`
 with its own `.gitignore` inside that directory, so a stray `git add -A` can't
 swallow `jj`'s internal state.
 
+## Adopting an existing `git` repository
+
+Everything in this book started life as a `jj` repository, but the other
+direction works too: run `jj git init` inside an existing `git` checkout, and
+`jj` adopts it in place:
+
+```console
+$ jj git init
+Done importing changes from the underlying Git repo.
+Initialized repo in "."
+$ jj log
+@  syomluky steve@steveklabnik.com 2024-03-24 10:12:08 c23e3885
+│  (empty) (no description set)
+○  ypzkvlqw steve@steveklabnik.com 2024-03-24 10:11:52 main 9283911f
+│  existing history
+◆  zzzzzzzz root() 00000000
+```
+
+The history comes across, branches become bookmarks, and a fresh empty `@`
+lands on top of wherever `HEAD` was. Nothing about the `git` repository is
+changed except the new `.jj` directory next to it, so if `jj` turns out not to
+be for you, deleting `.jj` puts everything back.
+
+One gotcha to check first: `git` has two formats for storing refs, and `jj`
+0.44 can only read the older `files` format. On a repository using the newer
+`reftable` format, `jj git init` appears to succeed but imports *nothing* — no
+bookmarks, and a working copy that claims every file is newly added. If you
+see that, don't panic, and don't commit anything: delete the freshly created
+`.jj` directory, migrate the refs, and initialize again:
+
+```console
+$ git rev-parse --show-ref-format
+reftable
+$ git refs migrate --ref-format=files
+```
+
+Most repositories are `files` and adopt cleanly.
+
 ## If you'd rather fence `git` off
 
 Colocation trades a small cost — the import/export on every command, and the odd

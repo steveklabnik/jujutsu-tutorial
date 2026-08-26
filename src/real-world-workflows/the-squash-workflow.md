@@ -152,6 +152,14 @@ Added 0 files, modified 1 files, removed 0 files
 We've thrown away `oopolqyp`, and `jj` has helpfully made a new empty change
 for us. 
 
+One little surprise to warn you about before it happens to you. In this
+workflow, our scratch change never has a description, so `jj squash` quietly
+merges it into its parent. If the change you're squashing *does* have a
+description — and so does the destination — `jj` doesn't want to guess which
+one to keep, so it pops open your editor with both, for you to combine. You
+can skip the editor by passing `-m` for a new message, or `-u` to just keep
+the destination's.
+
 This is the kind of stuff I mean when I say "the same power, but less concepts."
 We've got the tools that the index gave us, but they're simpler because we don't
 use some of them on the index, and some on commits: we use them all on commits.
