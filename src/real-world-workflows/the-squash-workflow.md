@@ -24,7 +24,7 @@ Let's recap where we are in our project: `@` currently is an empty commit:
 
 ```console
 > jj log
-@  ywnkulko steve@steveklabnik.com 2024-02-28 20:40:00 46b50ed7
+@  ywnkulko steve@steveklabnik.com 2024-02-28 21:12:07 b7de0217
 │  (empty) (no description set)
 ○  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13 7a096b8a
 │  it's important to comment our code

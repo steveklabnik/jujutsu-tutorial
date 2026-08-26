@@ -62,13 +62,10 @@ This is called a "colocated" repository: a `.jj` directory and a real `.git`
 directory side by side, over one working copy. It's the default, and it's what
 we'll use throughout this tutorial. `jj` imports from and exports to the `git`
 repository on every command, so `git`, `gh`, your editor, and CI all see a
-perfectly normal `git` repo. `git log` will show you the commits you make with
-`jj`:
-
-```console
-$ git log --oneline
-c4b8fac hello world
-```
+perfectly normal `git` repo. Mind you, if you run `git log` right this second,
+it will complain that there aren't any commits yet — we haven't made any! Once
+we have some history, `git log` will show the commits we make with `jj`, and
+we'll see exactly that later in the tutorial.
 
 Because both tools share one store, we'll let `jj` make changes to the
 repository and use `git` for reading it. We'll look at the details later in the

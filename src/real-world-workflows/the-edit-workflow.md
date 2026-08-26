@@ -54,8 +54,9 @@ When we begin more work we start it with `jj new -m ""` and get to work.
 But sometimes, when we're working on something, we realize we also want a
 different change, and maybe it relies on this one. For example, let's say that
 we were working on undoing this goodbye feature, but we realized we wanted
-to refactor printing out into its own function, because that's a terrible idea
-in practice and so makes for a good example to play around with.
+to add some more comments first, because over-commenting a five-line program
+is a terrible idea in practice and so makes for a good example to play around
+with.
 
 What we want to do is make a new change before this one. So let's do that.
 
@@ -173,7 +174,7 @@ simpler command:
 ```console
 $ jj next --edit
 Working copy  (@) now at: ootnlvpt e13b2585 only print hello world
-Parent commit (@-)      : nmptruqn 90a2e97f refactor printing
+Parent commit (@-)      : nmptruqn 90a2e97f add more comments
 Added 0 files, modified 1 files, removed 0 files
 ```
 

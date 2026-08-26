@@ -75,7 +75,7 @@ and that's that in `jj`, commits can evolve over time. But we still need a
 stable identifier to talk about those changes, so we have a "change ID," and
 that's `qzmzpxyl` and `zzzzzzzz`. One really cool thing is that they use a
 disjoint set of identifiers: `qzmzpxyl` can never be a commit ID, but must be
-a change ID, and `bc914fcd` can never be a change ID, but must be a commit ID.
+a change ID, and `bc915fcd` can never be a change ID, but must be a commit ID.
 This is surprisingly handy.
 
 Anyway, we'll talk more about commits and changes soon, and how they're

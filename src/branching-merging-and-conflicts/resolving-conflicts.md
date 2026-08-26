@@ -5,6 +5,11 @@ markers by hand. That always works, and for a small conflict it's often the
 quickest approach. We can also use `jj resolve`, which hands each conflicted
 file to a merge tool one at a time.
 
+Since we cleaned up the conflict in our project already, I've made a little
+scratch repository to play with: two changes, "say hi" and "say hey", that
+each put a different greeting in `greeting.txt`, and a merge of the two on
+top. That merge is, of course, conflicted.
+
 First, let's find out what's actually conflicted:
 
 ```console
@@ -56,7 +61,8 @@ rather than trusting the word.
 ## Resolving somewhere else
 
 Conflicts don't have to be resolved in the working copy. `-r` points `jj resolve`
-at any conflicted commit:
+at any conflicted commit. Back in the last chapter, when `povouosx` was sitting
+above us in conflict, we could have fixed it without moving `@` at all:
 
 ```console
 $ jj resolve -r povouosx

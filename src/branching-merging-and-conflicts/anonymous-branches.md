@@ -125,14 +125,14 @@ We can see that there's a branch in the output of `jj log`:
 
 ```console
 $ jj log
-@  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
-│  (empty) create hello and goodbye functions
+@  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 e78a9350
+│  create hello and goodbye functions
 │ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
 ○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
 ○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
-│  refactor printing
+│  add more comments
 ○  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40 ed71bb54
 │  print goodbye as well as hello
 ○  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13 7a096b8a
@@ -163,8 +163,8 @@ We do it like this:
 
 ```console
 > jj log -r 'heads(all())'
-@  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 a70d464c
-│  (empty) create hello and goodbye functions
+@  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 e78a9350
+│  create hello and goodbye functions
 ~
 
 ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
