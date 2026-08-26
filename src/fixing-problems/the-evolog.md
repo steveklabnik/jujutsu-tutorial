@@ -51,131 +51,16 @@ what it was called.
 
 ## When two versions stay visible
 
-Normally, only the newest entry in an evolog is visible. There is one awkward
-case worth recognizing: we can end up with both versions of a rewritten stack
-in `jj log`. They are marked `(divergent)` because each change ID now names two
-visible commit IDs.
+Normally, only the newest entry in an evolog is visible; everything older is
+`(hidden)`. But hidden commits can come back. Put a bookmark on one, build a
+new commit on top of one, or fetch history that descends from one, and it
+becomes visible again — alongside its newer self. At that point a single
+change ID names two visible commits, and `jj` marks both `(divergent)`.
 
-The rewrite alone does not cause this. Normally it creates a successor for
-each commit, keeps the change IDs, and hides the predecessors. A hidden commit
-can become visible again, though, if we put a bookmark on it, edit it, make it
-a working copy, or add a visible descendant. The [Jujutsu guide to divergent
-changes][divergence] calls out each of these cases, as well as two processes
-rewriting the same change at the same time.
-
-We can reconstruct what happened in this repository from the operation log.
-After the rewrite, the old `new-chapters@origin` and `pdf-print@origin` targets
-were both marked `(hidden)`, and `jj log -r 'divergent()'` was empty. A later
-operation accidentally moved `pdf-print` back to the old commit `37b65b73`:
-
-```console
-$ jj op log --no-graph
-7152344d1e5b you@example.com default@ 2026-08-22 15:29:06, lasted 7 milliseconds
-point bookmark pdf-print to commit 37b65b734abcd1e2f3a4b5c6d7e8f9a0b1c2d3e4
-args: jj bookmark set pdf-print -r 37b65b73
-58d5d578ddfc you@example.com default@ 2026-08-22 15:28:58, lasted 9 milliseconds
-new empty commit
-args: jj new
-9889fa7911c5 you@example.com default@ 2026-08-22 15:28:51, lasted 12 milliseconds
-snapshot working copy
-args: jj new
-```
-
-Putting the bookmark there made that commit and all its ancestors visible.
-Those ancestors were the predecessor versions of the rewritten stack, so we
-now had two visible commit IDs for each of 28 change IDs. This is why a whole
-series appeared divergent at once. It was a consequence of that accidental
-bookmark move, not something that every rewrite produces. Another way to get
-the same result would be to fetch a new commit whose history descends from one
-of our hidden predecessors.
-
-This can be surprising when the bookmark looks right. In a repository where I
-ran into this, the local bookmark, its Git copy, and the tracked remote bookmark
-all pointed at the new commit:
-
-```console
-$ jj bookmark list --all
-new-chapters: ynossmku 0854177d clarify repository mode defaults
-  @git: ynossmku 0854177d clarify repository mode defaults
-  @origin: ynossmku 0854177d clarify repository mode defaults
-```
-
-The old stack was still an anonymous visible head. Moving and pushing a
-bookmark selects the new line, but it does not abandon another visible head.
-We can see both versions without guessing from the graph:
-
-```console
-$ jj log -r 'heads(divergent())' --no-graph
-vxmynnln/0 you@example.com 2026-08-22 15:28:51 0c71df12 (divergent)
-explain change ID stability across clones
-vxmynnln/19 you@example.com 2026-08-22 15:07:55 11ff4879 (divergent)
-note jj change ID stability across plain git clones
-```
-
-Here `0c71df124215` is on the line retained by `new-chapters`, while
-`11ff48792102` is the tip of the old line. The repeated change ID tells us that
-these are divergent versions of the same logical change. These are the two
-tips. We can find their last shared commit with `fork_point()`.
-
-`fork_point()` is shorthand for intersecting the two sets of ancestors and
-selecting their heads: `heads(::0c71df124215 & ::11ff48792102)`.
-
-Let's see:
-
-```console
-$ jj log -r 'fork_point(0c71df124215 | 11ff48792102)' --no-graph
-ppxpvmnv you@example.com 2026-08-20 16:31:00 update-for-jj-0.44 8827278a
-docs: correct conflict graph glyphs
-```
-
-Here `8827278aa4c9` is the nearest ancestor shared by both tips. If we want to
-see the first commit on each side of the split as well, we can remove that
-commit and its ancestors from the two histories, then ask for the roots of
-what remains:
-
-```console
-$ jj log -r \
-    'roots(8827278aa4c9..(0c71df124215 | 11ff48792102))' \
-    --no-graph
-orqqvtqp/0 you@example.com 2026-08-22 15:25:02 0bf91872 (divergent)
-explain commit shorthand and push dry runs
-orqqvtqp/1 you@example.com 2026-08-20 16:34:40 d5487b35 (divergent)
-docs: document commit shorthand and push dry runs
-```
-
-The repeated `orqqvtqp` change ID shows us exactly where the two series
-separated: these are the first two visible versions after their shared parent.
-`jj log -r 'divergent()'` shows every affected version, and `jj log -r
-'heads(all())'` helps us spot unbookmarked heads.
-
-Before throwing the old line away, let's check that no bookmark points into it
-and that nothing descends from its tip. We use commit IDs throughout, because
-the change IDs are precisely what is ambiguous here:
-
-```console
-$ jj log -r \
-    'd5487b35a605::11ff48792102 & (bookmarks() | remote_bookmarks())'
-$ jj log -r 'children(11ff48792102)'
-```
-
-Both commands produced no commits in this case. We can now abandon the whole
-old range, from its first divergent commit through its tip:
-
-```console
-$ jj abandon 'd5487b35a605::11ff48792102'
-Abandoned 27 commits:
-  vxmynnln/19 11ff4879 (divergent) note jj change ID stability across plain git clones
-  ...
-$ jj log -r 'divergent()'
-```
-
-That last log is empty. Abandoning only `11ff48792102` would not have finished
-the job: its parent would become the old line's next anonymous head, leaving the
-other 26 changes divergent. If the checks find a bookmark or descendants, we
-should stop and decide whether to move or rebase them before abandoning
-anything.
-
-[divergence]: https://docs.jj-vcs.dev/latest/guides/divergence/
+That situation deserves a proper walkthrough of its own, and it gets one in
+[the next chapter](divergent-changes.md). For now, just file away the
+connection: the old versions the evolog shows you are real commits, and
+"divergent" is what it's called when one of them escapes.
 
 ## evolog versus op log
 

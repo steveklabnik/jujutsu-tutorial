@@ -337,9 +337,9 @@ After fetching changes, our log looks like this:
 │ │ │  (empty) fixing all the breakage from updating dependencies
 │ ○ │  xulymzyp steve@steveklabnik.com 2024-03-17 14:25:14 1f7c69a5
 │ ├─╯  (empty) updating dependencies
-○ │  msmntwvo?? steve@steveklabnik.com 2024-03-17 14:45:41 push-vmunwxsksqvk* cdca9211
+○ │  msmntwvo/1 steve@steveklabnik.com 2024-03-17 14:45:41 push-vmunwxsksqvk* cdca9211 (divergent)
 │ │  add a new function
-○ │  vmunwxsk?? steve@steveklabnik.com 2024-03-17 14:45:41 3a08be8a
+○ │  vmunwxsk/1 steve@steveklabnik.com 2024-03-17 14:45:41 3a08be8a (divergent)
 ├─╯  add a comment to main
 │ ◆  okyzuxnk steve@steveklabnik.com 2024-03-17 14:59:02 trunk b7f9d708
 ╭─╯  (empty) Merge pull request #1 from steveklabnik/push-vmunwxsksqvk
@@ -348,11 +348,17 @@ After fetching changes, our log looks like this:
 ~
 ```
 
-Uh oh! That's got some concerning stuff. The changes with `??` and are in red,
-and there's also the new merge commit that `trunk` is set up to. Since all of
-our branches were off of the change where `trunk` used to be, we should rebase
-them on top of the new trunk.  First, we want to make sure that `@` is at the
-empty change on top of our merge commit. You can see from the `jj log` just
+Uh oh! That's got some concerning stuff. Two of our changes are now marked
+`(divergent)`, with those `/1` suffixes on their change IDs. That's because the
+merge that just landed on `trunk` contains the *pushed* version of our PR's
+commits, while our local copies have been rewritten since — so each of those
+change IDs now names two visible commits. We'll deal with them in a moment,
+and there's a whole chapter on
+[divergent changes](../fixing-problems/divergent-changes.md) if you want the
+full story. There's also the new merge commit that `trunk` is set up to. Since
+all of our branches were off of the change where `trunk` used to be, we should
+rebase them on top of the new trunk. First, we want to make sure that `@` is at
+the empty change on top of our merge commit. You can see from the `jj log` just
 above that that is true.
 
 We can rebase all of our PRs with one command:
@@ -447,9 +453,9 @@ Here's what our `jj log` looks like:
 │ │ │ │  (empty) fixing all the breakage from updating dependencies
 │ │ ○ │  xulymzyp steve@steveklabnik.com 2024-03-17 16:01:56 d608ebd3
 │ │ ├─╯  (empty) updating dependencies
-│ ○ │  msmntwvo?? steve@steveklabnik.com 2024-03-17 16:01:56 push-vmunwxsksqvk* 21569f7a
+│ ○ │  msmntwvo/1 steve@steveklabnik.com 2024-03-17 16:01:56 push-vmunwxsksqvk* 21569f7a (divergent)
 │ │ │  (empty) add a new function
-│ ○ │  vmunwxsk?? steve@steveklabnik.com 2024-03-17 16:01:56 9a050939
+│ ○ │  vmunwxsk/1 steve@steveklabnik.com 2024-03-17 16:01:56 9a050939 (divergent)
 │ ├─╯  (empty) add a comment to main
 ○ │  kvupxvpv steve@steveklabnik.com 2024-03-17 16:01:56 3b0a722a
 │ │  (empty) second 80% done
@@ -490,9 +496,9 @@ Abandoned 1 commits:
 │ │ │ │  (empty) fixing all the breakage from updating dependencies
 │ │ ○ │  xulymzyp steve@steveklabnik.com 2024-03-17 16:01:56 d608ebd3
 │ │ ├─╯  (empty) updating dependencies
-│ ○ │  msmntwvo?? steve@steveklabnik.com 2024-03-17 16:01:56 push-vmunwxsksqvk* 21569f7a
+│ ○ │  msmntwvo/1 steve@steveklabnik.com 2024-03-17 16:01:56 push-vmunwxsksqvk* 21569f7a (divergent)
 │ │ │  (empty) add a new function
-│ ○ │  vmunwxsk?? steve@steveklabnik.com 2024-03-17 16:01:56 9a050939
+│ ○ │  vmunwxsk/1 steve@steveklabnik.com 2024-03-17 16:01:56 9a050939 (divergent)
 │ ├─╯  (empty) add a comment to main
 ○ │  kvupxvpv steve@steveklabnik.com 2024-03-17 16:01:56 3b0a722a
 │ │  (empty) second 80% done
@@ -505,24 +511,27 @@ Abandoned 1 commits:
 ~
 ```
 
-Looking pretty good! One last thing: what's up with those red commits? Well,
-those are from our external PR, and we don't need them. So we can just abandon
-that branch:
+Looking pretty good! One last thing: what's up with those divergent commits?
+Those are our local copies of the two changes that already landed on `trunk`
+through the merged PR. The versions inside `trunk` are the ones that matter
+now, so we can abandon the whole local line. We use commit IDs rather than the
+change IDs — the change IDs are exactly what's ambiguous when a change is
+divergent:
 
 ```console
-> jj abandon push-vmunwxsksqvk
-Abandoned 1 commits:
-  msmntwvo?? 21569f7a push-vmunwxsksqvk* | (empty) add a new function
-Rebased 3 descendant commits onto parents of abandoned commits
-Working copy  (@) now at: vvvouunp ace3f1a2 (empty) (no description set)
-Parent commit (@-)      : xnutwmso 32871810 (empty) merge: steve's branch
-> jj abandon push-vmunwxsksqvk
-Abandoned 1 commits:
-  vmunwxsk?? 9a050939 push-vmunwxsksqvk* | (empty) add a comment to main
+> jj abandon '9a050939::21569f7a'
+Abandoned 2 commits:
+  msmntwvo/1 21569f7a push-vmunwxsksqvk* | (divergent) (empty) add a new function
+  vmunwxsk/1 9a050939 (divergent) (empty) add a comment to main
+Deleted bookmarks: push-vmunwxsksqvk
 Rebased 3 descendant commits onto parents of abandoned commits
 Working copy  (@) now at: vvvouunp e3f9254f (empty) (no description set)
 Parent commit (@-)      : xnutwmso 0459bd1c (empty) merge: steve's branch
 ```
+
+Notice that `jj` deleted the `push-vmunwxsksqvk` bookmark for us as part of
+the abandon, which suits us fine: the pull request is merged, and
+`jj git push --deleted` will clean the branch up on GitHub too.
 
 And now our log is clean:
 
@@ -552,7 +561,7 @@ And now our log is clean:
 │ │  (empty) first 80% done
 ○ │  tzsloruo steve@steveklabnik.com 2024-03-17 16:01:56 792cc601
 ├─╯  (empty) another feature
-◆  okyzuxnk steve@steveklabnik.com 2024-03-17 14:59:02 push-vmunwxsksqvk* trunk b7f9d708
+◆  okyzuxnk steve@steveklabnik.com 2024-03-17 14:59:02 trunk b7f9d708
 │  (empty) Merge pull request #1 from steveklabnik/push-vmunwxsksqvk
 ~
 ```

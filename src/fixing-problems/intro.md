@@ -18,6 +18,8 @@ Here's what we're going to learn:
 * Reading the history of your repository's *states* with `jj op log`, and
   jumping back to one
 * Watching a single change evolve over time with `jj evolog`
+* Recognizing and untangling *divergent changes*, where two visible commits
+  claim the same change ID
 * Throwing away changes on purpose, with `jj restore` and `jj revert`
 * Hunting down the change that broke something, with `jj bisect`
 

@@ -50,6 +50,7 @@
     - [Undoing mistakes with `jj undo`](fixing-problems/undoing-mistakes.md)
     - [The operation log](fixing-problems/the-operation-log.md)
     - [Watching a change evolve with `jj evolog`](fixing-problems/the-evolog.md)
+    - [Untangling divergent changes](fixing-problems/divergent-changes.md)
     - [Throwing work away on purpose](fixing-problems/reverting-changes.md)
     - [Finding the commit that broke it with `jj bisect`](fixing-problems/bisecting.md)
 
