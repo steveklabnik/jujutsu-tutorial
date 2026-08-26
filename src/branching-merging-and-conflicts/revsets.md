@@ -35,6 +35,11 @@ in fact, `jj squash` is short for `jj squash -r @` or equivalently `jj squash
 * `x | y`: changes that are in either x or y
 * `::x` Ancestors of x
 * `x::` Descendants of x
+* `x-`: direct parents of x
+* `x+`: direct children of x
+* `x::y`: descendants of x that are also ancestors of y, including both x and y
+* `x+::y`: paths from direct children of x to y, excluding x and including y
+* `x..y`: ancestors of y that are not ancestors of x, including y but not x
 
 And more. The final bit is the most interesting, and that's functions.
 
@@ -66,6 +71,104 @@ commit by me containing the word "print" in the description? Try this:
 ```console
 $ jj log -r 'author("Steve Klabnik") & description(substring:print)'
 ```
+
+## Selecting a whole anonymous branch
+
+Let's put those operators to work. Suppose we tried one idea for three changes,
+started another idea from the same point, and then decided that we did not want
+the first idea after all. Our history would look like this:
+
+```text
+common ─┬─ n1 ── n2 ── n3
+        ╰─ x1 ── x2 (@)
+```
+
+Here, `common`, `n1`, and the other labels stand for change IDs. The `n` and `x`
+changes form two anonymous branches, but there is no branch marker to delete.
+Even if we had put a bookmark on `n3` and deleted it, `n3` would still be a
+visible head. To make that whole idea disappear from the visible history, we
+need to abandon all three of its changes.
+
+* `n1::n3` is inclusive, including both `n1` and `n3`.
+* `common..n3` excludes `common` and includes `n3`.
+
+We can first ask `jj` to show us what `n3` adds on top of `common`:
+
+```console
+$ jj log -r 'common..n3'
+○  n3
+○  n2
+○  n1
+~
+```
+
+The `..` operator excludes `common`: `common..n3` means "ancestors of `n3` that
+are not ancestors of `common`." In this simple graph, that gives us exactly the
+three changes on the branch we want to abandon. It also leaves `x1` and `x2`
+alone because neither is an ancestor of `n3`.
+
+There is another range operator that looks similar but answers a different
+question. `common::n3` means "changes on a path from `common` to `n3`,"
+including both ends. It selects `common`, `n1`, `n2`, and `n3`, so we must not
+abandon that range: the other branch still needs `common`.
+
+If we know the first change on the unwanted branch, `n1::n3` gives us the exact
+inclusive range from `n1` through `n3`. We can preview that range with `jj log`,
+then abandon it:
+
+```console
+$ jj log -r 'n1::n3'
+○  n3
+○  n2
+○  n1
+~
+$ jj abandon 'n1::n3'
+Abandoned 3 commits:
+  n3
+  n2
+  n1
+```
+
+If we know `common` but not `n1`, `common+::n3` selects the same range. The `+`
+means "direct children of `common`," so this starts after `common`; the `::n3`
+part then keeps only changes on a path to `n3`. If the branch merges history
+that is not descended from `common`, `common..n3` includes that history while
+`common+::n3` excludes it.
+
+The `x1` branch shows where that distinction ends. While it remains separate,
+both `common..n3` and `common+::n3` exclude `x1` because it is not an ancestor
+of `n3`. If `x1` were merged into `n3`, both ranges would include it. It would
+then be an ancestor of `n3` and on a path from a direct child of `common` to
+`n3`.
+`n1::n3` would still exclude `x1`, because `x1` is not a descendant of `n1`.
+If we want only the `n` branch after such a merge, `n1::n3` is the precise
+range to use.
+
+Abandoning only `n3` would not remove the branch. It would merely make `n2` the
+new anonymous head. The other boundary matters too. If an `n4` existed after
+`n3`, abandoning `n1::n3` would not abandon it. `jj` would rebase that surviving
+descendant onto `common` and report:
+
+```console
+Rebased 1 descendant commits onto parents of abandoned commits.
+```
+
+The `n4` change would remain as another anonymous head. If we want to discard an
+entire branch, we therefore need to use its actual first change and tip as the
+range boundaries. In our original graph, where `n3` really is the tip,
+abandoning the whole range leaves this visible graph:
+
+```text
+common ── x1 ── x2 (@)
+```
+
+This hides the commits; it does not immediately erase their objects. `jj`
+records the abandon in the
+[operation log](../fixing-problems/the-operation-log.md), whose earlier states
+keep the hidden commits in the repository. That repository-level history is why
+`jj undo` can restore the branch if abandoning it was a mistake. Once the old
+operations that refer to those commits are themselves abandoned, the commits
+can be removed by later garbage collection.
 
 Another really useful revset function is `trunk()`:
 
