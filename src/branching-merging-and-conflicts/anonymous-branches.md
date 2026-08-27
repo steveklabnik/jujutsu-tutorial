@@ -40,11 +40,21 @@ both would be "on a branch," because everything is on some sort of branch in
 Git considers any commit that's not part of a branch to be garbage, and so
 will garbage collect those commits at some point. Git is very branch-centric.
 
-`jj` does not think about the world this way. Consider the diagram above: we
-didn't name any of these branches, yet the diagram still made sense. There's not
-really an inherent need to name our branches, just like there isn't an inherent
-need to describe our changes. That said, it would be nice to know how to refer
-to different branches, even if they're not named.
+`jj` does not think about the world this way. It keeps track of the head of
+every branch — whether or not a bookmark names it — as part of the visible state
+of our repository. So an anonymous branch is in no danger of being collected: as
+long as a commit shows up in our log, `jj` holds onto it, no bookmark required. A commit only
+becomes a candidate for garbage collection once we hide it, by abandoning it or
+rewriting it — and even then the operation log keeps it around for a while, as
+we'll see [later](../fixing-problems/the-operation-log.md). This is the reverse
+of Git's default: there, a commit stays alive because a branch points at it, and
+here, a commit stays alive because we can still see it.
+
+Consider the diagram above: we didn't name any of these branches, yet the
+diagram still made sense. There's not really an inherent need to name our
+branches, just like there isn't an inherent need to describe our changes. That
+said, it would be nice to know how to refer to different branches, even if
+they're not named.
 
 Let's see how this works.
 
