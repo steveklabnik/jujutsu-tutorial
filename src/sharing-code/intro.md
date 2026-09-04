@@ -10,4 +10,7 @@ Here's what we're going to learn:
 * Using named branches in `jj`
 * Working with remotes, e.g., GitHub
 * Adding commits to a pull request
+* Marking a release with tags
+* Catching up when other people move trunk underneath you
+* Contributing through a fork, with two remotes
 * How to use `jj` with Gerrit rather than GitHub

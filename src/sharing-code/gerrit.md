@@ -1,42 +1,68 @@
-# Working with Gerrit
+# Using `jj` with Gerrit
 
-The Gerrit-based workflow prefers small commits that get reviewed individually,
-as "changelists" (CLs). `jj` is well suited for this workflow: each `jj` change
-can be a single CL which you can update over time. Each new update to a change
-is tracked as a new patchset, this will allow you to see how a
-change evolved over time directly in the UI.
+Everything in this section so far has assumed GitHub, or something shaped like
+it: branches, pull requests, one review per branch. Gerrit is the other major
+shape of code review, and it turns out `jj` fits it remarkably well — arguably
+better than `git` does.
 
-## Change IDs
+In Gerrit, the unit of review isn't a branch, it's a single commit, called a
+"change" (or a "CL"). You upload a commit, a reviewer comments on it, you
+rewrite the commit and upload it again, and Gerrit shows each uploaded version
+as a numbered "patch set" on the same change. If that sounds familiar, it
+should: it's exactly how we've been treating `jj` changes all along. One `jj`
+change becomes one Gerrit change, and rewriting it — with `jj squash`,
+`jj absorb`, `jj describe`, whatever we like — produces its next patch set.
 
-Similar to `jj`'s change IDs, Gerrit associates commits with a common "change"
-using a `Change-Id` footer in the commits. When using the `jj gerrit upload`
-command, the footer is added automatically to all commits in the revset that
-don't already have one.
+## Change IDs, twice over
 
-## Push workflow
+Gerrit needs a way to recognize that a rewritten commit is a new version of an
+existing change, and its answer predates `jj`: a `Change-Id:` trailer in the
+commit message. That's the same problem `jj`'s change IDs solve, but they are
+two different identifiers. When we upload, `jj` adds the trailer for us,
+deriving it from the `jj` change ID, and leaves any existing trailer alone. We
+don't need to manage it, but don't be surprised to see it in our descriptions
+afterwards.
 
-In a traditional Gerrit workflow, you push commits to the review server using
-`git push origin <rev>:refs/for/main`.
+## Uploading
 
-JJ support this workflow natively thanks to the `jj gerrit upload` command.
-With this command you can upload revsets to Gerrit directly, if a JJ change is
-missing the change-id footer, the command will add it automatically. You can
-also modify the footer manually if you wish to associate a specific JJ change
-with an already existing Gerrit change.
+In a traditional Gerrit workflow, you push with a magic refspec:
+`git push origin HEAD:refs/for/main`. `jj` wraps this up in a single command:
 
-If you want to triple check which commits will be modified and pushed with this
-command you can run `jj gerrit upload -r <revset> --remote-branch <branch-name> --dry-run`
+```console
+$ jj gerrit upload -r 'trunk()..@' --remote-branch main
+```
 
-### Remote branch selection
+The `-r` revset selects what to upload — here, our whole stack — and
+`--remote-branch` names the branch the changes are intended to land on. Each
+revision in the revset becomes its own Gerrit change, so uploading a stack of
+three commits opens three changes, each reviewable on its own, with their
+relationships intact. This is the "stacked" workflow that takes real effort on
+GitHub, and on Gerrit it's just how things work.
 
-When using `jj gerrit upload` you can either have a default remote branch
-selected or overwrite it with each upload.
+Because uploading may *rewrite* our commits — adding missing `Change-Id`
+trailers — as well as push them, I like to dry-run a broad revset before
+running it for real:
 
-To configure a default remote branch please run:
-`jj config set --user gerrit.default-remote-branch <branch name>`
+```console
+$ jj gerrit upload -r 'trunk()..@' --remote-branch main --dry-run
+```
 
-while if you want to change it for a specific push you can do:
-`jj gerrit upload -r <revset> --remote-branch <branch-name>`
+Responding to review is the part that should feel comfortable by now: edit the
+change like any other — `jj edit`, or fix things in `@` and `jj squash` or
+`jj absorb` them down — and upload again. The stable trailer tells Gerrit it's
+the same change, and the reviewer sees a new patch set, with Gerrit's UI able
+to diff one patch set against another. There's no branch to force-push and no
+bookmark to move.
 
+## A default branch
 
+Typing `--remote-branch main` every time gets old. We can set a default for
+the repository:
 
+```console
+$ jj config set --repo gerrit.default-remote-branch main
+```
+
+After that, `jj gerrit upload -r 'trunk()..@'` is all we need. There's a
+matching `gerrit.default-remote` setting for pointing at the Gerrit instance
+itself, if the remote isn't where we usually push.
