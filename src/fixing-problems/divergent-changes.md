@@ -171,6 +171,34 @@ both intact, both recoverable. The only real hazard is absent-mindedly
 continuing to work on top of the side you meant to throw away — which is why
 it's worth cleaning up promptly rather than living with the offsets.
 
+## When both sides have work: `jj converge`
+
+Here the old line was a duplicate we wanted gone, so `jj abandon` was the tool.
+The other case is two versions that each carry real, *different* work — two
+machines that both edited the same change, say — where you want to keep both
+sets of edits rather than throw one away. `jj` 0.45 added `jj converge` for
+that:
+
+```console
+$ jj converge -r 'divergent()'
+Found 1 divergent change(s) in the specified revset:
+- Change: znquvmmzlxqr with 2 commits:
+    znquvmmz/0 cfffda13 (divergent) add an evaluator
+    znquvmmz/1 6f590d66 feature | (divergent) add an evaluator
+
+Attempting to converge change znquvmmzlxqr...
+
+Successfully converged change: created commit 41e0c3d8b2ef.
+```
+
+It groups the divergent commits by change ID and tries to replace each group
+with a single commit, then rebases descendants and moves bookmarks to follow.
+The replacement is built from heuristics, and where they can't decide it prompts
+you — to merge two descriptions, to pick parents, and, rarely, to choose an
+author. `--no-interactive` prints a warning and stops instead, which is what a
+script wants. As always, `jj undo` reverses the whole thing if the result isn't
+what you hoped, and `jj op show -p` shows exactly what it did.
+
 The [official guide to divergent changes][divergence] covers a few rarer ways
 in and out, if you'd like more.
 

@@ -145,7 +145,7 @@ git
 ```
 
 `jj` does have a storage format of its own, and chapter one mentioned it in
-passing. Its `SimpleBackend` is a proof of concept, and `jj` 0.44.0 does not
+passing. Its `SimpleBackend` is a proof of concept, and `jj` 0.45.1 does not
 provide a command for creating a repository that uses it. It isn't a third
 everyday choice for us to consider. For normal use, both arrangements in this
 chapter use the `git` backend; colocation only decides whether the Git

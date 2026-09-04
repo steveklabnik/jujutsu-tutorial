@@ -191,7 +191,7 @@ changed except the new `.jj` directory next to it, so if `jj` turns out not to
 be for you, deleting `.jj` puts everything back.
 
 One gotcha to check first: `git` has two formats for storing refs, and `jj`
-0.44 can only read the older `files` format. On a repository using the newer
+0.45 can only read the older `files` format. On a repository using the newer
 `reftable` format, `jj git init` appears to succeed but imports *nothing* — no
 bookmarks, and a working copy that claims every file is newly added. If you
 see that, don't panic, and don't commit anything: delete the freshly created

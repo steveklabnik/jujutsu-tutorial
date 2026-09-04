@@ -63,6 +63,12 @@ $ jj config get ui.editor
 `jj config unset --repo ui.default-command` removes a key and lets the layer
 underneath show through again.
 
+`--user`, `--repo`, and `--workspace` each name a whole layer. When a layer is
+spread across several files — a user config plus a `conf.d/` directory, say —
+`--user` writes to the first file `jj` loads. To pick one file exactly, give
+`--file <PATH>`; it works with `set`, `edit`, and `unset`, and points at any
+file `jj` reads.
+
 ## Some useful settings
 
 ### What bare `jj` does
@@ -236,8 +242,9 @@ One alias worth understanding governs what we're allowed to rewrite:
 "immutable_heads()" = "builtin_immutable_heads() | remote_bookmarks()"
 ```
 
-The built-in set is `trunk() | tags() | untracked_remote_bookmarks()`: trunk,
-tags, and remote bookmarks you don't track. Everything at or below those heads
+The built-in set is
+`trunk() | tags() | untracked_remote_bookmarks() | untracked_remote_tags()`:
+trunk, tags, and the remote bookmarks and tags you don't track. Everything at or below those heads
 is frozen, which is why `jj log` draws them as `◆` and why `jj rebase` won't
 touch them. The line above widens it to every remote bookmark — nothing that has
 reached a remote can be rewritten. Some teams want that; if you use stacked PRs,
