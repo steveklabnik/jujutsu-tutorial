@@ -173,7 +173,7 @@ simpler command:
 ```console
 $ jj next --edit
 Working copy now at: ootnlvpt e13b2585 only print hello world
-Parent commit      : nmptruqn 90a2e97f refactor printing
+Parent commit      : nmptruqn 90a2e97f add more comments
 Added 0 files, modified 1 files, removed 0 files
 ```
 
