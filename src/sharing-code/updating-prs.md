@@ -60,7 +60,7 @@ Remember, `jj new` won't move any branches, and so if we push, nothing happens:
 
 ```console
 $ jj git push
-Warning: No bookmarks/tags found in the default push revset: remote_bookmarks(remote=origin)..@
+Warning: No bookmarks/tags found in revsets.git-push: remote_bookmarks(remote=exact:remote)..@ (remote=origin)
 Nothing changed.
 ```
 

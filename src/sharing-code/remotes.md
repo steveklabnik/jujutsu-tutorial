@@ -181,6 +181,7 @@ Let's fetch those changes:
 
 ```console
 $ jj git fetch
+Fetching from Git remotes: origin
 bookmark: trunk@origin [updated] tracked
 $ jj log --limit 3
 ◆  ksrmwuon steve@steveklabnik.com 2024-03-01 23:10:35 trunk e202b67c
