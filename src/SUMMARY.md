@@ -38,7 +38,7 @@
     - [Undoing mistakes]()
     - [Reverting changes]()
     - [The Operation Log]()
-    - [The obslog]()
+    - [The evolog]()
 
 - [Customizing your experience]()
     - [Configuring `jj`]()

@@ -71,7 +71,7 @@ Another really useful revset function is `trunk()`:
 
 ```console
 $ jj log -r 'trunk()'
-◉  zzzzzzzz root() 00000000
+◆  zzzzzzzz root() 00000000
 ```
 
 Right now, this doesn't look very useful, but it will be more useful when we
