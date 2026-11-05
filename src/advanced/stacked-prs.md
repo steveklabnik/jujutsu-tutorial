@@ -119,6 +119,7 @@ moved out from under your stack:
 
 ```console
 $ jj git fetch
+Fetching from Git remotes: origin
 bookmark: trunk@origin [updated] tracked
 $ jj log
 @  nvpxkvxo steve@steveklabnik.com 2024-03-21 09:45:41 cli c3b1a9f6

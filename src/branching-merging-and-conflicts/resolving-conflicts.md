@@ -36,6 +36,11 @@ conflicted, you get them one after another, and you can name paths —
 Which tool opens depends on `ui.merge-editor`, which we'll set in the
 customization section. The default is `jj`'s built-in editor.
 
+The built-in editor only handles two sides. On a three-sided conflict it stops
+with an error, and so do the `:ours` and `:theirs` tools we're about to meet.
+For those, `jj resolve --tool :editor` opens the file in our text editor with
+the conflict markers in place, and we edit them by hand.
+
 ## Taking one side wholesale
 
 Sometimes there's nothing to merge because one side is simply right. There are

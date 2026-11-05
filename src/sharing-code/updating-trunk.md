@@ -10,6 +10,7 @@ eventually need to catch up. Let's see how to do that.
 
 ```console
 $ jj git fetch
+Fetching from Git remotes: origin
 bookmark: main@origin [updated] tracked
 ```
 
@@ -124,6 +125,7 @@ both ends of the bookmark have moved, and `jj` won't guess which one we meant:
 
 ```console
 $ jj git fetch
+Fetching from Git remotes: origin
 bookmark: main@origin [updated] tracked
 
 $ jj log

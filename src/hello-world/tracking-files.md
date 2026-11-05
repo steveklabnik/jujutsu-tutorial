@@ -117,6 +117,10 @@ src/main.rs:/// A "Hello, world!" program.
 src/main.rs:    println!("Hello, world!");
 ```
 
+If a binary file matches, we get `Binary file matches: <path>` rather than its
+raw bytes. `--binary-as-text` searches it as text anyway, and `--skip-binary`
+leaves binary files out.
+
 And here's one worth remembering, because the name may not suggest it at first.
 `jj file annotate` is the equivalent of `git blame`:
 

@@ -21,6 +21,7 @@ the real project. `jj` attaches no meaning to either name.
 
 ```console
 $ jj git fetch --remote upstream
+Fetching from Git remotes: upstream
 bookmark: main@upstream [new] untracked
 ```
 

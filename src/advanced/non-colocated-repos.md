@@ -88,6 +88,11 @@ either command. Here, they are how we update the `git` view at all. If we find
 ourselves exporting every few minutes, that's a good sign that colocation would
 fit our workflow better.
 
+The same goes for remotes. `jj git fetch` and `jj git push` update what `jj`
+knows about the remote, but the `git` store's own `refs/remotes/origin/*` refs
+stay where they were until we run `jj git export`. A tool we've pointed at the
+store with `GIT_DIR` will see stale remote branches until then.
+
 ## Keeping `git` out of the working copy
 
 This also changes what `git`-based tools see.

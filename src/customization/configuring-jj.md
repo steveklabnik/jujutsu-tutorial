@@ -162,13 +162,16 @@ every commit it writes, even when somebody else authored it, while `drop`
 removes a signature when a commit is rewritten. The backends are `ssh`, `gpg`,
 and `gpgsm`.
 
-`jj sign` signs a revision after the fact, and `jj unsign` removes one. To be
-sure nothing unsigned escapes:
+`jj sign` signs a revision after the fact, and `jj unsign` removes one. To
+sign our own commits as we push them:
 
 ```toml
-[git]
-sign-on-push = true
+[revsets]
+git-sign-on-push = "~signed() & mine()"
 ```
+
+`jj git push` signs every commit in that revset before it pushes. The default
+is `none()`, which signs nothing.
 
 Signatures aren't shown by default, since most of the time they're noise.
 `ui.show-cryptographic-signatures = true` puts them in the log.

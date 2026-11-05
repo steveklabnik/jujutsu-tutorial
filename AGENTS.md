@@ -19,7 +19,7 @@ permission for that command. Read-only `git log`/`git status` are fine, but pref
 **Plain Git (`jj st` fails):** use normal `git` commands.
 
 Confirm `jj --version` matches the version the book documents in
-`src/hello-world/how-to-install.md` (currently 0.46.0). Flag any mismatch —
+`src/hello-world/how-to-install.md` (currently 0.47.1). Flag any mismatch —
 behaviour and prose may diverge.
 
 ## Build and test gate
