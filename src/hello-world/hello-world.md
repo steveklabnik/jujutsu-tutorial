@@ -9,3 +9,5 @@ Here's what we're going to learn:
 * Using `jj describe` to describe our commits in a human-friendly way
 * Using `jj new` to create new changes
 * Viewing the contents of your repository with `jj log`
+* Seeing what changed with `jj diff` and `jj show`
+* Which files `jj` tracks, and how to ignore the rest

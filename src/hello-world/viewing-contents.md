@@ -4,13 +4,13 @@ Let's look at our chain of changes:
 
 ```console
 > jj log
-@  ywnkulko steve@steveklabnik.com 2024-02-28 20:40:00.000 -06:00 46b50ed7
+@  ywnkulko steve@steveklabnik.com 2024-02-28 20:40:00 46b50ed7
 │  (empty) (no description set)
-◉  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13.000 -06:00 7a096b8a
+○  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13 7a096b8a
 │  it's important to comment our code
-◉  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56.000 -06:00 ac691d85
+○  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56 ac691d85
 │  hello world
-◉  zzzzzzzz root() 00000000
+◆  zzzzzzzz root() 00000000
 ```
 
 As you can see, this is sort of like `git log`, but also very different. There's
@@ -36,6 +36,17 @@ it says `root()`. This is a *revset*, which is a feature we'll explore later.
 But the short of it is this: `jj` has a really powerful way to select lists
 of revisions. `root()` is a function in this language (yes, it has functions)
 that returns the root commit.
+
+You may also have noticed that the root commit's symbol is a different shape
+than the others: `◆` instead of `○`. That shape means the commit is
+*immutable*: `jj` will refuse to rewrite it. That makes sense for the root
+commit, which is the foundation the whole repository is built on. Right now
+it's the only immutable commit we have. Once we start sharing code, `jj` will
+also protect commits selected by its immutability policy, such as *trunk* and
+tags. Trunk is the main line of development everyone shares — usually the `main`
+branch on the `origin` remote, which `jj` writes `main@origin`. A pushed feature
+commit is not necessarily immutable; we'll return to the exact rules when we work
+with remotes.
 
 One more thing: my text representation of the output of `jj log` was missing
 something. Here's a screenshot of my terminal, and you may notice something

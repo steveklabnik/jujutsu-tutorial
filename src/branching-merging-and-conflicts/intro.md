@@ -13,3 +13,4 @@ Here's what we're going to learn:
 * Figuring out where our changes are with revsets
 * Merging anonymous branches
 * Dealing with conflicts
+* Resolving them with `jj resolve`

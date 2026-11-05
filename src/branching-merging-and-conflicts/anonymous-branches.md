@@ -40,11 +40,21 @@ both would be "on a branch," because everything is on some sort of branch in
 Git considers any commit that's not part of a branch to be garbage, and so
 will garbage collect those commits at some point. Git is very branch-centric.
 
-`jj` does not think about the world this way. Consider the diagram above: we
-didn't name any of these branches, yet the diagram still made sense. There's not
-really an inherent need to name our branches, just like there isn't an inherent
-need to describe our changes. That said, it would be nice to know how to refer
-to different branches, even if they're not named.
+`jj` does not think about the world this way. It keeps track of the head of
+every branch — whether or not a bookmark names it — as part of the visible state
+of our repository. So an anonymous branch is in no danger of being collected: as
+long as a commit shows up in our log, `jj` holds onto it, no bookmark required. A commit only
+becomes a candidate for garbage collection once we hide it, by abandoning it or
+rewriting it — and even then the operation log keeps it around for a while, as
+we'll see [later](../fixing-problems/the-operation-log.md). This is the reverse
+of Git's default: there, a commit stays alive because a branch points at it, and
+here, a commit stays alive because we can still see it.
+
+Consider the diagram above: we didn't name any of these branches, yet the
+diagram still made sense. There's not really an inherent need to name our
+branches, just like there isn't an inherent need to describe our changes. That
+said, it would be nice to know how to refer to different branches, even if
+they're not named.
 
 Let's see how this works.
 
@@ -55,8 +65,8 @@ use `jj new` to create one. We want to start from a blank slate here.
 
 ```console
 $ jj new
-Working copy now at: yykpmnuq 0bc7a425 (empty) (no description set)
-Parent commit      : ootnlvpt b5db7940 only print hello world
+Working copy  (@) now at: yykpmnuq 0bc7a425 (empty) (no description set)
+Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 ```
 
 A common reason for branching is to work on two different ideas at once. Let's
@@ -68,8 +78,8 @@ to be working on that:
 
 ```console
 > jj describe -m "add better documentation"
-Working copy now at: yykpmnuq 4a95c1f9 (empty) add better documentation
-Parent commit      : ootnlvpt b5db7940 only print hello world
+Working copy  (@) now at: yykpmnuq 4a95c1f9 (empty) add better documentation
+Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 ```
 
 Next, we want to make a change to work on our hello and goodbye functions.
@@ -77,8 +87,8 @@ We want this change to build on top of `ootnlvpt`, so we can just say that:
 
 ```console
 $ jj new o
-Working copy now at: xrslwzvq e9249c85 (empty) (no description set)
-Parent commit      : ootnlvpt b5db7940 only print hello world
+Working copy  (@) now at: xrslwzvq e9249c85 (empty) (no description set)
+Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 ```
 
 We want to create our new change with the parent `o`, which we could see is the
@@ -90,8 +100,8 @@ Let's describe this one too:
 
 ```console
 $ jj describe -m "create hello and goodbye functions"
-Working copy now at: xrslwzvq a70d464c (empty) create hello and goodbye functions
-Parent commit      : ootnlvpt b5db7940 only print hello world
+Working copy  (@) now at: xrslwzvq a70d464c (empty) create hello and goodbye functions
+Parent commit (@-)      : ootnlvpt b5db7940 only print hello world
 ```
 
 Excellent. We've got two different changes, `yykpmnuq` and `xrslwzvq`, both with
@@ -125,21 +135,21 @@ We can see that there's a branch in the output of `jj log`:
 
 ```console
 $ jj log
-@  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
-│  (empty) create hello and goodbye functions
-│ ◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+@  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 e78a9350
+│  create hello and goodbye functions
+│ ○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 ├─╯  (empty) add better documentation
-◉  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44.000 -06:00 b5db7940
+○  ootnlvpt steve@steveklabnik.com 2024-02-28 23:26:44 b5db7940
 │  only print hello world
-◉  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11.000 -06:00 90a2e97f
-│  refactor printing
-◉  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40.000 -06:00 ed71bb54
+○  nmptruqn steve@steveklabnik.com 2024-02-28 23:09:11 90a2e97f
+│  add more comments
+○  ywnkulko steve@steveklabnik.com 2024-02-28 22:09:40 ed71bb54
 │  print goodbye as well as hello
-◉  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13.000 -06:00 7a096b8a
+○  puomrwxl steve@steveklabnik.com 2024-02-28 20:38:13 7a096b8a
 │  it's important to comment our code
-◉  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56.000 -06:00 ac691d85
+○  yyrsmnoo steve@steveklabnik.com 2024-02-28 20:24:56 ac691d85
 │  hello world
-◉  zzzzzzzz root() 00000000
+◆  zzzzzzzz root() 00000000
 ```
 
 We've got our two changes, and there's a fork in the road.
@@ -163,11 +173,11 @@ We do it like this:
 
 ```console
 > jj log -r 'heads(all())'
-@  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23.000 -06:00 a70d464c
-│  (empty) create hello and goodbye functions
+@  xrslwzvq steve@steveklabnik.com 2024-02-29 23:06:23 e78a9350
+│  create hello and goodbye functions
 ~
 
-◉  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22.000 -06:00 210283e8
+○  yykpmnuq steve@steveklabnik.com 2024-02-29 23:03:22 210283e8
 │  (empty) add better documentation
 ~
 ```

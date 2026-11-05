@@ -45,7 +45,34 @@ Initialized repo in "."
 Now, you may be wondering, "why not just `jj init`?" The deal is this: the
 native repository format is still a work in progress. So we're creating a
 repository that's backed by a real `git` repository, because in practice, this
-early in `jj`'s life, that's the right thing to do.
+early in `jj`'s life, that's the right thing to do. There's no `jj init`
+command at all; if you type it, `jj` will tell you that you probably wanted
+`jj git init`.
+
+If you peek at the directory listing, you'll notice something: `jj git init`
+made *two* directories.
+
+```console
+$ ls -d .git .jj
+.git
+.jj
+```
+
+This is called a "colocated" repository: a `.jj` directory and a real `.git`
+directory side by side, over one working copy. It's the default, and it's what
+we'll use throughout this tutorial. `jj` imports from and exports to the `git`
+repository on every command, so `git`, `gh`, your editor, and CI all see a
+perfectly normal `git` repo. Mind you, if you run `git log` right this second,
+it will complain that there aren't any commits yet — we haven't made any! Once
+we have some history, `git log` will show the commits we make with `jj`, and
+we'll see exactly that later in the tutorial.
+
+Because both tools share one store, we'll let `jj` make changes to the
+repository and use `git` for reading it. We'll look at the details later in the
+tutorial. There is an escape hatch, `--no-colocate`, for workflows that need to
+keep Git-aware tools away from the working copy. Unless we have a specific
+reason to make that tradeoff, the colocated default is the useful place to
+start.
 
 Anyway, now we've got a repository! In the next section, we'll take a peek
 inside.

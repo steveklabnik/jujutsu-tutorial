@@ -5,8 +5,8 @@ that work by using `jj new`:
 
 ```console
 $ jj new
-Working copy now at: puomrwxl 01a35aad (empty) (no description set)
-Parent commit      : yyrsmnoo ac691d85 hello world
+Working copy  (@) now at: puomrwxl 01a35aad (empty) (no description set)
+Parent commit (@-)      : yyrsmnoo ac691d85 hello world
 ```
 
 It's that easy! We now have a new change, `puomrwxl`, that's empty and has
@@ -16,9 +16,9 @@ Let's check out `jj st`:
 
 ```console
 $ jj st
-The working copy is clean
-Working copy : puomrwxl 01a35aad (empty) (no description set)
-Parent commit: yyrsmnoo ac691d85 hello world
+The working copy has no changes.
+Working copy  (@) : puomrwxl 01a35aad (empty) (no description set)
+Parent commit (@-): yyrsmnoo ac691d85 hello world
 ```
 
 Nice, a clean working copy: all of our changes were made in `yyrsmnoo`, and
@@ -30,8 +30,8 @@ change. This time, I'm going to describe things first, before I make any changes
 
 ```console
 > jj describe -m "it's important to comment our code"
-Working copy now at: puomrwxl a0f0bc71 (empty) it's important to comment our code
-Parent commit      : yyrsmnoo ac691d85 hello world
+Working copy  (@) now at: puomrwxl a0f0bc71 (empty) it's important to comment our code
+Parent commit (@-)      : yyrsmnoo ac691d85 hello world
 ```
 
 Just what we expected, still an empty change, but with a description, and our
@@ -52,18 +52,18 @@ We can double check that `jj` has noticed our change:
 ```console
 $ jj st
 Working copy changes:
-M src\main.rs
-Working copy : puomrwxl 7a096b8a it's important to comment our code
-Parent commit: yyrsmnoo ac691d85 hello world
+M src/main.rs
+Working copy  (@) : puomrwxl 7a096b8a it's important to comment our code
+Parent commit (@-): yyrsmnoo ac691d85 hello world
 ```
 
-Excellent, `src\main.rs` has been `M`odified, we have a new commit ID. Since
+Excellent, `src/main.rs` has been `M`odified, we have a new commit ID. Since
 we're done with this change, let's start a new one:
 
 ```console
 $ jj new
-Working copy now at: ywnkulko 46b50ed7 (empty) (no description set)
-Parent commit      : puomrwxl 7a096b8a it's important to comment our code
+Working copy  (@) now at: ywnkulko 46b50ed7 (empty) (no description set)
+Parent commit (@-)      : puomrwxl 7a096b8a it's important to comment our code
 ```
 
 Wonderful.

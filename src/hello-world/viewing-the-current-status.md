@@ -30,9 +30,9 @@ Working copy changes:
 A .gitignore
 A Cargo.lock
 A Cargo.toml
-A src\main.rs
-Working copy : qzmzpxyl bc915fcd (no description set)
-Parent commit: zzzzzzzz 00000000 (empty) (no description set)
+A src/main.rs
+Working copy  (@) : qzmzpxyl bc915fcd (no description set)
+Parent commit (@-): zzzzzzzz 00000000 (empty) (no description set)
 ```
 
 There's a surprising amount of stuff to talk about here! Let's dig into it.
@@ -42,7 +42,7 @@ Working copy changes:
 A .gitignore
 A Cargo.lock
 A Cargo.toml
-A src\main.rs
+A src/main.rs
 ```
 
 This is the first thing we need to talk about: unlike `git`, `jj` has no index.
@@ -63,8 +63,8 @@ copy (the files on disk) and takes a snapshot. So here, it's noticed that we've
 `A`dded some new files. You'll also see `M`odified files, and `D`eleted files.
 
 ```text
-Working copy : qzmzpxyl bc915fcd (no description set)
-Parent commit: zzzzzzzz 00000000 (empty) (no description set)
+Working copy  (@) : qzmzpxyl bc915fcd (no description set)
+Parent commit (@-): zzzzzzzz 00000000 (empty) (no description set)
 ```
 
 Our brand new repo shows that we have two *changes*. You'll notice that the
@@ -75,7 +75,7 @@ and that's that in `jj`, commits can evolve over time. But we still need a
 stable identifier to talk about those changes, so we have a "change ID," and
 that's `qzmzpxyl` and `zzzzzzzz`. One really cool thing is that they use a
 disjoint set of identifiers: `qzmzpxyl` can never be a commit ID, but must be
-a change ID, and `bc914fcd` can never be a change ID, but must be a commit ID.
+a change ID, and `bc915fcd` can never be a change ID, but must be a commit ID.
 This is surprisingly handy.
 
 Anyway, we'll talk more about commits and changes soon, and how they're
